@@ -22,7 +22,7 @@ export const publications: Publication[] = [
     year: "2026",
     description: "Developed an interpretable, object-aware uncertainty evaluation method for 3D Gaussian Splatting, proposing a novel active view selection strategy.",
     tags: ["Computer Vision", "3D Gaussian Splatting", "Uncertainty Estimation", "First Author"],
-    image: "/images/ougs.png",
+    image: "images/ougs.png",
     imageFit: "cover", // 3D Renders look best covering the whole area
     links: {
       arxiv: "https://arxiv.org/abs/2502.19318"
@@ -37,7 +37,7 @@ export const publications: Publication[] = [
     year: "2026",
     description: "Developed a privacy-preserving pipeline using on-premise LLMs for structured data extraction from unstructured eTVUS scan reports, proposing a synergistic workflow.",
     tags: ["LLMs", "Medical Imaging", "NLP", "Privacy", "First Author"],
-    image: "/images/llm-pipeline.png",
+    image: "images/llm-pipeline.png",
     imageFit: "contain" // Diagrams need to be contained to see labels
   },
   {
@@ -49,7 +49,7 @@ export const publications: Publication[] = [
     year: "2025",
     description: "Established a novel framework linking a degenerate variational principle to Laplace’s equation.",
     tags: ["Applied Mathematics", "Complex Analysis", "PDEs", "Sole Author"],
-    image: "/images/Variantion.png",
+    image: "images/Variantion.png",
     imageFit: "contain" // Mathematical diagrams need to be fully visible
   },
   {
@@ -61,7 +61,7 @@ export const publications: Publication[] = [
     year: "2026",
     description: "Conducted rigorous statistical analysis (repeated-measures ANOVA, Wilcoxon) demonstrating the trade-off between perceived persuasiveness and user negative affect.",
     tags: ["HCI", "AI Persuasion", "Statistical Analysis"],
-    image: "/images/InterfaceNew.png",
+    image: "images/InterfaceNew.png",
     imageFit: "contain"
   }
 ];
