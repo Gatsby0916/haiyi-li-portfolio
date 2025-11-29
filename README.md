@@ -1,43 +1,16 @@
-# Haiyi Li — Academic Portfolio
+# Haiyi Li Academic Portfolio
 
-Personal academic homepage featuring research, education, experience, awards, and skills. Built with React + Vite, styled via Tailwind CDN, and deployable to GitHub Pages.
+这是我的学术主页，展示研究、教育、经历、获奖和技能。在线地址：
+https://Gatsby0916.github.io/haiyi-li-portfolio/
 
-## Live Site
-- GitHub Pages: `https://Gatsby0916.github.io/haiyi-li-portfolio/` (after `npm run deploy`)
-
-## Quick Start (Local)
+本地查看：
 ```bash
 npm install
-npm run dev   # open http://localhost:3000
+npm run dev   # http://localhost:3000
 ```
 
-## Build & Preview
+构建/发布：
 ```bash
 npm run build
-npm run preview
+npm run deploy   # 推送到 gh-pages
 ```
-
-## Deploy to GitHub Pages
-```bash
-npm run deploy
-# then enable gh-pages branch in GitHub: Settings → Pages → Branch: gh-pages
-```
-
-## Tech Stack
-- React 19, Vite 6
-- TypeScript
-- Tailwind (CDN) + custom CSS
-- Framer Motion, Lucide React
-
-## Project Structure
-- `App.tsx` — page layout and sections
-- `components/` — shared UI (Section, PublicationCard, etc.)
-- `data.ts` — content (info, publications, experience, awards, skills)
-- `public/` — static assets (images/PDFs)
-
-## Notes
-- Environment: Node.js 18+ recommended
-- Sensitive files are ignored via `.gitignore` (`.env`, build outputs, logs, etc.)
-
-## License
-This repository is private-use; contact the author for permissions.
