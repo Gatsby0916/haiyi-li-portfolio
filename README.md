@@ -1,20 +1,43 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Haiyi Li — Academic Portfolio
 
-# Run and deploy your AI Studio app
+Personal academic homepage featuring research, education, experience, awards, and skills. Built with React + Vite, styled via Tailwind CDN, and deployable to GitHub Pages.
 
-This contains everything you need to run your app locally.
+## Live Site
+- GitHub Pages: `https://Gatsby0916.github.io/haiyi-li-portfolio/` (after `npm run deploy`)
 
-View your app in AI Studio: https://ai.studio/apps/temp/2
+## Quick Start (Local)
+```bash
+npm install
+npm run dev   # open http://localhost:3000
+```
 
-## Run Locally
+## Build & Preview
+```bash
+npm run build
+npm run preview
+```
 
-**Prerequisites:**  Node.js
+## Deploy to GitHub Pages
+```bash
+npm run deploy
+# then enable gh-pages branch in GitHub: Settings → Pages → Branch: gh-pages
+```
 
+## Tech Stack
+- React 19, Vite 6
+- TypeScript
+- Tailwind (CDN) + custom CSS
+- Framer Motion, Lucide React
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## Project Structure
+- `App.tsx` — page layout and sections
+- `components/` — shared UI (Section, PublicationCard, etc.)
+- `data.ts` — content (info, publications, experience, awards, skills)
+- `public/` — static assets (images/PDFs)
+
+## Notes
+- Environment: Node.js 18+ recommended
+- Sensitive files are ignored via `.gitignore` (`.env`, build outputs, logs, etc.)
+
+## License
+This repository is private-use; contact the author for permissions.
