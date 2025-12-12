@@ -6,7 +6,7 @@ export const personalInfo = {
   title: "Mathematical Sciences Honours Student",
   institution: "University of Adelaide",
   email: "haiyi.li@student.adelaide.edu.au",
-  phone: "(61)-0416789927",
+  phone: import.meta.env.VITE_PHONE_NUMBER ?? "",
   location: "Adelaide City, SA, Australia",
   github: "https://github.com/Gatsby0916",
   about: `I am motivated to pursue advanced training in Computational Science and Engineering. My research interests lie at the intersection of applied analysis and PDEs, numerical methods, computer vision, and data-driven human–AI interaction. My goal is to develop mathematically principled, stable, and interpretable models for real-world uncertainty modeling.`
@@ -25,7 +25,7 @@ export const publications: Publication[] = [
     image: "images/ougs.png",
     imageFit: "cover", // 3D Renders look best covering the whole area
     links: {
-      arxiv: "https://arxiv.org/abs/2502.19318"
+      arxiv: "https://arxiv.org/abs/2511.09397"
     }
   },
   {
