@@ -6,9 +6,136 @@ import PublicationCard from './components/PublicationCard';
 import { personalInfo, publications, education, experience, awards, skills } from './data';
 import { motion, AnimatePresence } from 'framer-motion';
 
+const translations = {
+  en: {
+    nav: {
+      about: "About",
+      education: "Education",
+      research: "Research",
+      experience: "Experience",
+      awards: "Awards",
+      skills: "Skills"
+    },
+    sections: {
+      education: "Education",
+      research: "Research",
+      experience: "Experience",
+      awards: "Honors",
+      skills: "Skills"
+    },
+    heroPill: "Academic Portfolio",
+    heroTagline: "Mathematical Sciences Honours Student at the University of Adelaide.",
+    heroStats: {
+      research: { label: "Research threads", detail: "CV · HCI · Applied Maths" },
+      awards: { label: "Awards & honors", detail: "Selective scholarships + prizes" },
+      experience: { label: "Industry & lab roles", detail: "CSIRO, IMAGENDO, Kumon" }
+    },
+    heroFocusTags: ["3D Gaussian Splatting", "Variational PDEs", "Human-centered AI"],
+    skillTiles: {
+      languages: {
+        title: "Computational Languages",
+        description: "Translate PDE intuition into reproducible code for modeling and experimentation."
+      },
+      stack: {
+        title: "ML & Systems Stack",
+        description: "Ship experiments that bridge prototypes with production-friendly tooling."
+      },
+      viz: {
+        title: "Storytelling & Visualization",
+        description: "Communicate evidence through rigorous plots, dashboards, and graph tooling."
+      }
+    },
+    workflowNotes: [
+      { id: "model", title: "Model-first reasoning", text: "Variational analysis informs which inductive biases enter CV systems." },
+      { id: "privacy", title: "Privacy-aware ML", text: "Design on-premise LLM workflows for medical imaging partners." },
+      { id: "human", title: "Human factors", text: "Quantitative UX pipelines (ANOVA, Wilcoxon) close the loop with users." }
+    ],
+    skillsExtra: {
+      researchTitle: "Research Playbook",
+      researchDesc: "Choreographing experiments end-to-end.",
+      communicationTitle: "Communication Channels",
+      communicationDesc: "Bicultural storytelling for papers, grants, and workshops.",
+      badge: "academic & industry"
+    },
+    languageLabels: {
+      "English (TOEFL)": "English (TOEFL)",
+      "GRE": "GRE",
+      "Mandarin (Native)": "Mandarin (Native)"
+    },
+    footer: {
+      tagline: "Designed with academic rigor."
+    }
+  },
+  zh: {
+    nav: {
+      about: "关于我",
+      education: "教育背景",
+      research: "科研成果",
+      experience: "经历",
+      awards: "荣誉",
+      skills: "能力概览"
+    },
+    sections: {
+      education: "教育背景",
+      research: "科研成果",
+      experience: "实践经历",
+      awards: "荣誉奖项",
+      skills: "能力概览"
+    },
+    heroPill: "学术主页",
+    heroTagline: "阿德莱德大学数学科学荣誉项目学生，专注于计算机视觉、应用数学与人机协同 AI。",
+    heroStats: {
+      research: { label: "研究方向", detail: "计算机视觉 / 人机交互 / 应用数学" },
+      awards: { label: "获奖次数", detail: "国家与校级奖学金" },
+      experience: { label: "合作经历", detail: "CSIRO、IMAGENDO 等机构" }
+    },
+    heroFocusTags: ["三维高斯点渲染", "变分偏微分方程", "人机协同 AI"],
+    skillTiles: {
+      languages: {
+        title: "计算建模语言",
+        description: "让偏微分方程直觉转化为可复现的实验代码。"
+      },
+      stack: {
+        title: "机器学习与系统栈",
+        description: "把原型与工程化工具链衔接起来。"
+      },
+      viz: {
+        title: "可视化叙事",
+        description: "用图表、图谱与仪表盘讲述证据。"
+      }
+    },
+    workflowNotes: [
+      { id: "model", title: "模型先行", text: "以变分分析决定视觉模型的归纳偏置。"},
+      { id: "privacy", title: "隐私敏感工作流", text: "为医学影像伙伴设计本地化 LLM 流程。"},
+      { id: "human", title: "人因验证", text: "ANOVA / Wilcoxon 等量化 UX 闭环。"}
+    ],
+    skillsExtra: {
+      researchTitle: "研究方法笔记",
+      researchDesc: "串联假设、实验与验证闭环。",
+      communicationTitle: "沟通渠道",
+      communicationDesc: "中英双语写作、提案与讲演。",
+      badge: "学术 / 工业"
+    },
+    languageLabels: {
+      "English (TOEFL)": "英语（TOEFL）",
+      "GRE": "GRE 写作",
+      "Mandarin (Native)": "普通话（母语）"
+    },
+    footer: {
+      tagline: "以学术严谨完成设计。"
+    }
+  }
+} as const;
+
+type Language = keyof typeof translations;
+const heroStatKeys = ['research', 'awards', 'experience'] as const;
+type HeroStatKey = typeof heroStatKeys[number];
+type SkillTileId = 'languages' | 'stack' | 'viz';
+
 function App() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [language, setLanguage] = useState<Language>('en');
 
   // Soft accent palettes for experience and awards cards
   const expColors = [
@@ -34,58 +161,68 @@ function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const t = translations[language];
+
   const navItems = [
-    { label: "About", href: "#about" },
-    { label: "Education", href: "#education" },
-    { label: "Research", href: "#publications" },
-    { label: "Experience", href: "#experience" },
-    { label: "Awards", href: "#awards" },
+    { label: t.nav.about, href: "#about" },
+    { label: t.nav.education, href: "#education" },
+    { label: t.nav.research, href: "#publications" },
+    { label: t.nav.experience, href: "#experience" },
+    { label: t.nav.awards, href: "#awards" },
+    { label: t.nav.skills, href: "#skills" }
   ];
 
-  const heroStats = [
-    { label: "Research threads", value: publications.length, detail: "CV · HCI · Applied Maths" },
-    { label: "Awards & honors", value: awards.length, detail: "selective scholarships + prizes" },
-    { label: "Industry & lab roles", value: experience.length, detail: "CSIRO, IMAGENDO, Kumon" }
-  ];
+  const heroStatsValues: Record<HeroStatKey, number> = {
+    research: publications.length,
+    awards: awards.length,
+    experience: experience.length
+  };
 
-  const heroFocusTags = [
-    "3D Gaussian Splatting",
-    "Variational PDEs",
-    "Human-centered AI"
-  ];
+  const heroStats = heroStatKeys.map((key) => ({
+    value: heroStatsValues[key],
+    ...t.heroStats[key]
+  }));
 
-  const skillTiles = [
+  const heroFocusTags = t.heroFocusTags;
+
+  const skillTileConfig = [
     {
-      id: 'languages',
-      title: "Computational Languages",
-      description: "Translate PDE intuition into reproducible code for modeling and experimentation.",
+      id: 'languages' as const,
       items: skills.programming,
       accent: "from-primary-50/80 via-white to-primary-100/40",
       Icon: Code2
     },
     {
-      id: 'stack',
-      title: "ML & Systems Stack",
-      description: "Ship experiments that bridge prototypes with production-friendly tooling.",
+      id: 'stack' as const,
       items: skills.stack,
       accent: "from-emerald-50/70 via-white to-emerald-100/40",
       Icon: Layers
     },
     {
-      id: 'viz',
-      title: "Storytelling & Visualization",
-      description: "Communicate evidence through rigorous plots, dashboards, and graph tooling.",
+      id: 'viz' as const,
       items: skills.viz,
       accent: "from-amber-50/70 via-white to-amber-100/40",
       Icon: Palette
     }
   ];
 
-  const workflowNotes = [
-    { title: "Model-first reasoning", text: "Variational analysis informs which inductive biases enter CV systems." },
-    { title: "Privacy-aware ML", text: "Design on-premise LLM workflows for medical imaging partners." },
-    { title: "Human factors", text: "Quantitative UX pipelines (ANOVA, Wilcoxon) close the loop with users." }
-  ];
+  const skillTiles = skillTileConfig.map(tile => ({
+    ...tile,
+    title: t.skillTiles[tile.id].title,
+    description: t.skillTiles[tile.id].description
+  }));
+
+  const workflowNotes = t.workflowNotes;
+  const languageLabelMap = t.languageLabels;
+  const toggleLanguage = () => setLanguage(prev => (prev === 'en' ? 'zh' : 'en'));
+  const toggleLabel = language === 'en' ? '中文' : 'EN';
+  const mobileToggleText = language === 'en' ? '切换到中文' : 'Switch to English';
+
+  const languageProficiency: Record<string, number> = {
+    "Mandarin (Native)": 96,
+    "English (TOEFL)": 82,
+    "GRE": 65
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-primary-50/20 text-slate-900 font-sans selection:bg-primary-100 selection:text-primary-900 relative overflow-hidden">
@@ -103,12 +240,18 @@ function App() {
            </a>
            
            {/* Desktop Nav */}
-           <div className="hidden md:flex items-center gap-8">
+           <div className="hidden md:flex items-center gap-6">
              {navItems.map(item => (
                <a key={item.label} href={item.href} className="text-sm font-medium text-slate-500 hover:text-primary-900 transition-colors hover-underline-animation">
                  {item.label}
                </a>
              ))}
+             <button
+               onClick={toggleLanguage}
+               className="px-3 py-1 text-xs font-semibold border border-slate-300 rounded-full text-slate-600 hover:text-primary-900 hover:border-primary-700 transition-colors"
+             >
+               {toggleLabel}
+             </button>
            </div>
 
            {/* Mobile Toggle */}
@@ -138,6 +281,12 @@ function App() {
                     {item.label}
                   </a>
                 ))}
+                <button
+                  onClick={() => { toggleLanguage(); }}
+                  className="mt-2 px-4 py-2 text-sm font-medium border border-slate-200 rounded-full text-slate-600 hover:border-primary-700 hover:text-primary-900 transition-colors"
+                >
+                  {mobileToggleText}
+                </button>
              </div>
           </motion.div>
         )}
@@ -159,14 +308,14 @@ function App() {
           >
             <div className="mb-6 inline-block">
               <span className="font-mono text-sm text-primary-800 bg-primary-50 px-3 py-1 rounded-full border border-primary-100">
-                Academic Portfolio
+                {t.heroPill}
               </span>
             </div>
             <h1 className="text-5xl sm:text-7xl font-serif font-bold text-slate-900 tracking-tight mb-8 leading-tight">
               Haiyi Li
             </h1>
             <p className="text-xl sm:text-2xl text-slate-600 font-light max-w-3xl leading-relaxed mb-10">
-              Mathematical Sciences Honours Student at the <span className="font-medium text-slate-900 border-b-2 border-primary-200">University of Adelaide</span>.
+              {t.heroTagline}
             </p>
             
             <div className="flex flex-col sm:flex-row gap-6 text-sm font-medium text-slate-500 font-mono mb-12">
@@ -210,7 +359,7 @@ function App() {
         </section>
 
         {/* Education - Timeline Style */}
-        <Section title="Education" id="education">
+        <Section title={t.sections.education} id="education">
           <div className="relative border-l border-slate-200 ml-3 md:ml-0 space-y-12 max-w-4xl">
             {education.map((edu, idx) => (
               <div key={idx} className="relative pl-8 md:pl-12">
@@ -246,7 +395,7 @@ function App() {
         </Section>
 
         {/* Publications */}
-        <Section title="Research" id="publications">
+        <Section title={t.sections.research} id="publications">
            <div className="space-y-16">
              {publications.map((pub) => (
                <PublicationCard key={pub.id} pub={pub} />
@@ -255,7 +404,7 @@ function App() {
         </Section>
 
         {/* Experience - Timeline Style */}
-        <Section title="Experience" id="experience">
+        <Section title={t.sections.experience} id="experience">
           <div className="relative border-l border-slate-200 ml-3 md:ml-0 space-y-12 max-w-4xl">
             {experience.map((exp, idx) => (
               <div key={exp.id} className={`relative pl-8 md:pl-12 rounded-lg ${expColors[idx % expColors.length]} transition-shadow duration-300 hover:shadow-sm`}>
@@ -284,7 +433,7 @@ function App() {
         </Section>
 
         {/* Awards - Clean List */}
-        <Section title="Honors" id="awards">
+        <Section title={t.sections.awards} id="awards">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {awards.map((award, idx) => (
               <motion.div 
@@ -313,7 +462,7 @@ function App() {
         </Section>
 
         {/* Skills */}
-        <Section title="Skills" id="skills">
+        <Section title={t.sections.skills} id="skills">
            <div className="space-y-10">
              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                {skillTiles.map((card, idx) => (
@@ -350,8 +499,8 @@ function App() {
                  <div className="flex items-center gap-3">
                    <Brain size={20} className="text-emerald-300" />
                    <div>
-                     <p className="text-lg font-semibold">Research Playbook</p>
-                     <p className="text-sm text-slate-300">Choreographing experiments end-to-end.</p>
+                     <p className="text-lg font-semibold">{t.skillsExtra.researchTitle}</p>
+                     <p className="text-sm text-slate-300">{t.skillsExtra.researchDesc}</p>
                    </div>
                  </div>
                  <ul className="mt-6 space-y-4">
@@ -368,24 +517,24 @@ function App() {
                  <div className="flex items-center gap-3">
                    <Globe size={20} className="text-primary-800" />
                    <div>
-                     <p className="text-lg font-semibold">Communication Channels</p>
-                     <p className="text-sm text-slate-500">Bicultural storytelling for papers, grants, and workshops.</p>
+                     <p className="text-lg font-semibold">{t.skillsExtra.communicationTitle}</p>
+                     <p className="text-sm text-slate-500">{t.skillsExtra.communicationDesc}</p>
                    </div>
                  </div>
                  <div className="mt-6 space-y-3">
                    {skills.languages.map((lang, idx) => (
                      <div key={lang}>
-                       <div className="flex justify-between text-sm text-slate-600 mb-1">
-                         <span className="font-medium">{lang}</span>
-                         <span className="text-slate-400">academic & industry</span>
-                       </div>
-                       <div className="h-2 rounded-full bg-slate-100 overflow-hidden">
-                         <div className="h-full bg-gradient-to-r from-primary-500 to-primary-800" style={{ width: `${85 - idx * 10}%` }} />
-                       </div>
-                     </div>
-                   ))}
-                 </div>
-               </div>
+                        <div className="flex justify-between text-sm text-slate-600 mb-1">
+                          <span className="font-medium">{languageLabelMap[lang] ?? lang}</span>
+                          <span className="text-slate-400">{t.skillsExtra.badge}</span>
+                        </div>
+                        <div className="h-2 rounded-full bg-slate-100 overflow-hidden">
+                          <div className="h-full bg-gradient-to-r from-primary-500 to-primary-800" style={{ width: `${languageProficiency[lang] ?? 70}%` }} />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
              </div>
            </div>
         </Section>
@@ -394,7 +543,7 @@ function App() {
         <footer className="pt-24 pb-12 text-center">
            <div className="w-12 h-1 bg-slate-100 mx-auto mb-8 rounded-full"></div>
            <p className="text-slate-400 text-xs font-mono">
-             © {new Date().getFullYear()} Haiyi Li. <br className="sm:hidden"/> Designed with academic rigor.
+             © {new Date().getFullYear()} Haiyi Li. <br className="sm:hidden"/> {t.footer.tagline}
            </p>
         </footer>
 

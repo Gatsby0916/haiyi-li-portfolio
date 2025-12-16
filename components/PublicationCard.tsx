@@ -10,17 +10,21 @@ interface PublicationCardProps {
 
 const PublicationCard: React.FC<PublicationCardProps> = ({ pub }) => {
   // Function to highlight the user's name
-  const formatAuthors = (authors: string[]) => {
-    return authors.map((author, index) => {
-      const isMe = author.includes("Haiyi Li");
-      return (
-        <span key={index} className={isMe ? "font-bold text-slate-900" : "text-slate-600"}>
-          {author}
-          {index < authors.length - 1 ? ", " : ""}
-        </span>
-      );
-    });
-  };
+  const formatAuthors = (authors: string[]) => (
+    <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+      {authors.map((author, index) => {
+        const isMe = author.includes("Haiyi Li");
+        return (
+          <React.Fragment key={index}>
+            <span className={isMe ? "font-bold text-slate-900" : "text-slate-600"}>
+              {author}
+            </span>
+            {index < authors.length - 1 && <span className="text-slate-400">·</span>}
+          </React.Fragment>
+        );
+      })}
+    </div>
+  );
 
   const isContain = pub.imageFit === 'contain';
   const isPdf = pub.image?.toLowerCase().endsWith('.pdf');
@@ -87,7 +91,7 @@ const PublicationCard: React.FC<PublicationCardProps> = ({ pub }) => {
           {pub.title}
         </h3>
         
-        <div className="text-base text-slate-600 mt-3 font-light leading-relaxed">
+        <div className="text-base mt-3 font-light leading-relaxed">
           {formatAuthors(pub.authors)}
         </div>
         
