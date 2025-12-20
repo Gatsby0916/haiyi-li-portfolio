@@ -72,7 +72,7 @@ export const education: Education[] = [
     degree: "Honours Degree of Bachelor of Mathematical Sciences",
     institution: "University of Adelaide",
     period: "July 2024 - Present",
-    ranking: "Ranking 1st in cohort",
+    ranking: "Top 1% of cohort",
     courses: ["Modelling with ODE", "Random Processes", "PDEs and Waves", "Applied Probability"]
   },
   {
@@ -80,7 +80,7 @@ export const education: Education[] = [
     degree: "Mathematics and Applied Mathematics",
     institution: "Ocean University of China",
     period: "Aug 2022 - July 2024",
-    ranking: "Ranking 1st/38",
+    ranking: "Top 1% of cohort",
     courses: ["Optimisation", "Numerical Methods", "Algorithm & Data Structure", "Real Analysis"]
   }
 ];

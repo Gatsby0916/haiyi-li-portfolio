@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { Mail, Github, MapPin, Menu, X, GraduationCap, Building2, Code2, Layers, Palette, Sparkles, Brain, Globe } from 'lucide-react';
+import { Mail, Github, MapPin, Menu, X, GraduationCap, Building2, Code2, Layers, Palette, Sparkles, Brain, Globe, Calculator, type LucideIcon } from 'lucide-react';
 import Section from './components/Section';
 import PublicationCard from './components/PublicationCard';
 import { personalInfo, publications, education, experience, awards, skills } from './data';
@@ -43,6 +43,10 @@ const translations = {
       viz: {
         title: "Storytelling & Visualization",
         description: "Communicate evidence through rigorous plots, dashboards, and graph tooling."
+      },
+      math: {
+        title: "Mathematical Foundations",
+        description: "Bring advanced analysis insight into modeling and algorithms."
       }
     },
     workflowNotes: [
@@ -102,6 +106,10 @@ const translations = {
       viz: {
         title: "可视化叙事",
         description: "用图表、图谱与仪表盘讲述证据。"
+      },
+      math: {
+        title: "数学基础",
+        description: "用高等分析的思维驱动建模与算法。"
       }
     },
     workflowNotes: [
@@ -130,7 +138,29 @@ const translations = {
 type Language = keyof typeof translations;
 const heroStatKeys = ['research', 'awards', 'experience'] as const;
 type HeroStatKey = typeof heroStatKeys[number];
-type SkillTileId = 'languages' | 'stack' | 'viz';
+type SkillTileId = 'languages' | 'stack' | 'viz' | 'math';
+
+const mathCourses = [
+  { en: "Modelling with ODE", zh: "常微分方程建模" },
+  { en: "Random Processes", zh: "随机过程" },
+  { en: "Partial Differential Equations and Waves", zh: "偏微分方程与波动" },
+  { en: "Applied Probability", zh: "应用概率" },
+  { en: "Optimisation", zh: "最优化方法" },
+  { en: "Numerical Methods", zh: "数值方法" },
+  { en: "Algorithm & Data Structure Analysis", zh: "算法与数据结构分析" },
+  { en: "Mathematical Analysis I", zh: "数学分析 I" },
+  { en: "Mathematical Analysis II", zh: "数学分析 II" },
+  { en: "Functions of Complex Variables", zh: "复变函数" },
+  { en: "Real Analysis", zh: "实分析" }
+];
+
+interface SkillTileConfig {
+  id: SkillTileId;
+  accent: string;
+  Icon: LucideIcon;
+  items?: string[];
+  getItems?: (lang: Language) => string[];
+}
 
 const aboutTextZh = "我希望在计算科学与工程领域接受系统训练，研究兴趣位于应用分析与偏微分方程、数值方法、计算机视觉以及数据驱动的人机协作交互交汇处。我的目标是构建在数学上可靠、稳定且可解释的模型，用以处理真实世界中的不确定性建模问题。";
 
@@ -283,7 +313,7 @@ function App() {
 
   const heroFocusTags = t.heroFocusTags;
 
-  const skillTileConfig = [
+  const skillTileConfig: SkillTileConfig[] = [
     {
       id: 'languages' as const,
       items: skills.programming,
@@ -301,13 +331,20 @@ function App() {
       items: skills.viz,
       accent: "from-amber-50/70 via-white to-amber-100/40",
       Icon: Palette
+    },
+    {
+      id: 'math' as const,
+      accent: "from-slate-50/80 via-white to-slate-100/50",
+      Icon: Calculator,
+      getItems: (lang: Language) => mathCourses.map(course => lang === 'zh' ? course.zh : course.en)
     }
   ];
 
   const skillTiles = skillTileConfig.map(tile => ({
     ...tile,
     title: t.skillTiles[tile.id].title,
-    description: t.skillTiles[tile.id].description
+    description: t.skillTiles[tile.id].description,
+    items: tile.getItems ? tile.getItems(language) : (tile.items ?? [])
   }));
 
   const workflowNotes = t.workflowNotes;
