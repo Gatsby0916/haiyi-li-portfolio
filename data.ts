@@ -17,10 +17,10 @@ export const publications: Publication[] = [
     id: "ougs-2026",
     title: "OUGS: Active View Selection via Object-aware Uncertainty Estimation in 3DGS",
     authors: ["Haiyi Li", "Qi Chen", "Denis Kalkofen", "Hsiang-Ting Chen"],
-    venue: "Submitted to EuroGraphics",
-    status: "Under Review",
+    venue: "Conditionally Accepted to EuroGraphics 2026",
+    status: "Conditionally Accepted",
     year: "2026",
-    description: "Developed an interpretable, object-aware uncertainty evaluation method for 3D Gaussian Splatting, proposing a novel active view selection strategy.",
+    description: "Developed an interpretable, object-aware uncertainty evaluation method for 3D Gaussian Splatting, proposing a novel active view selection strategy. Conditionally accepted to EuroGraphics 2026.",
     tags: ["Computer Vision", "3D Gaussian Splatting", "Uncertainty Estimation", "First Author"],
     image: "images/ougs.png",
     imageFit: "cover", // 3D Renders look best covering the whole area

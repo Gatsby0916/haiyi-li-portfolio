@@ -132,6 +132,104 @@ const heroStatKeys = ['research', 'awards', 'experience'] as const;
 type HeroStatKey = typeof heroStatKeys[number];
 type SkillTileId = 'languages' | 'stack' | 'viz';
 
+const aboutTextZh = "我希望在计算科学与工程领域接受系统训练，研究兴趣位于应用分析与偏微分方程、数值方法、计算机视觉以及数据驱动的人机协作交互交汇处。我的目标是构建在数学上可靠、稳定且可解释的模型，用以处理真实世界中的不确定性建模问题。";
+
+const educationZh: Record<string, Partial<typeof education[number]>> = {
+  adelaide: {
+    institution: "阿德莱德大学",
+    degree: "数学科学荣誉学士学位",
+    ranking: "年级排名第 1",
+    courses: ["常微分方程建模", "随机过程", "偏微分方程与波动", "应用概率"]
+  },
+  ocean: {
+    institution: "中国海洋大学",
+    degree: "数学与应用数学专业",
+    ranking: "专业排名 1 / 38",
+    courses: ["最优化方法", "数值方法", "算法与数据结构", "实变函数"]
+  }
+};
+
+const experienceZh: Record<string, Partial<typeof experience[number]>> = {
+  csiro: {
+    role: "工业见习生",
+    institution: "澳大利亚联邦科学与工业研究组织（CSIRO）",
+    location: "导师：Matthew Rees 博士",
+    description: [
+      "研究初始类别结构如何影响群体模型的疫情轨迹。",
+      "搭建产业数据与动力系统分析之间的桥梁。"
+    ]
+  },
+  robinson: {
+    role: "科研助理",
+    institution: "IMAGENDO 项目，罗宾逊研究院",
+    description: [
+      "面向妇科超声的 AI 流程：负责预处理/数据工具链与病灶检测原型。"
+    ]
+  },
+  kumon: {
+    role: "数学导师",
+    institution: "公文式教育家庭辅导项目",
+    description: [
+      "为 5–16 岁学生提供数学教学与学术辅导。"
+    ]
+  }
+};
+
+const awardsZh: Record<string, Partial<typeof awards[number]>> = {
+  "national-scholarship": {
+    title: "国家奖学金",
+    issuer: "中华人民共和国教育部",
+    selectivity: "获奖率 < 1%"
+  },
+  "hurd-prize": {
+    title: "马克·埃德温·赫德纪念奖",
+    issuer: "阿德莱德大学",
+    selectivity: "每年 1 名学生"
+  },
+  "summer-research": {
+    title: "暑期科研奖学金",
+    issuer: "阿德莱德大学",
+    selectivity: "录取率 < 5%"
+  },
+  "global-citizen": {
+    title: "全球公民卓越奖学金",
+    issuer: "阿德莱德大学",
+    selectivity: "录取率 < 10%"
+  },
+  "icm": {
+    title: "2024 ICM 美国大学生数学建模大赛 F 奖",
+    issuer: "COMAP",
+    selectivity: "优胜队 < 2%"
+  },
+  "math-modeling-national": {
+    title: "全国统计建模大赛国家三等奖、省一等奖",
+    issuer: "中国统计教育学会",
+    selectivity: "录取率 < 10%"
+  },
+  "mathorcup-2024": {
+    title: "中国 2024 Mathorcup 数学建模挑战赛国家二等奖",
+    issuer: "中国运筹学会",
+    selectivity: "录取率 < 10%"
+  },
+  "cp-market": {
+    title: "“正大杯”市场调研分析大赛",
+    issuer: "正大集团",
+    selectivity: "录取率 < 10%"
+  },
+  "mathorcup-bigdata": {
+    title: "2023 Mathorcup 大数据挑战赛国家二等奖",
+    issuer: "中国运筹学会",
+    selectivity: "录取率 < 10%"
+  },
+  "outstanding-student": {
+    title: "优秀学生奖",
+    issuer: "中国海洋大学",
+    selectivity: "录取率 < 10%"
+  }
+};
+
+const locationZh = "澳大利亚南澳州阿德莱德市";
+
 function App() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -217,6 +315,21 @@ function App() {
   const toggleLanguage = () => setLanguage(prev => (prev === 'en' ? 'zh' : 'en'));
   const toggleLabel = language === 'en' ? '中文' : 'EN';
   const mobileToggleText = language === 'en' ? '切换到中文' : 'Switch to English';
+  const aboutContent = language === 'zh' ? aboutTextZh : personalInfo.about;
+  const locationText = language === 'zh' ? locationZh : personalInfo.location;
+  const keyCoursesLabel = language === 'zh' ? "核心课程" : "Key Courses";
+
+  const localizedEducation = language === 'zh'
+    ? education.map(item => ({ ...item, ...(educationZh[item.id] || {}) }))
+    : education;
+
+  const localizedExperience = language === 'zh'
+    ? experience.map(item => ({ ...item, ...(experienceZh[item.id] || {}) }))
+    : experience;
+
+  const localizedAwards = language === 'zh'
+    ? awards.map(item => ({ ...item, ...(awardsZh[item.id] || {}) }))
+    : awards;
 
   const languageProficiency: Record<string, number> = {
     "Mandarin (Native)": 96,
@@ -329,12 +442,12 @@ function App() {
                </a>
                <span className="flex items-center gap-2">
                   <span className="p-2 bg-slate-50 rounded-full"><MapPin size={16} /></span>
-                  {personalInfo.location}
+                  {locationText}
                </span>
             </div>
 
             <div className="prose prose-lg prose-slate text-slate-600 leading-relaxed max-w-4xl border-l-4 border-slate-200 pl-6">
-               <p>{personalInfo.about}</p>
+               <p>{aboutContent}</p>
             </div>
 
             <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -361,7 +474,7 @@ function App() {
         {/* Education - Timeline Style */}
         <Section title={t.sections.education} id="education">
           <div className="relative border-l border-slate-200 ml-3 md:ml-0 space-y-12 max-w-4xl">
-            {education.map((edu, idx) => (
+            {localizedEducation.map((edu, idx) => (
               <div key={idx} className="relative pl-8 md:pl-12">
                 {/* Timeline Dot */}
                 <div className="absolute -left-[5px] top-2 h-2.5 w-2.5 rounded-full bg-white border-2 border-primary-800"></div>
@@ -384,7 +497,7 @@ function App() {
                 )}
                 
                 <div className="text-sm text-slate-600">
-                  <span className="font-semibold text-slate-900 mr-2">Key Courses:</span>
+                  <span className="font-semibold text-slate-900 mr-2">{keyCoursesLabel}:</span>
                   <span className="font-mono text-xs text-slate-500 leading-6">
                     {edu.courses.join("  //  ")}
                   </span>
@@ -406,7 +519,7 @@ function App() {
         {/* Experience - Timeline Style */}
         <Section title={t.sections.experience} id="experience">
           <div className="relative border-l border-slate-200 ml-3 md:ml-0 space-y-12 max-w-4xl">
-            {experience.map((exp, idx) => (
+            {localizedExperience.map((exp, idx) => (
               <div key={exp.id} className={`relative pl-8 md:pl-12 rounded-lg ${expColors[idx % expColors.length]} transition-shadow duration-300 hover:shadow-sm`}>
                 {/* Timeline Dot */}
                 <div className="absolute -left-[5px] top-2 h-2.5 w-2.5 rounded-full bg-slate-300"></div>
@@ -435,7 +548,7 @@ function App() {
         {/* Awards - Clean List */}
         <Section title={t.sections.awards} id="awards">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {awards.map((award, idx) => (
+            {localizedAwards.map((award, idx) => (
               <motion.div 
                 key={award.id}
                 initial={{ opacity: 0, y: 10 }}
