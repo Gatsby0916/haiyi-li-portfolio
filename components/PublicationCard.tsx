@@ -32,6 +32,16 @@ const PublicationCard: React.FC<PublicationCardProps> = ({ pub }) => {
   const containerAspectClass = isPdf ? 'aspect-[4/3]' : (!isContain ? 'aspect-[16/10]' : '');
   const imageFitClass = isContain ? 'h-auto max-h-[420px] object-contain p-4' : 'h-full object-cover';
 
+  const statusStyles: Record<Publication['status'], string> = {
+    Published: "text-slate-800 bg-slate-100 border border-slate-200",
+    "Under Review": "text-primary-700 bg-primary-50 border border-primary-100",
+    Submitted: "text-slate-600 bg-slate-100 border border-slate-200",
+    "Conditionally Accepted": "text-emerald-800 bg-emerald-50 border border-emerald-200"
+  };
+
+  const venueLabel = pub.venue.trim();
+  const displayVenue = venueLabel.includes(pub.year) ? venueLabel : `${venueLabel} ${pub.year}`;
+
   return (
     <motion.div 
       initial={{ opacity: 0, y: 12 }}
@@ -97,10 +107,10 @@ const PublicationCard: React.FC<PublicationCardProps> = ({ pub }) => {
         
         <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm mt-4">
           <span className="font-serif italic text-slate-800 font-medium border-b border-slate-200 pb-0.5">
-            {pub.venue} {pub.year}
+            {displayVenue}
           </span>
           {pub.status !== 'Published' && (
-             <span className="text-xs font-mono text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full border border-slate-200/60">
+             <span className={`text-xs font-mono px-2 py-0.5 rounded-full transition-colors ${statusStyles[pub.status]}`}>
                {pub.status}
              </span>
           )}
