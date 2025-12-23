@@ -178,8 +178,8 @@ export const awards: Award[] = [
   },
   {
     id: "cp-market",
-    title: "CP Group Market Research Competition - National Third Prize",
-    issuer: "CP Group",
+    title: "“正大杯”市场调研分析大赛国家三等奖",
+    issuer: "中国商业统计学会",
     year: "2024",
     selectivity: "< 10%"
   },
