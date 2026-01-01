@@ -243,7 +243,7 @@ const awardsZh: Record<string, Partial<typeof awards[number]>> = {
   },
   "cp-market": {
     title: "“正大杯”市场调研分析大赛",
-    issuer: "正大集团",
+    issuer: "中国商业统计学会",
     selectivity: "录取率 < 10%"
   },
   "mathorcup-bigdata": {
@@ -633,13 +633,23 @@ function App() {
                        <p className="text-xs text-slate-500">{card.description}</p>
                      </div>
                    </div>
-                   <div className="flex flex-wrap gap-2 mt-4">
-                     {card.items.map(item => (
-                       <span key={item} className="px-3 py-1.5 rounded-full bg-white/80 border border-slate-200 text-sm font-medium text-slate-700 shadow-sm">
-                         {item}
-                       </span>
-                     ))}
-                   </div>
+                   {card.id === 'math' ? (
+                     <div className="mt-4 grid grid-cols-2 gap-2 text-xs sm:text-sm text-slate-700">
+                       {card.items.map(item => (
+                         <span key={item} className="inline-flex items-center rounded-2xl border border-slate-200/70 bg-white/80 px-3 py-2 font-medium shadow-sm">
+                           {item}
+                         </span>
+                       ))}
+                     </div>
+                   ) : (
+                     <div className="flex flex-wrap gap-2 mt-4">
+                       {card.items.map(item => (
+                         <span key={item} className="px-3 py-1.5 rounded-full bg-white/80 border border-slate-200 text-sm font-medium text-slate-700 shadow-sm">
+                           {item}
+                         </span>
+                       ))}
+                     </div>
+                   )}
                  </motion.div>
                ))}
              </div>

@@ -56,10 +56,10 @@ export const publications: Publication[] = [
     id: "chi-2026",
     title: "To Know or Not to Know?: How User Awareness of Physiological Sensing Impacts AI Persuasion and User Experience",
     authors: ["Xiaoyan Wei", "Yutong Qu", "Yutong Li", "Haiyi Li", "et al."],
-    venue: "Submitted to CHI",
+    venue: "Submitted to DIS 2026",
     status: "Under Review",
     year: "2026",
-    description: "Conducted rigorous statistical analysis (repeated-measures ANOVA, Wilcoxon) demonstrating the trade-off between perceived persuasiveness and user negative affect.",
+    description: "Conducted rigorous statistical analysis (repeated-measures ANOVA, Wilcoxon) demonstrating the trade-off between perceived persuasiveness and user negative affect; resubmitted to DIS 2026 following the CHI transfer.",
     tags: ["HCI", "AI Persuasion", "Statistical Analysis"],
     image: "images/InterfaceNew.png",
     imageFit: "contain"
@@ -178,8 +178,8 @@ export const awards: Award[] = [
   },
   {
     id: "cp-market",
-    title: "“正大杯”市场调研分析大赛国家三等奖",
-    issuer: "中国商业统计学会",
+    title: "Zhengda Cup Market Research Analysis Competition - Third Prize",
+    issuer: "China Business Statistics Society",
     year: "2024",
     selectivity: "< 10%"
   },
