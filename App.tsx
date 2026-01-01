@@ -634,9 +634,9 @@ function App() {
                      </div>
                    </div>
                    {card.id === 'math' ? (
-                     <div className="mt-4 grid grid-cols-2 gap-2 text-xs sm:text-sm text-slate-700">
+                     <div className="mt-4 grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 text-xs sm:text-sm text-slate-700">
                        {card.items.map(item => (
-                         <span key={item} className="inline-flex items-center rounded-2xl border border-slate-200/70 bg-white/80 px-3 py-2 font-medium shadow-sm">
+                         <span key={item} className="inline-flex items-center justify-center rounded-2xl border border-slate-200/70 bg-white/80 px-3 py-2 font-medium shadow-sm text-center">
                            {item}
                          </span>
                        ))}
