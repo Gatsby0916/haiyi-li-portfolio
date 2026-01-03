@@ -147,10 +147,6 @@ const mathCourses = [
   { en: "Applied Probability", zh: "应用概率" },
   { en: "Optimisation", zh: "最优化方法" },
   { en: "Numerical Methods", zh: "数值方法" },
-  { en: "Algorithm & Data Structure Analysis", zh: "算法与数据结构分析" },
-  { en: "Mathematical Analysis I", zh: "数学分析 I" },
-  { en: "Mathematical Analysis II", zh: "数学分析 II" },
-  { en: "Functions of Complex Variables", zh: "复变函数" },
   { en: "Real Analysis", zh: "实分析" }
 ];
 
@@ -622,7 +618,7 @@ function App() {
                    whileInView={{ opacity: 1, y: 0 }}
                    transition={{ delay: idx * 0.1 }}
                    viewport={{ once: true }}
-                   className={`p-6 rounded-3xl border border-slate-200/70 bg-gradient-to-br ${card.accent} shadow-[0_20px_55px_rgba(15,23,42,0.08)]`}
+                   className={`p-6 rounded-3xl border border-slate-200/70 bg-gradient-to-br ${card.accent} shadow-[0_20px_55px_rgba(15,23,42,0.08)] ${card.id === 'math' ? 'md:col-span-3' : ''}`}
                  >
                    <div className="flex items-center gap-3">
                      <span className="w-11 h-11 rounded-2xl bg-white/70 border border-white/80 flex items-center justify-center text-primary-800">
@@ -634,7 +630,7 @@ function App() {
                      </div>
                    </div>
                    {card.id === 'math' ? (
-                     <div className="mt-4 grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 text-xs sm:text-sm text-slate-700">
+                     <div className="mt-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 text-xs sm:text-sm text-slate-700">
                        {card.items.map(item => (
                          <span key={item} className="inline-flex items-center justify-center rounded-2xl border border-slate-200/70 bg-white/80 px-3 py-2 font-medium shadow-sm text-center">
                            {item}
