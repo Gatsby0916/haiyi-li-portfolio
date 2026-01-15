@@ -38,7 +38,10 @@ export const publications: Publication[] = [
     description: "Developed a privacy-preserving pipeline using on-premise LLMs for structured data extraction from unstructured eTVUS scan reports, proposing a synergistic workflow.",
     tags: ["LLMs", "Medical Imaging", "NLP", "Privacy", "First Author"],
     image: "images/llm-pipeline.png",
-    imageFit: "contain" // Diagrams need to be contained to see labels
+    imageFit: "contain", // Diagrams need to be contained to see labels
+    links: {
+      arxiv: "https://arxiv.org/abs/2601.09053"
+    }
   },
   {
     id: "amm-2025",
