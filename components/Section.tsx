@@ -29,7 +29,7 @@ const Section: React.FC<SectionProps> = ({ title, children, id, className = "" }
                 whileInView={{ width: '40px' }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.4, duration: 0.5 }}
-                className="h-1 bg-primary-900 mt-4 rounded-full ml-auto mr-2"
+                className="h-1 bg-gradient-to-r from-primary-900 to-primary-600 mt-4 rounded-full ml-auto mr-2"
               />
             </div>
           </div>

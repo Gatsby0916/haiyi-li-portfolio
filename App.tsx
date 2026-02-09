@@ -371,10 +371,10 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-primary-50/20 text-slate-900 font-sans selection:bg-primary-100 selection:text-primary-900 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-b from-[#fbfbfa] via-white to-primary-50/25 text-slate-900 font-sans selection:bg-primary-100 selection:text-primary-900 relative overflow-hidden">
       <div className="absolute inset-0 -z-10">
-        <div className="absolute -top-32 right-[-10%] w-[420px] h-[420px] bg-primary-200/40 blur-[140px]" />
-        <div className="absolute top-20 left-[-30%] w-[520px] h-[520px] bg-emerald-200/30 blur-[160px]" />
+        <div className="absolute -top-40 right-[-12%] w-[440px] h-[440px] bg-primary-200/26 blur-[150px]" />
+        <div className="absolute top-28 left-[-34%] w-[560px] h-[560px] bg-emerald-200/18 blur-[180px]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.8),_rgba(255,255,255,0))]" />
       </div>
       

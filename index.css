@@ -13,9 +13,11 @@
 
 body {
   margin: 0;
-  background-image: radial-gradient(#e5e7eb 1px, transparent 1px);
-  background-size: 24px 24px;
+  background-image: radial-gradient(rgba(148, 163, 184, 0.22) 1px, transparent 1px);
+  background-size: 28px 28px;
   line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 html {
