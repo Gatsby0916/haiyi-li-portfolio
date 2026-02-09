@@ -30,7 +30,9 @@ const PublicationCard: React.FC<PublicationCardProps> = ({ pub }) => {
   const isPdf = pub.image?.toLowerCase().endsWith('.pdf');
   const containerBgClass = isContain ? 'bg-white' : 'bg-slate-100';
   const containerAspectClass = isPdf ? 'aspect-[4/3]' : (!isContain ? 'aspect-[16/10]' : '');
-  const imageFitClass = isContain ? 'h-auto max-h-[560px] object-contain p-5' : 'h-full object-cover';
+  const imageFitClass = isContain ? 'h-auto object-contain p-5 mx-auto max-w-full' : 'h-full object-cover w-full';
+  const containMaxHeight = pub.imageMaxHeight ?? 560;
+  const imageStyle: React.CSSProperties | undefined = isContain ? { maxHeight: containMaxHeight } : undefined;
 
   const statusStyles: Record<Publication['status'], string> = {
     Published: "text-slate-800 bg-slate-100 border border-slate-200",
@@ -78,7 +80,8 @@ const PublicationCard: React.FC<PublicationCardProps> = ({ pub }) => {
                   transition={{ duration: 0.5, ease: "easeOut" }}
                   src={pub.image} 
                   alt={pub.title} 
-                  className={`w-full ${imageFitClass} opacity-95 group-hover:opacity-100 transition-opacity`}
+                  style={imageStyle}
+                  className={`${imageFitClass} opacity-95 group-hover:opacity-100 transition-opacity`}
                 />
                 {/* Overlay for interaction hint */}
                 <div className="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/5 transition-colors duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100 pointer-events-none">

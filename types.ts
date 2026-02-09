@@ -9,6 +9,7 @@ export interface Publication {
   tags: string[];
   image?: string;
   imageFit?: 'contain' | 'cover';
+  imageMaxHeight?: number;
   links?: {
     pdf?: string;
     code?: string;
