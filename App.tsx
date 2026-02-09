@@ -505,7 +505,13 @@ function App() {
         </section>
 
         {/* Education - Timeline Style */}
-        <Section title={t.sections.education} id="education">
+        <Section
+          title={t.sections.education}
+          id="education"
+          accentFrom="#0f766e"
+          accentTo="#059669"
+          accentSoft="rgba(5, 150, 105, 0.08)"
+        >
           <div className="relative border-l border-slate-200 ml-3 md:ml-0 space-y-12 max-w-4xl">
             {localizedEducation.map((edu, idx) => (
               <div key={idx} className="relative pl-8 md:pl-12">
@@ -541,7 +547,13 @@ function App() {
         </Section>
 
         {/* Publications */}
-        <Section title={t.sections.research} id="publications">
+        <Section
+          title={t.sections.research}
+          id="publications"
+          accentFrom="#0c4a6e"
+          accentTo="#0284c7"
+          accentSoft="rgba(2, 132, 199, 0.08)"
+        >
            <div className="space-y-16">
              {publications.map((pub) => (
                <PublicationCard key={pub.id} pub={pub} />
@@ -550,7 +562,13 @@ function App() {
         </Section>
 
         {/* Experience - Timeline Style */}
-        <Section title={t.sections.experience} id="experience">
+        <Section
+          title={t.sections.experience}
+          id="experience"
+          accentFrom="#1d4ed8"
+          accentTo="#6366f1"
+          accentSoft="rgba(99, 102, 241, 0.08)"
+        >
           <div className="relative border-l border-slate-200 ml-3 md:ml-0 space-y-12 max-w-4xl">
             {localizedExperience.map((exp, idx) => (
               <div key={exp.id} className={`relative pl-8 md:pl-12 rounded-lg ${expColors[idx % expColors.length]} transition-shadow duration-300 hover:shadow-sm`}>
@@ -579,7 +597,13 @@ function App() {
         </Section>
 
         {/* Awards - Clean List */}
-        <Section title={t.sections.awards} id="awards">
+        <Section
+          title={t.sections.awards}
+          id="awards"
+          accentFrom="#a16207"
+          accentTo="#d97706"
+          accentSoft="rgba(217, 119, 6, 0.08)"
+        >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {localizedAwards.map((award, idx) => (
               <motion.div 
@@ -608,7 +632,13 @@ function App() {
         </Section>
 
         {/* Skills */}
-        <Section title={t.sections.skills} id="skills">
+        <Section
+          title={t.sections.skills}
+          id="skills"
+          accentFrom="#0f172a"
+          accentTo="#075985"
+          accentSoft="rgba(15, 23, 42, 0.06)"
+        >
            <div className="space-y-10">
              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                {skillTiles.map((card, idx) => (
