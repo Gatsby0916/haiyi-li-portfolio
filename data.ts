@@ -37,7 +37,7 @@ export const publications: Publication[] = [
     year: "2026",
     description: "Studied LLM and human error patterns in structured extraction from endometriosis ultrasound reports.",
     tags: ["LLMs", "Medical Imaging", "NLP", "HCI", "First Author"],
-    image: "images/llm-pipeline.png",
+    image: "images/WhoFails.png",
     imageFit: "contain", // Diagrams need to be contained to see labels
     links: {
       arxiv: "https://arxiv.org/abs/2601.09053"
@@ -52,6 +52,8 @@ export const publications: Publication[] = [
     year: "2026",
     description: "Co-designed a workflow for structured text extraction from endometriosis ultrasound reports.",
     tags: ["LLMs", "Medical Imaging", "NLP", "HCI", "Co-design", "First Author"],
+    image: "images/EndoExtract.png",
+    imageFit: "contain",
     links: {
       arxiv: "https://arxiv.org/abs/2601.18154"
     }
