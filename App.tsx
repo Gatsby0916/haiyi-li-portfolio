@@ -483,8 +483,11 @@ function App() {
                </span>
             </div>
 
-            <div className="prose prose-lg prose-slate text-slate-600 leading-relaxed max-w-4xl border-l-4 border-slate-200 pl-6">
-               <p>{aboutContent}</p>
+            <div className="relative max-w-4xl rounded-3xl border border-slate-900/10 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 p-8 sm:p-10 shadow-[0_30px_80px_rgba(2,6,23,0.30)] overflow-hidden">
+              <div className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-primary-300/90 to-transparent" />
+              <p className="text-base sm:text-lg text-slate-100/90 leading-relaxed">
+                {aboutContent}
+              </p>
             </div>
 
             <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -730,11 +733,11 @@ function App() {
         </Section>
 
         {/* Footer */}
-        <footer className="pt-24 pb-12 text-center">
-           <div className="w-12 h-1 bg-slate-100 mx-auto mb-8 rounded-full"></div>
-           <p className="text-slate-400 text-xs font-mono">
-             © {new Date().getFullYear()} Haiyi Li. <br className="sm:hidden"/> {t.footer.tagline}
-           </p>
+        <footer className="pt-20 pb-12 text-center -mx-6 sm:-mx-8 px-6 sm:px-8 mt-24 bg-slate-950 text-slate-200 border-t border-white/10 rounded-t-[48px]">
+          <div className="w-12 h-1 bg-white/10 mx-auto mb-8 rounded-full"></div>
+          <p className="text-slate-300 text-xs font-mono">
+            © {new Date().getFullYear()} Haiyi Li. <br className="sm:hidden"/> {t.footer.tagline}
+          </p>
         </footer>
 
       </main>
