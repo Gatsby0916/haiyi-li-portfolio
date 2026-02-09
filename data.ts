@@ -9,6 +9,7 @@ export const personalInfo = {
   phone: import.meta.env.VITE_PHONE_NUMBER ?? "",
   location: "Adelaide City, SA, Australia",
   github: "https://github.com/Gatsby0916",
+  orcid: "https://orcid.org/0009-0004-6914-8457",
   about: `I am motivated to pursue advanced training in Computational Science and Engineering. My research interests lie at the intersection of applied analysis and PDEs, numerical methods, computer vision, and data-driven human–AI interaction. My goal is to develop mathematically principled, stable, and interpretable models for real-world uncertainty modeling.`
 };
 

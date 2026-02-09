@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { Mail, Github, MapPin, Menu, X, GraduationCap, Building2, Code2, Layers, Palette, Sparkles, Brain, Globe, Calculator, type LucideIcon } from 'lucide-react';
+import { Mail, Github, Link, MapPin, Menu, X, GraduationCap, Building2, Code2, Layers, Palette, Sparkles, Brain, Globe, Calculator, type LucideIcon } from 'lucide-react';
 import Section from './components/Section';
 import PublicationCard from './components/PublicationCard';
 import { personalInfo, publications, education, experience, awards, skills } from './data';
@@ -472,6 +472,10 @@ function App() {
                <a href={personalInfo.github} target="_blank" rel="noreferrer" className="hover:text-primary-900 transition-colors flex items-center gap-2 group">
                   <span className="p-2 bg-slate-50 rounded-full group-hover:bg-primary-50 transition-colors"><Github size={16} /></span>
                   GitHub
+               </a>
+               <a href={personalInfo.orcid} target="_blank" rel="noreferrer" className="hover:text-primary-900 transition-colors flex items-center gap-2 group">
+                  <span className="p-2 bg-slate-50 rounded-full group-hover:bg-primary-50 transition-colors"><Link size={16} /></span>
+                  ORCID
                </a>
                <span className="flex items-center gap-2">
                   <span className="p-2 bg-slate-50 rounded-full"><MapPin size={16} /></span>
