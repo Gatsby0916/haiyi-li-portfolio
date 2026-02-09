@@ -117,7 +117,7 @@ const PublicationCard: React.FC<PublicationCardProps> = ({ pub }) => {
           )}
         </div>
         
-        <p className="text-base md:text-lg text-slate-600 mt-5 leading-relaxed max-w-3xl">
+        <p className="text-sm md:text-base text-slate-600 mt-5 leading-relaxed max-w-3xl">
           {pub.description}
         </p>
 

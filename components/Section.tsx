@@ -18,8 +18,8 @@ const Section: React.FC<SectionProps> = ({ title, children, id, className = "" }
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.7, ease: "easeOut" }}
       >
-        <div className="flex flex-col md:flex-row gap-8 md:gap-20">
-          <div className="md:w-1/5 shrink-0 relative">
+        <div className="flex flex-col md:flex-row gap-8 md:gap-12">
+          <div className="md:w-[180px] shrink-0 relative">
             <div className="sticky top-28">
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-slate-900">
                 {title}
@@ -33,7 +33,7 @@ const Section: React.FC<SectionProps> = ({ title, children, id, className = "" }
               />
             </div>
           </div>
-          <div className="md:w-4/5">
+          <div className="flex-1 min-w-0">
             {children}
           </div>
         </div>
