@@ -24,7 +24,7 @@ export const publications: Publication[] = [
     tags: ["Computer Vision", "3D Gaussian Splatting", "Uncertainty Estimation", "First Author"],
     image: "images/ougs.png",
     imageFit: "contain",
-    imageMaxHeight: 380,
+    imageMaxHeight: 320,
     links: {
       arxiv: "https://arxiv.org/abs/2511.09397"
     }
