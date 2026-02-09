@@ -18,10 +18,10 @@ const Section: React.FC<SectionProps> = ({ title, children, id, className = "" }
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.7, ease: "easeOut" }}
       >
-        <div className="flex flex-col md:flex-row gap-8 md:gap-12">
-          <div className="md:w-[150px] shrink-0 relative">
+        <div className="flex flex-col md:flex-row gap-8 md:gap-16">
+          <div className="md:w-[190px] shrink-0 relative pr-6 md:pr-10">
             <div className="sticky top-28">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-slate-900 text-right pr-2">
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-slate-900 leading-tight">
                 {title}
               </h2>
               <motion.div 
@@ -29,11 +29,11 @@ const Section: React.FC<SectionProps> = ({ title, children, id, className = "" }
                 whileInView={{ width: '40px' }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.4, duration: 0.5 }}
-                className="h-1 bg-gradient-to-r from-primary-900 to-primary-600 mt-4 rounded-full ml-auto mr-2"
+                className="h-1 bg-gradient-to-r from-primary-900 to-primary-600 mt-4 rounded-full"
               />
             </div>
           </div>
-          <div className="flex-1 min-w-0">
+          <div className="flex-1 min-w-0 md:pl-2">
             {children}
           </div>
         </div>
