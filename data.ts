@@ -20,7 +20,7 @@ export const publications: Publication[] = [
     venue: "Submitted to EuroGraphics 2026",
     status: "Accepted",
     year: "2026",
-    description: "Developed an interpretable, object-aware uncertainty evaluation method for 3D Gaussian Splatting, proposing a novel active view selection strategy.",
+    description: "Introduces OUGS, an object-aware uncertainty framework for 3D Gaussian Splatting that derives uncertainty from Gaussian primitive parameters and propagates covariances through the rendering Jacobian. Integrating segmentation masks enables targeted uncertainty scoring and more efficient active view selection for improved object fidelity.",
     tags: ["Computer Vision", "3D Gaussian Splatting", "Uncertainty Estimation", "First Author"],
     image: "images/ougs.png",
     imageFit: "cover", // 3D Renders look best covering the whole area
@@ -31,11 +31,11 @@ export const publications: Publication[] = [
   {
     id: "isbi-2026",
     title: "Who Fails Where? LLM and Human Error Patterns in Endometriosis Ultrasound Report Extraction",
-    authors: ["Haiyi Li", "Yutong Li", "Yiheng Chi", "Alison Deslandes", "Mathew Leonardi", "et al."],
+    authors: ["Haiyi Li", "Yutong Li", "Yiheng Chi", "Alison Deslandes", "Mathew Leonardi", "Shay Freger", "Yuan Zhang", "Jodie Avery", "M. Louise Hull", "Hsiang-Ting Chen"],
     venue: "Submitted to CHI 2026 Posters",
     status: "Under Review",
     year: "2026",
-    description: "Studied LLM and human error patterns in structured extraction from endometriosis ultrasound reports.",
+    description: "Evaluates on-premise LLMs for converting endometriosis transvaginal ultrasound reports into structured data, comparing multiple model scales against expert extraction across 49 reports. Finds complementary LLM–human error profiles and motivates a human-in-the-loop workflow where the LLM handles routine structuring and supports semantic validation.",
     tags: ["LLMs", "Medical Imaging", "NLP", "HCI", "First Author"],
     image: "images/WhoFails.png",
     imageFit: "contain", // Diagrams need to be contained to see labels
@@ -46,11 +46,11 @@ export const publications: Publication[] = [
   {
     id: "chi-posters-2026-endoextract",
     title: "EndoExtract: Co-Designing Structured Text Extraction from Endometriosis Ultrasound Reports",
-    authors: ["Haiyi Li", "Yiyang Zhao", "Yutong Li", "Alison Deslandes", "Jodie Avery", "M. Louise Hull", "et al."],
+    authors: ["Haiyi Li", "Yiyang Zhao", "Yutong Li", "Alison Deslandes", "Jodie Avery", "Mathew Leonardi", "M. Louise Hull", "Hsiang-Ting Chen"],
     venue: "Submitted to CHI 2026 Posters",
     status: "Under Review",
     year: "2026",
-    description: "Co-designed a workflow for structured text extraction from endometriosis ultrasound reports.",
+    description: "Presents EndoExtract, an on-premise LLM system for extracting structured fields from free-text endometriosis ultrasound reports and surfacing interpretive fields for mandatory human review. Grounded in contextual inquiry and formative evaluation, the interface shifts work from manual data entry to supervisory validation with evidence highlighting.",
     tags: ["LLMs", "Medical Imaging", "NLP", "HCI", "Co-design", "First Author"],
     image: "images/EndoExtract.png",
     imageFit: "contain",

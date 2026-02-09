@@ -11,15 +11,15 @@ interface PublicationCardProps {
 const PublicationCard: React.FC<PublicationCardProps> = ({ pub }) => {
   // Function to highlight the user's name
   const formatAuthors = (authors: string[]) => (
-    <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+    <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm md:text-base leading-relaxed">
       {authors.map((author, index) => {
-        const isMe = author.includes("Haiyi Li");
+        const isMe = author.trim() === "Haiyi Li";
         return (
           <React.Fragment key={index}>
             <span className={isMe ? "font-bold text-slate-900" : "text-slate-600"}>
               {author}
             </span>
-            {index < authors.length - 1 && <span className="text-slate-400">·</span>}
+            {index < authors.length - 1 && <span className="text-slate-300">·</span>}
           </React.Fragment>
         );
       })}
@@ -30,7 +30,7 @@ const PublicationCard: React.FC<PublicationCardProps> = ({ pub }) => {
   const isPdf = pub.image?.toLowerCase().endsWith('.pdf');
   const containerBgClass = isContain ? 'bg-white' : 'bg-slate-100';
   const containerAspectClass = isPdf ? 'aspect-[4/3]' : (!isContain ? 'aspect-[16/10]' : '');
-  const imageFitClass = isContain ? 'h-auto max-h-[420px] object-contain p-4' : 'h-full object-cover';
+  const imageFitClass = isContain ? 'h-auto max-h-[560px] object-contain p-5' : 'h-full object-cover';
 
   const statusStyles: Record<Publication['status'], string> = {
     Published: "text-slate-800 bg-slate-100 border border-slate-200",
@@ -50,11 +50,11 @@ const PublicationCard: React.FC<PublicationCardProps> = ({ pub }) => {
       viewport={{ once: true, margin: "-40px" }}
       whileHover={{ y: -4 }}
       transition={{ duration: 0.45, ease: "easeOut" }}
-      className="group flex flex-col md:grid md:grid-cols-12 gap-10 py-6 border-b border-slate-100 last:border-0"
+      className="group flex flex-col md:grid md:grid-cols-12 gap-12 py-8 border-b border-slate-100 last:border-0"
     >
-      {/* Image Column - Enlarged to 5/12 columns */}
-      <div className="md:col-span-5">
-        <div className={`relative w-full overflow-hidden rounded-lg border border-slate-200 ${containerBgClass} shadow-sm transition-all duration-500 group-hover:shadow-md group-hover:border-slate-300 ${containerAspectClass}`}>
+      {/* Image Column */}
+      <div className="md:col-span-6">
+        <div className={`relative w-full overflow-hidden rounded-2xl border border-slate-200 ${containerBgClass} shadow-sm transition-all duration-500 group-hover:shadow-md group-hover:border-slate-300 ${containerAspectClass}`}>
           {pub.image ? (
             isPdf ? (
               <object data={`${pub.image}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`} type="application/pdf" className="w-full h-full">
@@ -96,17 +96,17 @@ const PublicationCard: React.FC<PublicationCardProps> = ({ pub }) => {
         </div>
       </div>
 
-      {/* Content Column - 7/12 columns */}
-      <div className="md:col-span-7 flex flex-col justify-start pt-1">
-        <h3 className="text-2xl font-bold font-serif text-slate-900 leading-tight group-hover:text-primary-900 transition-colors">
+      {/* Content Column */}
+      <div className="md:col-span-6 flex flex-col justify-start pt-1">
+        <h3 className="text-3xl font-bold font-serif text-slate-900 leading-tight group-hover:text-primary-900 transition-colors">
           {pub.title}
         </h3>
         
-        <div className="text-base mt-3 font-light leading-relaxed">
+        <div className="mt-4 font-light">
           {formatAuthors(pub.authors)}
         </div>
         
-        <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm mt-4">
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm md:text-base mt-5">
           <span className="font-serif italic text-slate-800 font-medium border-b border-slate-200 pb-0.5">
             {displayVenue}
           </span>
@@ -117,12 +117,12 @@ const PublicationCard: React.FC<PublicationCardProps> = ({ pub }) => {
           )}
         </div>
         
-        <p className="text-sm text-slate-500 mt-4 leading-relaxed max-w-3xl">
+        <p className="text-base md:text-lg text-slate-600 mt-5 leading-relaxed max-w-3xl">
           {pub.description}
         </p>
 
         {/* Links Area */}
-        <div className="flex flex-wrap gap-6 mt-8 pt-4 border-t border-slate-100/50">
+        <div className="flex flex-wrap gap-6 mt-10 pt-5 border-t border-slate-100/60">
           {pub.links?.arxiv && (
             <a href={pub.links.arxiv} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs font-bold text-slate-600 hover:text-red-700 uppercase tracking-wide transition-colors pb-0.5 group/link">
               <ScrollText size={16} className="text-slate-400 group-hover/link:text-red-600 transition-colors" /> arXiv

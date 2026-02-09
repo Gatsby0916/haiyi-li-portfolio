@@ -2,7 +2,7 @@
   font-family: 'Inter', sans-serif;
   color: #111827;
   background-color: #ffffff;
-  font-size: 18px;
+  font-size: clamp(19px, 0.9vw + 15px, 22px);
 }
 
 *,
