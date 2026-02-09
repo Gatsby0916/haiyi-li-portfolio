@@ -36,7 +36,8 @@ const PublicationCard: React.FC<PublicationCardProps> = ({ pub }) => {
     Published: "text-slate-800 bg-slate-100 border border-slate-200",
     "Under Review": "text-primary-700 bg-primary-50 border border-primary-100",
     Submitted: "text-slate-600 bg-slate-100 border border-slate-200",
-    "Conditionally Accepted": "text-emerald-800 bg-emerald-50 border border-emerald-200"
+    "Conditionally Accepted": "text-emerald-800 bg-emerald-50 border border-emerald-200",
+    Accepted: "text-emerald-900 bg-emerald-50 border border-emerald-200"
   };
 
   const venueLabel = pub.venue.trim();

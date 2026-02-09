@@ -3,7 +3,7 @@ export interface Publication {
   title: string;
   authors: string[];
   venue: string;
-  status: 'Published' | 'Under Review' | 'Submitted' | 'Conditionally Accepted';
+  status: 'Published' | 'Under Review' | 'Submitted' | 'Conditionally Accepted' | 'Accepted';
   year: string;
   description: string;
   tags: string[];

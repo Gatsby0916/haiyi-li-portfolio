@@ -17,10 +17,10 @@ export const publications: Publication[] = [
     id: "ougs-2026",
     title: "OUGS: Active View Selection via Object-aware Uncertainty Estimation in 3DGS",
     authors: ["Haiyi Li", "Qi Chen", "Denis Kalkofen", "Hsiang-Ting Chen"],
-    venue: "Conditionally Accepted to EuroGraphics 2026",
-    status: "Conditionally Accepted",
+    venue: "Submitted to EuroGraphics 2026",
+    status: "Accepted",
     year: "2026",
-    description: "Developed an interpretable, object-aware uncertainty evaluation method for 3D Gaussian Splatting, proposing a novel active view selection strategy. Conditionally accepted to EuroGraphics 2026.",
+    description: "Developed an interpretable, object-aware uncertainty evaluation method for 3D Gaussian Splatting, proposing a novel active view selection strategy.",
     tags: ["Computer Vision", "3D Gaussian Splatting", "Uncertainty Estimation", "First Author"],
     image: "images/ougs.png",
     imageFit: "cover", // 3D Renders look best covering the whole area
@@ -30,17 +30,30 @@ export const publications: Publication[] = [
   },
   {
     id: "isbi-2026",
-    title: "Evaluating Local Large Language Models for Structured Extraction from Endometriosis-Specific Transvaginal Ultrasound Reports",
-    authors: ["Haiyi Li", "Yutong Li", "et al."],
-    venue: "Submitted to ISBI",
+    title: "Who Fails Where? LLM and Human Error Patterns in Endometriosis Ultrasound Report Extraction",
+    authors: ["Haiyi Li", "Yutong Li", "Yiheng Chi", "Alison Deslandes", "Mathew Leonardi", "et al."],
+    venue: "Submitted to CHI 2026 Posters",
     status: "Under Review",
     year: "2026",
-    description: "Developed a privacy-preserving pipeline using on-premise LLMs for structured data extraction from unstructured eTVUS scan reports, proposing a synergistic workflow.",
-    tags: ["LLMs", "Medical Imaging", "NLP", "Privacy", "First Author"],
+    description: "Studied LLM and human error patterns in structured extraction from endometriosis ultrasound reports.",
+    tags: ["LLMs", "Medical Imaging", "NLP", "HCI", "First Author"],
     image: "images/llm-pipeline.png",
     imageFit: "contain", // Diagrams need to be contained to see labels
     links: {
       arxiv: "https://arxiv.org/abs/2601.09053"
+    }
+  },
+  {
+    id: "chi-posters-2026-endoextract",
+    title: "EndoExtract: Co-Designing Structured Text Extraction from Endometriosis Ultrasound Reports",
+    authors: ["Haiyi Li", "Yiyang Zhao", "Yutong Li", "Alison Deslandes", "Jodie Avery", "M. Louise Hull", "et al."],
+    venue: "Submitted to CHI 2026 Posters",
+    status: "Under Review",
+    year: "2026",
+    description: "Co-designed a workflow for structured text extraction from endometriosis ultrasound reports.",
+    tags: ["LLMs", "Medical Imaging", "NLP", "HCI", "Co-design", "First Author"],
+    links: {
+      arxiv: "https://arxiv.org/abs/2601.18154"
     }
   },
   {
