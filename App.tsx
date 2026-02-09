@@ -154,6 +154,7 @@ interface SkillTileConfig {
   id: SkillTileId;
   accent: string;
   Icon: LucideIcon;
+  iconColor: string;
   items?: string[];
   getItems?: (lang: Language) => string[];
 }
@@ -261,22 +262,6 @@ function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [language, setLanguage] = useState<Language>('en');
 
-  // Soft accent palettes for experience and awards cards
-  const expColors = [
-    'border-l-4 border-primary-700/60 bg-primary-50/50',
-    'border-l-4 border-amber-600/60 bg-amber-50/60',
-    'border-l-4 border-emerald-700/60 bg-emerald-50/60',
-    'border-l-4 border-indigo-700/60 bg-indigo-50/60'
-  ];
-
-  const awardColors = [
-    'bg-white border-slate-200',
-    'bg-primary-50/80 border-primary-100',
-    'bg-amber-50/80 border-amber-100',
-    'bg-emerald-50/80 border-emerald-100',
-    'bg-indigo-50/80 border-indigo-100'
-  ];
-
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -313,25 +298,29 @@ function App() {
     {
       id: 'languages' as const,
       items: skills.programming,
-      accent: "from-primary-50/80 via-white to-primary-100/40",
-      Icon: Code2
+      accent: "from-[#0b1220] via-[#0b1220] to-[rgba(2,132,199,0.18)]",
+      Icon: Code2,
+      iconColor: "text-primary-200"
     },
     {
       id: 'stack' as const,
       items: skills.stack,
-      accent: "from-emerald-50/70 via-white to-emerald-100/40",
-      Icon: Layers
+      accent: "from-[#0b1220] via-[#0b1220] to-[rgba(16,185,129,0.18)]",
+      Icon: Layers,
+      iconColor: "text-emerald-200"
     },
     {
       id: 'viz' as const,
       items: skills.viz,
-      accent: "from-amber-50/70 via-white to-amber-100/40",
-      Icon: Palette
+      accent: "from-[#0b1220] via-[#0b1220] to-[rgba(245,158,11,0.18)]",
+      Icon: Palette,
+      iconColor: "text-amber-200"
     },
     {
       id: 'math' as const,
-      accent: "from-slate-50/80 via-white to-slate-100/50",
+      accent: "from-[#0b1220] via-[#0b1220] to-[rgba(148,163,184,0.16)]",
       Icon: Calculator,
+      iconColor: "text-slate-200",
       getItems: (lang: Language) => mathCourses.map(course => lang === 'zh' ? course.zh : course.en)
     }
   ];
@@ -483,7 +472,7 @@ function App() {
                </span>
             </div>
 
-            <div className="relative max-w-4xl rounded-3xl border border-slate-900/10 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 p-8 sm:p-10 shadow-[0_30px_80px_rgba(2,6,23,0.30)] overflow-hidden">
+            <div className="relative max-w-4xl rounded-3xl border border-slate-900/10 bg-gradient-to-br from-[#020617] via-[#0b1220] to-[#020617] p-8 sm:p-10 shadow-[0_30px_80px_rgba(2,6,23,0.30)] overflow-hidden">
               <div className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-primary-300/90 to-transparent" />
               <p className="text-base sm:text-lg text-slate-100/90 leading-relaxed">
                 {aboutContent}
@@ -519,34 +508,36 @@ function App() {
           accentTo="#059669"
           accentSoft="rgba(5, 150, 105, 0.08)"
         >
-          <div className="relative border-l border-slate-200 ml-3 md:ml-0 space-y-12 max-w-4xl">
+          <div className="relative border-l border-slate-200/70 ml-3 md:ml-0 space-y-12 max-w-4xl">
             {localizedEducation.map((edu, idx) => (
               <div key={idx} className="relative pl-8 md:pl-12">
                 {/* Timeline Dot */}
-                <div className="absolute -left-[5px] top-2 h-2.5 w-2.5 rounded-full bg-white border-2 border-primary-800"></div>
-                
-                <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2 mb-2">
-                   <h3 className="text-xl font-bold text-slate-900">{edu.institution}</h3>
-                   <span className="text-sm font-mono text-slate-500 bg-slate-50 px-2 py-1 rounded inline-block w-fit">
-                     {edu.period}
-                   </span>
-                </div>
-                
-                <div className="text-lg text-slate-700 font-serif italic mb-3">{edu.degree}</div>
-                
-                {edu.ranking && (
-                  <div className="mb-4">
-                    <span className="inline-flex items-center gap-1.5 text-xs font-bold text-primary-800 bg-primary-50 px-2.5 py-1 rounded border border-primary-100">
-                      <GraduationCap size={14} /> {edu.ranking}
+                <div className="absolute -left-[6px] top-8 h-3 w-3 rounded-full bg-white border-2 border-[var(--section-accent-to)]"></div>
+
+                <div className="rounded-2xl border border-white/10 bg-[#0b1220] p-6 md:p-7 shadow-[0_24px_70px_rgba(2,6,23,0.18)] hover:border-white/20 hover:bg-[#0f172a] transition-colors border-l-4 border-l-[var(--section-accent-to)]">
+                  <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 mb-2">
+                     <h3 className="text-xl font-bold text-slate-50">{edu.institution}</h3>
+                     <span className="text-sm font-mono text-slate-200/70 bg-white/5 px-2.5 py-1 rounded border border-white/10 inline-block w-fit">
+                       {edu.period}
+                     </span>
+                  </div>
+
+                  <div className="text-lg text-slate-200/80 font-serif italic mb-3">{edu.degree}</div>
+
+                  {edu.ranking && (
+                    <div className="mb-4">
+                      <span className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-200 bg-emerald-500/10 px-2.5 py-1 rounded border border-emerald-500/20">
+                        <GraduationCap size={14} /> {edu.ranking}
+                      </span>
+                    </div>
+                  )}
+
+                  <div className="text-sm text-slate-200/80">
+                    <span className="font-semibold text-slate-50/90 mr-2">{keyCoursesLabel}:</span>
+                    <span className="font-mono text-xs text-slate-200/60 leading-6">
+                      {edu.courses.join("  //  ")}
                     </span>
                   </div>
-                )}
-                
-                <div className="text-sm text-slate-600">
-                  <span className="font-semibold text-slate-900 mr-2">{keyCoursesLabel}:</span>
-                  <span className="font-mono text-xs text-slate-500 leading-6">
-                    {edu.courses.join("  //  ")}
-                  </span>
                 </div>
               </div>
             ))}
@@ -576,28 +567,30 @@ function App() {
           accentTo="#6366f1"
           accentSoft="rgba(99, 102, 241, 0.08)"
         >
-          <div className="relative border-l border-slate-200 ml-3 md:ml-0 space-y-12 max-w-4xl">
-            {localizedExperience.map((exp, idx) => (
-              <div key={exp.id} className={`relative pl-8 md:pl-12 rounded-lg ${expColors[idx % expColors.length]} transition-shadow duration-300 hover:shadow-sm`}>
+          <div className="relative border-l border-slate-200/70 ml-3 md:ml-0 space-y-12 max-w-4xl">
+            {localizedExperience.map((exp) => (
+              <div key={exp.id} className="relative pl-8 md:pl-12">
                 {/* Timeline Dot */}
-                <div className="absolute -left-[5px] top-2 h-2.5 w-2.5 rounded-full bg-slate-300"></div>
+                <div className="absolute -left-[6px] top-8 h-3 w-3 rounded-full bg-white border-2 border-[var(--section-accent-to)]"></div>
 
-                <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-1">
-                  <h3 className="text-lg font-bold text-slate-900">{exp.role}</h3>
-                  <span className="text-sm font-mono text-slate-500">{exp.period}</span>
+                <div className="rounded-2xl border border-white/10 bg-[#0b1220] p-6 md:p-7 shadow-[0_24px_70px_rgba(2,6,23,0.18)] hover:border-white/20 hover:bg-[#0f172a] transition-colors border-l-4 border-l-[var(--section-accent-to)]">
+                  <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 mb-1">
+                    <h3 className="text-lg font-bold text-slate-50">{exp.role}</h3>
+                    <span className="text-sm font-mono text-slate-200/70">{exp.period}</span>
+                  </div>
+
+                  <div className="text-base text-slate-200/80 font-medium mb-4 flex items-center gap-2">
+                    <span className="text-slate-300/60"><Building2 size={14} /></span>
+                    <span className="text-slate-50 font-semibold">{exp.institution}</span>
+                    {exp.location && <span className="text-slate-300/60 font-normal text-sm border-l border-white/10 pl-2 ml-1">{exp.location}</span>}
+                  </div>
+
+                  <ul className="space-y-2 text-slate-200/75 text-sm leading-relaxed marker:text-white/10 list-disc pl-4">
+                    {exp.description.map((desc, i) => (
+                      <li key={i}>{desc}</li>
+                    ))}
+                  </ul>
                 </div>
-                
-                <div className="text-base text-slate-700 font-medium mb-4 flex items-center gap-2">
-                   <span className="text-slate-400"><Building2 size={14} /></span> 
-                   <span className="text-slate-900 font-semibold">{exp.institution}</span>
-                   {exp.location && <span className="text-slate-400 font-normal text-sm border-l border-slate-300 pl-2 ml-1">{exp.location}</span>}
-                </div>
-                
-                <ul className="space-y-2 text-slate-600 text-sm leading-relaxed marker:text-slate-300 list-disc pl-4">
-                  {exp.description.map((desc, i) => (
-                    <li key={i}>{desc}</li>
-                  ))}
-                </ul>
               </div>
             ))}
           </div>
@@ -619,19 +612,19 @@ function App() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.05 }}
                 viewport={{ once: true }}
-                className={`group flex flex-col justify-between p-5 border hover:border-slate-300 hover:shadow-sm hover:bg-white rounded-lg transition-all duration-300 ${awardColors[idx % awardColors.length]}`}
+                className="group flex flex-col justify-between p-6 rounded-2xl border border-white/10 bg-[#0b1220] shadow-[0_24px_70px_rgba(2,6,23,0.18)] hover:border-white/20 hover:bg-[#0f172a] transition-colors border-l-4 border-l-[var(--section-accent-to)]"
               >
                 <div>
                   <div className="flex justify-between items-start mb-2">
-                    <span className="text-sm font-mono text-slate-400 group-hover:text-slate-600 transition-colors">{award.year}</span>
+                    <span className="text-sm font-mono text-slate-200/65">{award.year}</span>
                     {award.selectivity && (
-                      <span className="text-[10px] font-mono font-bold text-slate-400 bg-white px-2 py-1 rounded border border-slate-100">
+                      <span className="text-[10px] font-mono font-bold text-slate-200/70 bg-white/5 px-2 py-1 rounded border border-white/10">
                         {award.selectivity}
                       </span>
                     )}
                   </div>
-                  <h3 className="font-bold text-slate-900 text-base mb-1">{award.title}</h3>
-                  <div className="text-xs text-slate-900 font-semibold">{award.issuer}</div>
+                  <h3 className="font-bold text-slate-50 text-base mb-1">{award.title}</h3>
+                  <div className="text-xs text-slate-200/80 font-semibold">{award.issuer}</div>
                 </div>
               </motion.div>
             ))}
@@ -653,31 +646,31 @@ function App() {
                    key={card.id}
                    initial={{ opacity: 0, y: 10 }}
                    whileInView={{ opacity: 1, y: 0 }}
-                   transition={{ delay: idx * 0.1 }}
-                   viewport={{ once: true }}
-                   className={`p-6 rounded-3xl border border-slate-200/70 bg-gradient-to-br ${card.accent} shadow-[0_20px_55px_rgba(15,23,42,0.08)] ${card.id === 'math' ? 'md:col-span-3' : ''}`}
+               transition={{ delay: idx * 0.1 }}
+               viewport={{ once: true }}
+                   className={`p-7 rounded-3xl border border-white/10 bg-gradient-to-br ${card.accent} shadow-[0_24px_70px_rgba(2,6,23,0.18)] ${card.id === 'math' ? 'md:col-span-3' : ''}`}
                  >
                    <div className="flex items-center gap-3">
-                     <span className="w-11 h-11 rounded-2xl bg-white/70 border border-white/80 flex items-center justify-center text-primary-800">
+                     <span className={`w-11 h-11 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center ${card.iconColor}`}>
                        <card.Icon size={20} />
                      </span>
                      <div>
-                       <p className="font-semibold text-slate-900">{card.title}</p>
-                       <p className="text-xs text-slate-500">{card.description}</p>
+                       <p className="font-semibold text-slate-50">{card.title}</p>
+                       <p className="text-xs text-slate-200/60">{card.description}</p>
                      </div>
                    </div>
                    {card.id === 'math' ? (
-                     <div className="mt-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 text-xs sm:text-sm text-slate-700">
+                     <div className="mt-5 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 text-xs sm:text-sm text-slate-200/80">
                        {card.items.map(item => (
-                         <span key={item} className="inline-flex items-center justify-center rounded-2xl border border-slate-200/70 bg-white/80 px-3 py-2 font-medium shadow-sm text-center">
+                         <span key={item} className="inline-flex items-center justify-center rounded-2xl border border-white/10 bg-white/5 px-3 py-2 font-medium text-center">
                            {item}
                          </span>
                        ))}
                      </div>
                    ) : (
-                     <div className="flex flex-wrap gap-2 mt-4">
+                     <div className="flex flex-wrap gap-2 mt-5">
                        {card.items.map(item => (
-                         <span key={item} className="px-3 py-1.5 rounded-full bg-white/80 border border-slate-200 text-sm font-medium text-slate-700 shadow-sm">
+                         <span key={item} className="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-sm font-medium text-slate-200/80">
                            {item}
                          </span>
                        ))}
@@ -688,7 +681,7 @@ function App() {
              </div>
 
              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-               <div className="p-8 rounded-3xl border border-slate-200 bg-slate-900 text-white shadow-[0_25px_60px_rgba(15,23,42,0.35)]">
+               <div className="p-8 rounded-3xl border border-white/10 bg-[#0b1220] text-white shadow-[0_24px_70px_rgba(2,6,23,0.22)]">
                  <div className="flex items-center gap-3">
                    <Brain size={20} className="text-emerald-300" />
                    <div>
@@ -706,22 +699,22 @@ function App() {
                  </ul>
                </div>
 
-               <div className="p-8 rounded-3xl border border-slate-200 bg-white shadow-[0_25px_60px_rgba(15,23,42,0.08)]">
+               <div className="p-8 rounded-3xl border border-white/10 bg-[#0b1220] shadow-[0_24px_70px_rgba(2,6,23,0.18)]">
                  <div className="flex items-center gap-3">
-                   <Globe size={20} className="text-primary-800" />
+                   <Globe size={20} className="text-primary-200" />
                    <div>
-                     <p className="text-lg font-semibold">{t.skillsExtra.communicationTitle}</p>
-                     <p className="text-sm text-slate-500">{t.skillsExtra.communicationDesc}</p>
+                     <p className="text-lg font-semibold text-slate-50">{t.skillsExtra.communicationTitle}</p>
+                     <p className="text-sm text-slate-200/60">{t.skillsExtra.communicationDesc}</p>
                    </div>
                  </div>
                  <div className="mt-6 space-y-3">
                    {skills.languages.map((lang, idx) => (
                      <div key={lang}>
-                        <div className="flex justify-between text-sm text-slate-600 mb-1">
-                          <span className="font-medium">{languageLabelMap[lang] ?? lang}</span>
-                          <span className="text-slate-400">{t.skillsExtra.badge}</span>
+                        <div className="flex justify-between text-sm text-slate-200/75 mb-1">
+                          <span className="font-medium text-slate-50">{languageLabelMap[lang] ?? lang}</span>
+                          <span className="text-slate-200/50">{t.skillsExtra.badge}</span>
                         </div>
-                        <div className="h-2 rounded-full bg-slate-100 overflow-hidden">
+                        <div className="h-2 rounded-full bg-white/10 overflow-hidden">
                           <div className="h-full bg-gradient-to-r from-primary-500 to-primary-800" style={{ width: `${languageProficiency[lang] ?? 70}%` }} />
                         </div>
                       </div>
@@ -733,7 +726,7 @@ function App() {
         </Section>
 
         {/* Footer */}
-        <footer className="pt-20 pb-12 text-center -mx-6 sm:-mx-8 px-6 sm:px-8 mt-24 bg-slate-950 text-slate-200 border-t border-white/10 rounded-t-[48px]">
+        <footer className="pt-20 pb-12 text-center -mx-6 sm:-mx-8 px-6 sm:px-8 mt-24 bg-[#020617] text-slate-200 border-t border-white/10 rounded-t-[48px]">
           <div className="w-12 h-1 bg-white/10 mx-auto mb-8 rounded-full"></div>
           <p className="text-slate-300 text-xs font-mono">
             © {new Date().getFullYear()} Haiyi Li. <br className="sm:hidden"/> {t.footer.tagline}

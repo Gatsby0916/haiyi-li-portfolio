@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Publication } from '../types';
-import { FileText, Github, Globe, ScrollText, ArrowUpRight, Maximize2 } from 'lucide-react';
+import { FileText, Github, Globe, ScrollText, Maximize2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 interface PublicationCardProps {
@@ -16,10 +16,10 @@ const PublicationCard: React.FC<PublicationCardProps> = ({ pub }) => {
         const isMe = author.trim() === "Haiyi Li";
         return (
           <React.Fragment key={index}>
-            <span className={isMe ? "font-bold text-slate-900" : "text-slate-600"}>
+            <span className={isMe ? "font-bold text-slate-50" : "text-slate-200/70"}>
               {author}
             </span>
-            {index < authors.length - 1 && <span className="text-slate-300">·</span>}
+            {index < authors.length - 1 && <span className="text-white/10">·</span>}
           </React.Fragment>
         );
       })}
@@ -35,11 +35,11 @@ const PublicationCard: React.FC<PublicationCardProps> = ({ pub }) => {
   const imageStyle: React.CSSProperties | undefined = isContain ? { maxHeight: containMaxHeight } : undefined;
 
   const statusStyles: Record<Publication['status'], string> = {
-    Published: "text-slate-800 bg-slate-100 border border-slate-200",
-    "Under Review": "text-primary-700 bg-primary-50 border border-primary-100",
-    Submitted: "text-slate-600 bg-slate-100 border border-slate-200",
-    "Conditionally Accepted": "text-emerald-800 bg-emerald-50 border border-emerald-200",
-    Accepted: "text-emerald-900 bg-emerald-50 border border-emerald-200"
+    Published: "text-slate-200 bg-white/5 border border-white/10",
+    "Under Review": "text-primary-200 bg-primary-500/10 border border-primary-500/20",
+    Submitted: "text-slate-200/80 bg-white/5 border border-white/10",
+    "Conditionally Accepted": "text-emerald-200 bg-emerald-500/10 border border-emerald-500/20",
+    Accepted: "text-emerald-200 bg-emerald-500/10 border border-emerald-500/20"
   };
 
   const venueLabel = pub.venue.trim();
@@ -52,11 +52,11 @@ const PublicationCard: React.FC<PublicationCardProps> = ({ pub }) => {
       viewport={{ once: true, margin: "-40px" }}
       whileHover={{ y: -4 }}
       transition={{ duration: 0.45, ease: "easeOut" }}
-      className="group flex flex-col md:grid md:grid-cols-12 gap-12 py-8 border-b border-slate-100 last:border-0"
+      className="group flex flex-col md:grid md:grid-cols-12 gap-12 p-7 md:p-10 rounded-3xl border border-white/10 bg-[#0b1220] shadow-[0_24px_70px_rgba(2,6,23,0.18)] hover:border-white/20 transition-colors"
     >
       {/* Image Column */}
       <div className="md:col-span-6">
-        <div className={`relative w-full overflow-hidden rounded-2xl border border-slate-200 ${containerBgClass} shadow-sm transition-all duration-500 group-hover:shadow-md group-hover:border-slate-300 ${containerAspectClass}`}>
+        <div className={`relative w-full overflow-hidden rounded-2xl border border-white/10 ${containerBgClass} shadow-sm transition-all duration-500 group-hover:shadow-md group-hover:border-white/20 ${containerAspectClass}`}>
           {pub.image ? (
             isPdf ? (
               <object data={`${pub.image}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`} type="application/pdf" className="w-full h-full">
@@ -84,7 +84,7 @@ const PublicationCard: React.FC<PublicationCardProps> = ({ pub }) => {
                   className={`${imageFitClass} opacity-95 group-hover:opacity-100 transition-opacity`}
                 />
                 {/* Overlay for interaction hint */}
-                <div className="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/5 transition-colors duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100 pointer-events-none">
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100 pointer-events-none">
                    <div className="bg-white/90 backdrop-blur rounded-full p-2 text-slate-700 shadow-sm">
                       <Maximize2 size={16} />
                    </div>
@@ -101,7 +101,7 @@ const PublicationCard: React.FC<PublicationCardProps> = ({ pub }) => {
 
       {/* Content Column */}
       <div className="md:col-span-6 flex flex-col justify-start pt-1">
-        <h3 className="text-3xl font-bold font-serif text-slate-900 leading-tight group-hover:text-primary-900 transition-colors">
+        <h3 className="text-3xl font-bold font-serif text-slate-50 leading-tight group-hover:text-primary-100 transition-colors">
           {pub.title}
         </h3>
         
@@ -110,7 +110,7 @@ const PublicationCard: React.FC<PublicationCardProps> = ({ pub }) => {
         </div>
         
         <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm md:text-base mt-5">
-          <span className="font-serif italic text-slate-800 font-medium border-b border-slate-200 pb-0.5">
+          <span className="font-serif italic text-slate-200/85 font-medium border-b border-white/10 pb-0.5">
             {displayVenue}
           </span>
           {pub.status !== 'Published' && (
@@ -120,30 +120,30 @@ const PublicationCard: React.FC<PublicationCardProps> = ({ pub }) => {
           )}
         </div>
         
-        <p className="text-sm md:text-base text-slate-600 mt-5 leading-relaxed max-w-3xl">
+        <p className="text-sm md:text-base text-slate-200/70 mt-5 leading-relaxed max-w-3xl">
           {pub.description}
         </p>
 
         {/* Links Area */}
-        <div className="flex flex-wrap gap-6 mt-10 pt-5 border-t border-slate-100/60">
+        <div className="flex flex-wrap gap-6 mt-10 pt-5 border-t border-white/10">
           {pub.links?.arxiv && (
-            <a href={pub.links.arxiv} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs font-bold text-slate-600 hover:text-red-700 uppercase tracking-wide transition-colors pb-0.5 group/link">
-              <ScrollText size={16} className="text-slate-400 group-hover/link:text-red-600 transition-colors" /> arXiv
+            <a href={pub.links.arxiv} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs font-bold text-slate-200/70 hover:text-red-200 uppercase tracking-wide transition-colors pb-0.5 group/link">
+              <ScrollText size={16} className="text-slate-200/40 group-hover/link:text-red-200 transition-colors" /> arXiv
             </a>
           )}
           {pub.links?.pdf && (
-            <a href={pub.links.pdf} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs font-bold text-slate-600 hover:text-primary-800 uppercase tracking-wide transition-colors pb-0.5 group/link">
-              <FileText size={16} className="text-slate-400 group-hover/link:text-primary-600 transition-colors" /> PDF
+            <a href={pub.links.pdf} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs font-bold text-slate-200/70 hover:text-primary-200 uppercase tracking-wide transition-colors pb-0.5 group/link">
+              <FileText size={16} className="text-slate-200/40 group-hover/link:text-primary-200 transition-colors" /> PDF
             </a>
           )}
           {pub.links?.code && (
-            <a href={pub.links.code} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs font-bold text-slate-600 hover:text-slate-900 uppercase tracking-wide transition-colors pb-0.5 group/link">
-              <Github size={16} className="text-slate-400 group-hover/link:text-slate-900 transition-colors" /> Code
+            <a href={pub.links.code} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs font-bold text-slate-200/70 hover:text-white uppercase tracking-wide transition-colors pb-0.5 group/link">
+              <Github size={16} className="text-slate-200/40 group-hover/link:text-white transition-colors" /> Code
             </a>
           )}
           {pub.links?.project && (
-            <a href={pub.links.project} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs font-bold text-slate-600 hover:text-primary-800 uppercase tracking-wide transition-colors pb-0.5 group/link">
-              <Globe size={16} className="text-slate-400 group-hover/link:text-primary-600 transition-colors" /> Project
+            <a href={pub.links.project} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs font-bold text-slate-200/70 hover:text-primary-200 uppercase tracking-wide transition-colors pb-0.5 group/link">
+              <Globe size={16} className="text-slate-200/40 group-hover/link:text-primary-200 transition-colors" /> Project
             </a>
           )}
         </div>
