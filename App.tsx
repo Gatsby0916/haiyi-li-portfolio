@@ -298,29 +298,29 @@ function App() {
     {
       id: 'languages' as const,
       items: skills.programming,
-      accent: "from-[#0b1220] via-[#0b1220] to-[rgba(2,132,199,0.18)]",
+      accent: "from-primary-50/80 via-white to-primary-100/40",
       Icon: Code2,
-      iconColor: "text-primary-200"
+      iconColor: "text-primary-800"
     },
     {
       id: 'stack' as const,
       items: skills.stack,
-      accent: "from-[#0b1220] via-[#0b1220] to-[rgba(16,185,129,0.18)]",
+      accent: "from-emerald-50/70 via-white to-emerald-100/40",
       Icon: Layers,
-      iconColor: "text-emerald-200"
+      iconColor: "text-emerald-800"
     },
     {
       id: 'viz' as const,
       items: skills.viz,
-      accent: "from-[#0b1220] via-[#0b1220] to-[rgba(245,158,11,0.18)]",
+      accent: "from-amber-50/70 via-white to-amber-100/40",
       Icon: Palette,
-      iconColor: "text-amber-200"
+      iconColor: "text-amber-800"
     },
     {
       id: 'math' as const,
-      accent: "from-[#0b1220] via-[#0b1220] to-[rgba(148,163,184,0.16)]",
+      accent: "from-slate-50/80 via-white to-slate-100/50",
       Icon: Calculator,
-      iconColor: "text-slate-200",
+      iconColor: "text-slate-700",
       getItems: (lang: Language) => mathCourses.map(course => lang === 'zh' ? course.zh : course.en)
     }
   ];
@@ -612,19 +612,19 @@ function App() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.05 }}
                 viewport={{ once: true }}
-                className="group flex flex-col justify-between p-6 rounded-2xl border border-white/10 bg-[#0b1220] shadow-[0_24px_70px_rgba(2,6,23,0.18)] hover:border-white/20 hover:bg-[#0f172a] transition-colors border-l-4 border-l-[var(--section-accent-to)]"
+                className={`group flex flex-col justify-between p-5 rounded-2xl border border-slate-200 hover:border-slate-300 hover:shadow-sm hover:bg-white transition-all duration-300 border-l-4 border-l-[var(--section-accent-to)] ${idx % 3 === 0 ? 'bg-white' : idx % 3 === 1 ? 'bg-amber-50/50' : 'bg-primary-50/40'}`}
               >
                 <div>
                   <div className="flex justify-between items-start mb-2">
-                    <span className="text-sm font-mono text-slate-200/65">{award.year}</span>
+                    <span className="text-sm font-mono text-slate-500">{award.year}</span>
                     {award.selectivity && (
-                      <span className="text-[10px] font-mono font-bold text-slate-200/70 bg-white/5 px-2 py-1 rounded border border-white/10">
+                      <span className="text-[10px] font-mono font-bold text-slate-500 bg-white px-2 py-1 rounded border border-slate-100">
                         {award.selectivity}
                       </span>
                     )}
                   </div>
-                  <h3 className="font-bold text-slate-50 text-base mb-1">{award.title}</h3>
-                  <div className="text-xs text-slate-200/80 font-semibold">{award.issuer}</div>
+                  <h3 className="font-bold text-slate-900 text-base mb-1">{award.title}</h3>
+                  <div className="text-xs text-slate-900 font-semibold">{award.issuer}</div>
                 </div>
               </motion.div>
             ))}
@@ -648,29 +648,29 @@ function App() {
                    whileInView={{ opacity: 1, y: 0 }}
                transition={{ delay: idx * 0.1 }}
                viewport={{ once: true }}
-                   className={`p-7 rounded-3xl border border-white/10 bg-gradient-to-br ${card.accent} shadow-[0_24px_70px_rgba(2,6,23,0.18)] ${card.id === 'math' ? 'md:col-span-3' : ''}`}
+                   className={`p-6 rounded-3xl border border-slate-200/70 bg-gradient-to-br ${card.accent} shadow-[0_20px_55px_rgba(15,23,42,0.08)] ${card.id === 'math' ? 'md:col-span-3' : ''}`}
                  >
                    <div className="flex items-center gap-3">
-                     <span className={`w-11 h-11 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center ${card.iconColor}`}>
+                     <span className={`w-11 h-11 rounded-2xl bg-white/70 border border-white/80 flex items-center justify-center ${card.iconColor}`}>
                        <card.Icon size={20} />
                      </span>
                      <div>
-                       <p className="font-semibold text-slate-50">{card.title}</p>
-                       <p className="text-xs text-slate-200/60">{card.description}</p>
+                       <p className="font-semibold text-slate-900">{card.title}</p>
+                       <p className="text-xs text-slate-500">{card.description}</p>
                      </div>
                    </div>
                    {card.id === 'math' ? (
-                     <div className="mt-5 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 text-xs sm:text-sm text-slate-200/80">
+                     <div className="mt-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 text-xs sm:text-sm text-slate-700">
                        {card.items.map(item => (
-                         <span key={item} className="inline-flex items-center justify-center rounded-2xl border border-white/10 bg-white/5 px-3 py-2 font-medium text-center">
+                         <span key={item} className="inline-flex items-center justify-center rounded-2xl border border-slate-200/70 bg-white/80 px-3 py-2 font-medium shadow-sm text-center">
                            {item}
                          </span>
                        ))}
                      </div>
                    ) : (
-                     <div className="flex flex-wrap gap-2 mt-5">
+                     <div className="flex flex-wrap gap-2 mt-4">
                        {card.items.map(item => (
-                         <span key={item} className="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-sm font-medium text-slate-200/80">
+                         <span key={item} className="px-3 py-1.5 rounded-full bg-white/80 border border-slate-200 text-sm font-medium text-slate-700 shadow-sm">
                            {item}
                          </span>
                        ))}
@@ -681,40 +681,40 @@ function App() {
              </div>
 
              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-               <div className="p-8 rounded-3xl border border-white/10 bg-[#0b1220] text-white shadow-[0_24px_70px_rgba(2,6,23,0.22)]">
+               <div className="p-8 rounded-3xl border border-slate-200 bg-white shadow-[0_25px_60px_rgba(15,23,42,0.08)]">
                  <div className="flex items-center gap-3">
-                   <Brain size={20} className="text-emerald-300" />
+                   <Brain size={20} className="text-emerald-700" />
                    <div>
-                     <p className="text-lg font-semibold">{t.skillsExtra.researchTitle}</p>
-                     <p className="text-sm text-slate-300">{t.skillsExtra.researchDesc}</p>
+                     <p className="text-lg font-semibold text-slate-900">{t.skillsExtra.researchTitle}</p>
+                     <p className="text-sm text-slate-500">{t.skillsExtra.researchDesc}</p>
                    </div>
                  </div>
                  <ul className="mt-6 space-y-4">
                    {workflowNotes.map(note => (
-                     <li key={note.title} className="border border-white/10 rounded-2xl p-4 bg-white/5 backdrop-blur">
-                       <p className="text-sm font-semibold">{note.title}</p>
-                       <p className="text-xs text-slate-200 mt-1">{note.text}</p>
+                     <li key={note.title} className="border border-slate-200 rounded-2xl p-4 bg-slate-50">
+                       <p className="text-sm font-semibold text-slate-900">{note.title}</p>
+                       <p className="text-xs text-slate-600 mt-1">{note.text}</p>
                      </li>
                    ))}
                  </ul>
                </div>
 
-               <div className="p-8 rounded-3xl border border-white/10 bg-[#0b1220] shadow-[0_24px_70px_rgba(2,6,23,0.18)]">
+               <div className="p-8 rounded-3xl border border-slate-200 bg-white shadow-[0_25px_60px_rgba(15,23,42,0.08)]">
                  <div className="flex items-center gap-3">
-                   <Globe size={20} className="text-primary-200" />
+                   <Globe size={20} className="text-primary-800" />
                    <div>
-                     <p className="text-lg font-semibold text-slate-50">{t.skillsExtra.communicationTitle}</p>
-                     <p className="text-sm text-slate-200/60">{t.skillsExtra.communicationDesc}</p>
+                     <p className="text-lg font-semibold text-slate-900">{t.skillsExtra.communicationTitle}</p>
+                     <p className="text-sm text-slate-500">{t.skillsExtra.communicationDesc}</p>
                    </div>
                  </div>
                  <div className="mt-6 space-y-3">
                    {skills.languages.map((lang, idx) => (
                      <div key={lang}>
-                        <div className="flex justify-between text-sm text-slate-200/75 mb-1">
-                          <span className="font-medium text-slate-50">{languageLabelMap[lang] ?? lang}</span>
-                          <span className="text-slate-200/50">{t.skillsExtra.badge}</span>
+                        <div className="flex justify-between text-sm text-slate-600 mb-1">
+                          <span className="font-medium">{languageLabelMap[lang] ?? lang}</span>
+                          <span className="text-slate-400">{t.skillsExtra.badge}</span>
                         </div>
-                        <div className="h-2 rounded-full bg-white/10 overflow-hidden">
+                        <div className="h-2 rounded-full bg-slate-100 overflow-hidden">
                           <div className="h-full bg-gradient-to-r from-primary-500 to-primary-800" style={{ width: `${languageProficiency[lang] ?? 70}%` }} />
                         </div>
                       </div>
@@ -726,9 +726,9 @@ function App() {
         </Section>
 
         {/* Footer */}
-        <footer className="pt-20 pb-12 text-center -mx-6 sm:-mx-8 px-6 sm:px-8 mt-24 bg-[#020617] text-slate-200 border-t border-white/10 rounded-t-[48px]">
-          <div className="w-12 h-1 bg-white/10 mx-auto mb-8 rounded-full"></div>
-          <p className="text-slate-300 text-xs font-mono">
+        <footer className="pt-20 pb-12 text-center -mx-6 sm:-mx-8 px-6 sm:px-8 mt-24 bg-gradient-to-b from-white to-slate-50 border-t border-slate-200 rounded-t-[48px]">
+          <div className="w-12 h-1 bg-slate-100 mx-auto mb-8 rounded-full"></div>
+          <p className="text-slate-400 text-xs font-mono">
             © {new Date().getFullYear()} Haiyi Li. <br className="sm:hidden"/> {t.footer.tagline}
           </p>
         </footer>
