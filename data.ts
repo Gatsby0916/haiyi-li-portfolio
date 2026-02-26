@@ -1,4 +1,4 @@
-
+﻿
 import { Award, Education, Experience, Publication } from './types';
 
 export const personalInfo = {
@@ -49,7 +49,7 @@ export const publications: Publication[] = [
     id: "chi-posters-2026-endoextract",
     title: "EndoExtract: Co-Designing Structured Text Extraction from Endometriosis Ultrasound Reports",
     authors: ["Haiyi Li", "Yiyang Zhao", "Yutong Li", "Alison Deslandes", "Jodie Avery", "Mathew Leonardi", "M. Louise Hull", "Hsiang-Ting Chen"],
-    venue: "Submitted to CHI 2026 Posters",
+    venue: "Submitted to Interactive Health 2026 Short Forms",
     status: "Under Review",
     year: "2026",
     description: "Presents EndoExtract, an on-premise LLM system for extracting structured fields from free-text endometriosis ultrasound reports and surfacing interpretive fields for mandatory human review. Grounded in contextual inquiry and formative evaluation, the interface shifts work from manual data entry to supervisory validation with evidence highlighting.",
@@ -218,3 +218,4 @@ export const skills = {
   viz: ["Matplotlib", "Gephi", "Tableau", "Seaborn"],
   languages: ["English (TOEFL)", "GRE", "Mandarin (Native)"]
 };
+
