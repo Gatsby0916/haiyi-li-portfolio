@@ -24,7 +24,7 @@ const translations = {
       skills: "Skills"
     },
     heroPill: "Academic Portfolio",
-    heroTagline: "Mathematical Sciences Honours Student at the University of Adelaide.",
+    heroTagline: "Incoming Master of Computational Science and Engineering student at Harvard University; Mathematical Sciences Honours student at the University of Adelaide.",
     heroStats: {
       research: { label: "Research threads", detail: "CV · HCI · Applied Maths" },
       awards: { label: "Awards & honors", detail: "Selective scholarships + prizes" },
@@ -87,7 +87,7 @@ const translations = {
       skills: "能力概览"
     },
     heroPill: "学术主页",
-    heroTagline: "阿德莱德大学数学科学荣誉项目学生，专注于计算机视觉、应用数学与人机协同 AI。",
+    heroTagline: "哈佛大学计算科学与工程硕士新生；阿德莱德大学数学科学荣誉项目学生。",
     heroStats: {
       research: { label: "研究方向", detail: "计算机视觉 / 人机交互 / 应用数学" },
       awards: { label: "获奖次数", detail: "国家与校级奖学金" },
@@ -159,9 +159,15 @@ interface SkillTileConfig {
   getItems?: (lang: Language) => string[];
 }
 
-const aboutTextZh = "我希望在计算科学与工程领域接受系统训练，研究兴趣位于应用分析与偏微分方程、数值方法、计算机视觉以及数据驱动的人机协作交互交汇处。我的目标是构建在数学上可靠、稳定且可解释的模型，用以处理真实世界中的不确定性建模问题。";
+const aboutTextZh = "我即将于 2026 年秋季进入哈佛大学攻读计算科学与工程硕士，目前就读于阿德莱德大学数学科学荣誉学士项目。我的研究兴趣位于应用分析与偏微分方程、数值方法、计算机视觉以及数据驱动的人机协作交互的交汇处。在 2026 Fall postgraduate 申请季中，我收到了来自 Harvard、Carnegie Mellon、Penn、Northwestern 和 University of Washington 等顶尖 CS 或数学项目的录取。我的目标是构建在数学上可靠、稳定且可解释的模型，用于真实世界中的不确定性建模。";
 
 const educationZh: Record<string, Partial<typeof education[number]>> = {
+  harvard: {
+    institution: "哈佛大学",
+    degree: "计算科学与工程硕士",
+    ranking: "2026 年秋季入学录取",
+    courses: ["计算科学", "科学计算", "应用数学", "机器学习"]
+  },
   adelaide: {
     institution: "阿德莱德大学",
     degree: "数学科学荣誉学士学位",

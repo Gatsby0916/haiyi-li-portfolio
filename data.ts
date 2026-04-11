@@ -3,14 +3,14 @@ import { Award, Education, Experience, Publication } from './types';
 
 export const personalInfo = {
   name: "Haiyi Li",
-  title: "Mathematical Sciences Honours Student",
-  institution: "University of Adelaide",
+  title: "Incoming Master of Computational Science and Engineering Student",
+  institution: "Harvard University",
   email: "haiyi.li@student.adelaide.edu.au",
   phone: import.meta.env.VITE_PHONE_NUMBER ?? "",
   location: "Adelaide City, SA, Australia",
   github: "https://github.com/Gatsby0916",
   orcid: "https://orcid.org/0009-0004-6914-8457",
-  about: `I am motivated to pursue advanced training in Computational Science and Engineering. My research interests lie at the intersection of applied analysis and PDEs, numerical methods, computer vision, and data-driven human–AI interaction. My goal is to develop mathematically principled, stable, and interpretable models for real-world uncertainty modeling.`
+  about: `I am an incoming Master of Computational Science and Engineering student at Harvard University and a Mathematical Sciences Honours student at the University of Adelaide. My research interests lie at the intersection of applied analysis and PDEs, numerical methods, computer vision, and data-driven human-AI interaction. In the 2026 Fall postgraduate admissions cycle, I received offers from leading CS and mathematics programs including Harvard, Carnegie Mellon, Penn, Northwestern, and the University of Washington. My goal is to develop mathematically principled, stable, and interpretable models for real-world uncertainty modeling.`
 };
 
 export const publications: Publication[] = [
@@ -49,8 +49,8 @@ export const publications: Publication[] = [
     id: "chi-posters-2026-endoextract",
     title: "EndoExtract: Co-Designing Structured Text Extraction from Endometriosis Ultrasound Reports",
     authors: ["Haiyi Li", "Yiyang Zhao", "Yutong Li", "Alison Deslandes", "Jodie Avery", "Mathew Leonardi", "M. Louise Hull", "Hsiang-Ting Chen"],
-    venue: "Submitted to Interactive Health 2026 Short Forms",
-    status: "Under Review",
+    venue: "Interactive Health 2026",
+    status: "Accepted",
     year: "2026",
     description: "Presents EndoExtract, an on-premise LLM system for extracting structured fields from free-text endometriosis ultrasound reports and surfacing interpretive fields for mandatory human review. Grounded in contextual inquiry and formative evaluation, the interface shifts work from manual data entry to supervisory validation with evidence highlighting.",
     tags: ["LLMs", "Medical Imaging", "NLP", "HCI", "Co-design", "First Author"],
@@ -87,6 +87,14 @@ export const publications: Publication[] = [
 ];
 
 export const education: Education[] = [
+  {
+    id: "harvard",
+    degree: "Master of Computational Science and Engineering",
+    institution: "Harvard University",
+    period: "Aug 2026 - Incoming",
+    ranking: "Admitted for Fall 2026",
+    courses: ["Computational Science", "Scientific Computing", "Applied Mathematics", "Machine Learning"]
+  },
   {
     id: "adelaide",
     degree: "Honours Degree of Bachelor of Mathematical Sciences",
