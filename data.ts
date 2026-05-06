@@ -119,7 +119,7 @@ export const experience: Experience[] = [
     role: "Research Assistant",
     institution: "Australian Institute for Machine Learning (AIML), University of Adelaide",
     location: "Lot Fourteen, Adelaide, South Australia",
-    period: "May 2026 - Present",
+    period: "Nov 2024 – Present",
     description: [
       "Research assistant in AIML's computer graphics and 3D vision research context, focusing on 3D Gaussian Splatting and scene reconstruction.",
       "Work across machine learning, 3D vision, and deep learning workflows for geometry-aware visual computing."
