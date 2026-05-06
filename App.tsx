@@ -37,7 +37,7 @@ const translations = {
         description: "Translate PDE intuition into reproducible code for modeling and experimentation."
       },
       stack: {
-        title: "ML & Systems Stack",
+        title: "CG & System Stack",
         description: "Ship experiments that bridge prototypes with production-friendly tooling."
       },
       viz: {
