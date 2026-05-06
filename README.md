@@ -3,4 +3,4 @@
 This is my academic homepage showcasing research, education, experience, awards, and skills.  
 Live site: https://Gatsby0916.github.io/haiyi-li-portfolio/
 
-
+![Haiyi Li homepage QR code](public/images/homepage-qr.png)

@@ -26,9 +26,9 @@ const translations = {
     heroPill: "Academic Portfolio",
     heroTagline: "Incoming Master of Computational Science and Engineering student at Harvard University; Mathematical Sciences Honours student at the University of Adelaide.",
     heroStats: {
-      research: { label: "Research threads", detail: "CV · HCI · Applied Maths" },
+      research: { label: "Research threads", detail: "CG · 3DGS · HCI" },
       awards: { label: "Awards & honors", detail: "Selective scholarships + prizes" },
-      experience: { label: "Industry & lab roles", detail: "CSIRO, IMAGENDO, Kumon" }
+      experience: { label: "Industry & lab roles", detail: "AIML, CSIRO, IMAGENDO" }
     },
     heroFocusTags: ["3D Gaussian Splatting", "Variational PDEs", "Human-centered AI"],
     skillTiles: {
@@ -50,7 +50,7 @@ const translations = {
       }
     },
     workflowNotes: [
-      { id: "model", title: "Model-first reasoning", text: "Variational analysis informs which inductive biases enter CV systems." },
+      { id: "model", title: "Model-first reasoning", text: "Variational analysis informs which inductive biases enter CG and 3DGS systems." },
       { id: "privacy", title: "Privacy-aware ML", text: "Design on-premise LLM workflows for medical imaging partners." },
       { id: "human", title: "Human factors", text: "Quantitative UX pipelines (ANOVA, Wilcoxon) close the loop with users." }
     ],
@@ -87,11 +87,11 @@ const translations = {
       skills: "能力概览"
     },
     heroPill: "学术主页",
-    heroTagline: "哈佛大学计算科学与工程硕士新生；阿德莱德大学数学科学荣誉项目学生。",
+    heroTagline: "哈佛大学计算科学与工程硕士新生；阿德莱德大学数学科学荣誉项目学生，专注于计算机图形学、3DGS、应用数学与人机协同 AI。",
     heroStats: {
-      research: { label: "研究方向", detail: "计算机视觉 / 人机交互 / 应用数学" },
+      research: { label: "研究方向", detail: "计算机图形学 / 3DGS / 人机交互" },
       awards: { label: "获奖次数", detail: "国家与校级奖学金" },
-      experience: { label: "合作经历", detail: "CSIRO、IMAGENDO 等机构" }
+      experience: { label: "合作经历", detail: "AIML、CSIRO、IMAGENDO 等机构" }
     },
     heroFocusTags: ["三维高斯点渲染", "变分偏微分方程", "人机协同 AI"],
     skillTiles: {
@@ -159,7 +159,7 @@ interface SkillTileConfig {
   getItems?: (lang: Language) => string[];
 }
 
-const aboutTextZh = "我即将于 2026 年秋季进入哈佛大学攻读计算科学与工程硕士，目前就读于阿德莱德大学数学科学荣誉学士项目。我的研究兴趣位于应用分析与偏微分方程、数值方法、计算机视觉以及数据驱动的人机协作交互的交汇处。在 2026 年秋季研究生申请季中，我收到了来自哈佛大学、卡内基梅隆大学、宾夕法尼亚大学、西北大学和华盛顿大学等顶尖计算机科学或数学项目的录取。我的目标是构建在数学上可靠、稳定且可解释的模型，用于真实世界中的不确定性建模。";
+const aboutTextZh = "我即将于 2026 年秋季进入哈佛大学攻读计算科学与工程硕士，目前就读于阿德莱德大学数学科学荣誉学士项目。我的研究兴趣位于应用分析与偏微分方程、数值方法、计算机图形学、三维高斯点渲染以及数据驱动的人机协作交互的交汇处。在 2026 年秋季研究生申请季中，我收到了来自哈佛大学、卡内基梅隆大学、宾夕法尼亚大学和西北大学等顶尖计算机科学或数学项目的录取。我的目标是构建在数学上可靠、稳定且可解释的模型，用于真实世界中的不确定性建模。";
 
 const educationZh: Record<string, Partial<typeof education[number]>> = {
   harvard: {
@@ -183,6 +183,15 @@ const educationZh: Record<string, Partial<typeof education[number]>> = {
 };
 
 const experienceZh: Record<string, Partial<typeof experience[number]>> = {
+  aiml: {
+    role: "科研助理",
+    institution: "阿德莱德大学澳大利亚机器学习研究院（AIML）",
+    location: "澳大利亚南澳州阿德莱德 Lot Fourteen",
+    description: [
+      "在 AIML 的计算机图形学与三维视觉研究环境中担任 RA，聚焦 3D Gaussian Splatting 与场景重建。",
+      "围绕几何感知视觉计算，参与机器学习、三维视觉与深度学习相关工作流。"
+    ]
+  },
   csiro: {
     role: "工业见习生",
     institution: "澳大利亚联邦科学与工业研究组织（CSIRO）",

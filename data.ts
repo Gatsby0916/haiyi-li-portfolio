@@ -10,7 +10,7 @@ export const personalInfo = {
   location: "Adelaide City, SA, Australia",
   github: "https://github.com/Gatsby0916",
   orcid: "https://orcid.org/0009-0004-6914-8457",
-  about: `I am an incoming Master of Computational Science and Engineering student at Harvard University and a Mathematical Sciences Honours student at the University of Adelaide. My research interests lie at the intersection of applied analysis and PDEs, numerical methods, computer vision, and data-driven human-AI interaction. In the 2026 Fall postgraduate admissions cycle, I received offers from leading CS and mathematics programs including Harvard, Carnegie Mellon, Penn, Northwestern, and the University of Washington. My goal is to develop mathematically principled, stable, and interpretable models for real-world uncertainty modeling.`
+  about: `I am an incoming Master of Computational Science and Engineering student at Harvard University and a Mathematical Sciences Honours student at the University of Adelaide. My research interests lie at the intersection of applied analysis and PDEs, numerical methods, computer graphics, 3D Gaussian Splatting, and data-driven human-AI interaction. In the 2026 Fall postgraduate admissions cycle, I received offers from leading CS and mathematics programs including Harvard, Carnegie Mellon, Penn, and Northwestern. My goal is to develop mathematically principled, stable, and interpretable models for real-world uncertainty modeling.`
 };
 
 export const publications: Publication[] = [
@@ -22,7 +22,7 @@ export const publications: Publication[] = [
     status: "Accepted",
     year: "2026",
     description: "Introduces OUGS, an object-aware uncertainty framework for 3D Gaussian Splatting that derives uncertainty from Gaussian primitive parameters and propagates covariances through the rendering Jacobian. Integrating segmentation masks enables targeted uncertainty scoring and more efficient active view selection for improved object fidelity.",
-    tags: ["Computer Vision", "3D Gaussian Splatting", "Uncertainty Estimation", "First Author"],
+    tags: ["Computer Graphics", "3D Gaussian Splatting", "Uncertainty Estimation", "First Author"],
     image: "images/ougs.png",
     imageFit: "contain",
     imageMaxHeight: 320,
@@ -114,6 +114,17 @@ export const education: Education[] = [
 ];
 
 export const experience: Experience[] = [
+  {
+    id: "aiml",
+    role: "Research Assistant",
+    institution: "Australian Institute for Machine Learning (AIML), University of Adelaide",
+    location: "Lot Fourteen, Adelaide, South Australia",
+    period: "May 2026 - Present",
+    description: [
+      "Research assistant in AIML's computer graphics and 3D vision research context, focusing on 3D Gaussian Splatting and scene reconstruction.",
+      "Work across machine learning, 3D vision, and deep learning workflows for geometry-aware visual computing."
+    ]
+  },
   {
     id: "csiro",
     role: "Industrial Trainee",
@@ -222,7 +233,7 @@ export const awards: Award[] = [
 
 export const skills = {
   programming: ["Python", "MATLAB", "R", "SQL"],
-  stack: ["PyTorch", "scikit-learn", "OpenCV", "Docker", "Git"],
+  stack: ["PyTorch", "OpenCV", "3DGS", "NeRF", "SfM", "Docker", "Git"],
   viz: ["Matplotlib", "Gephi", "Tableau", "Seaborn"],
   languages: ["English (TOEFL)", "GRE", "Mandarin (Native)"]
 };
