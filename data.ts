@@ -20,12 +20,12 @@ export const publications: Publication[] = [
     id: "ougs-2026",
     title: "OUGS: Active View Selection via Object-aware Uncertainty Estimation in 3DGS",
     authors: ["Haiyi Li", "Qi Chen", "Denis Kalkofen", "Hsiang-Ting Chen"],
-    venue: "EuroGraphics 2026",
+    venue: "Eurographics 2026",
     status: "Accepted",
     year: "2026",
     description: "Introduces OUGS, an object-aware uncertainty framework for 3D Gaussian Splatting that derives uncertainty from Gaussian primitive parameters and propagates covariances through the rendering Jacobian. Integrating segmentation masks enables targeted uncertainty scoring and more efficient active view selection for improved object fidelity.",
     tags: ["Computer Graphics", "3D Gaussian Splatting", "Uncertainty Estimation"],
-    showArxiv: false,
+    showArxiv: true,
     links: { arxiv: "https://arxiv.org/abs/2511.09397" }
   },
   {
@@ -37,7 +37,7 @@ export const publications: Publication[] = [
     year: "2026",
     description: "Evaluates on-premise LLMs for converting endometriosis transvaginal ultrasound reports into structured data, comparing multiple model scales against expert extraction across 49 reports. Finds complementary LLM–human error profiles and motivates a human-in-the-loop workflow.",
     tags: ["LLMs", "Medical Imaging", "HCI"],
-    showArxiv: false,
+    showArxiv: true,
     links: { arxiv: "https://arxiv.org/abs/2601.09053" }
   },
   {

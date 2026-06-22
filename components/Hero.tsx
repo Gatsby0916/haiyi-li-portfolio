@@ -25,13 +25,13 @@ export default function Hero({ heroPill, heroTagline, aboutContent, email, githu
           [ {heroPill} ]
         </p>
 
-        <h1 className="font-serif text-[3.8rem] md:text-[5.5rem] lg:text-[7rem] font-bold text-white leading-none mb-8">
+        <h1 className="font-serif text-[2.6rem] md:text-[3.8rem] lg:text-[5rem] font-bold text-white leading-none mb-7">
           Haiyi Li
         </h1>
 
         <div className="flex items-center gap-3 mb-10">
-          <HarvardShield className="h-9 w-auto shrink-0 opacity-90" />
-          <p className="font-sans text-lg md:text-xl text-white/55 font-light">
+          <HarvardShield className="h-8 w-auto shrink-0 opacity-90" />
+          <p className="font-sans text-sm md:text-base text-white/55 font-light">
             {heroTagline}
           </p>
         </div>

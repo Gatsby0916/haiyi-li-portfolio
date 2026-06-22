@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { HarvardShield } from './Icons';
 
 interface NavProps {
   language: 'en' | 'zh';
@@ -24,11 +25,8 @@ export default function Nav({ language, onToggleLanguage, navItems }: NavProps) 
       }`}
     >
       <div className="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
-        <a
-          href="#"
-          className="font-serif text-lg font-bold text-white tracking-tight"
-        >
-          HL
+        <a href="#" className="flex items-center" aria-label="Home">
+          <HarvardShield className="h-7 w-auto opacity-85 hover:opacity-100 transition-opacity" />
         </a>
 
         <nav className="hidden md:flex items-center gap-8">
@@ -49,7 +47,7 @@ export default function Nav({ language, onToggleLanguage, navItems }: NavProps) 
           </button>
         </nav>
 
-        {/* Mobile: compact bottom row */}
+        {/* Mobile: language toggle only */}
         <button
           onClick={onToggleLanguage}
           className="md:hidden font-mono text-[11px] text-white/30 hover:text-white/60 transition-colors tracking-widest"
