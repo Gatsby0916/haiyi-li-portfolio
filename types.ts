@@ -10,6 +10,7 @@ export interface Publication {
   image?: string;
   imageFit?: 'contain' | 'cover';
   imageMaxHeight?: number;
+  showArxiv?: boolean;
   links?: {
     pdf?: string;
     code?: string;

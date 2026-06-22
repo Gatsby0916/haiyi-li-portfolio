@@ -18,71 +18,59 @@ export const publications: Publication[] = [
     id: "ougs-2026",
     title: "OUGS: Active View Selection via Object-aware Uncertainty Estimation in 3DGS",
     authors: ["Haiyi Li", "Qi Chen", "Denis Kalkofen", "Hsiang-Ting Chen"],
-    venue: "Submitted to EuroGraphics 2026",
+    venue: "EuroGraphics 2026",
     status: "Accepted",
     year: "2026",
     description: "Introduces OUGS, an object-aware uncertainty framework for 3D Gaussian Splatting that derives uncertainty from Gaussian primitive parameters and propagates covariances through the rendering Jacobian. Integrating segmentation masks enables targeted uncertainty scoring and more efficient active view selection for improved object fidelity.",
-    tags: ["Computer Graphics", "3D Gaussian Splatting", "Uncertainty Estimation", "First Author"],
-    image: "images/ougs.png",
-    imageFit: "contain",
-    imageMaxHeight: 320,
-    links: {
-      arxiv: "https://arxiv.org/abs/2511.09397"
-    }
+    tags: ["Computer Graphics", "3D Gaussian Splatting", "Uncertainty Estimation"],
+    showArxiv: false,
+    links: { arxiv: "https://arxiv.org/abs/2511.09397" }
   },
   {
-    id: "isbi-2026",
+    id: "chi-2026-whofails",
     title: "Who Fails Where? LLM and Human Error Patterns in Endometriosis Ultrasound Report Extraction",
     authors: ["Haiyi Li", "Yutong Li", "Yiheng Chi", "Alison Deslandes", "Mathew Leonardi", "Shay Freger", "Yuan Zhang", "Jodie Avery", "M. Louise Hull", "Hsiang-Ting Chen"],
-    venue: "CHI 2026 Posters",
+    venue: "CHI 2026 Extended Abstracts",
     status: "Accepted",
     year: "2026",
-    description: "Evaluates on-premise LLMs for converting endometriosis transvaginal ultrasound reports into structured data, comparing multiple model scales against expert extraction across 49 reports. Finds complementary LLM–human error profiles and motivates a human-in-the-loop workflow where the LLM handles routine structuring and supports semantic validation.",
-    tags: ["LLMs", "Medical Imaging", "NLP", "HCI", "First Author"],
-    image: "images/WhoFails.png",
-    imageFit: "contain", // Diagrams need to be contained to see labels
-    links: {
-      arxiv: "https://arxiv.org/abs/2601.09053"
-    }
+    description: "Evaluates on-premise LLMs for converting endometriosis transvaginal ultrasound reports into structured data, comparing multiple model scales against expert extraction across 49 reports. Finds complementary LLM–human error profiles and motivates a human-in-the-loop workflow.",
+    tags: ["LLMs", "Medical Imaging", "HCI"],
+    showArxiv: false,
+    links: { arxiv: "https://arxiv.org/abs/2601.09053" }
   },
   {
-    id: "chi-posters-2026-endoextract",
+    id: "endoextract-2026",
     title: "EndoExtract: Co-Designing Structured Text Extraction from Endometriosis Ultrasound Reports",
     authors: ["Haiyi Li", "Yiyang Zhao", "Yutong Li", "Alison Deslandes", "Jodie Avery", "Mathew Leonardi", "M. Louise Hull", "Hsiang-Ting Chen"],
-    venue: "Interactive Health 2026",
+    venue: "ACM Interactive Health 2026",
     status: "Accepted",
     year: "2026",
-    description: "Presents EndoExtract, an on-premise LLM system for extracting structured fields from free-text endometriosis ultrasound reports and surfacing interpretive fields for mandatory human review. Grounded in contextual inquiry and formative evaluation, the interface shifts work from manual data entry to supervisory validation with evidence highlighting.",
-    tags: ["LLMs", "Medical Imaging", "NLP", "HCI", "Co-design", "First Author"],
-    image: "images/EndoExtract.png",
-    imageFit: "contain",
-    links: {
-      arxiv: "https://arxiv.org/abs/2601.18154"
-    }
+    description: "Presents EndoExtract, an on-premise LLM system for extracting structured fields from free-text endometriosis ultrasound reports and surfacing interpretive fields for mandatory human review. Grounded in contextual inquiry and formative evaluation.",
+    tags: ["LLMs", "Medical Imaging", "HCI", "Co-design"],
+    showArxiv: true,
+    links: { arxiv: "https://arxiv.org/abs/2601.18154" }
   },
   {
     id: "amm-2025",
     title: "A Variational Path to Laplace’s Equation via Complex Analysis",
     authors: ["Haiyi Li"],
-    venue: "Submitted to American Mathematical Monthly",
+    venue: "American Mathematical Monthly",
     status: "Under Review",
     year: "2025",
-    description: "Established a novel framework linking a degenerate variational principle to Laplace’s equation.",
-    tags: ["Applied Mathematics", "Complex Analysis", "PDEs", "Sole Author"],
-    image: "images/Variantion.png",
-    imageFit: "contain" // Mathematical diagrams need to be fully visible
+    description: "Establishes a novel framework linking a degenerate variational principle to Laplace’s equation via complex analysis.",
+    tags: ["Applied Mathematics", "Complex Analysis", "PDEs"],
+    showArxiv: false
   },
   {
-    id: "chi-2026",
+    id: "dis-2026",
     title: "To Know or Not to Know?: How User Awareness of Physiological Sensing Impacts AI Persuasion and User Experience",
     authors: ["Xiaoyan Wei", "Yutong Qu", "Yutong Li", "Haiyi Li", "et al."],
-    venue: "Submitted to DIS 2026",
+    venue: "DIS 2026",
     status: "Under Review",
     year: "2026",
-    description: "Conducted rigorous statistical analysis (repeated-measures ANOVA, Wilcoxon) demonstrating the trade-off between perceived persuasiveness and user negative affect; resubmitted to DIS 2026 following the CHI transfer.",
+    description: "Demonstrates the trade-off between perceived persuasiveness and user negative affect via repeated-measures ANOVA and Wilcoxon tests in a physiological-sensing AI persuasion study.",
     tags: ["HCI", "AI Persuasion", "Statistical Analysis"],
-    image: "images/InterfaceNew.png",
-    imageFit: "contain"
+    showArxiv: false
   }
 ];
 
@@ -144,16 +132,6 @@ export const experience: Experience[] = [
     period: "Mar 2025 – Nov 2025",
     description: [
       "AI-assisted gynecological ultrasound: built preprocessing/data tooling and lesion-detection prototypes."
-    ]
-  },
-  {
-    id: "kumon",
-    role: "Math Tutor",
-    institution: "Kumon Home-based Program",
-    location: "",
-    period: "Jan 2025",
-    description: [
-      "Provided mathematical instruction and mentorship to students aged 5 to 16."
     ]
   }
 ];
@@ -233,8 +211,8 @@ export const awards: Award[] = [
 
 export const skills = {
   programming: ["Python", "MATLAB", "R", "SQL"],
-  stack: ["PyTorch", "OpenCV", "3DGS", "NeRF", "SfM", "Docker", "Git"],
-  viz: ["Matplotlib", "Gephi", "Tableau", "Seaborn"],
+  stack: ["PyTorch", "OpenCV", "3DGS", "NeRF", "SfM", "CUDA", "Docker"],
+  viz: ["Matplotlib", "Gephi", "Seaborn"],
   languages: ["English (TOEFL)", "GRE", "Mandarin (Native)"]
 };
 
