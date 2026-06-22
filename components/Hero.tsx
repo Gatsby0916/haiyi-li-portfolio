@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { GitHubIcon, LinkedInIcon, GoogleScholarIcon, OrcidIcon } from './Icons';
 
 interface HeroProps {
   heroPill: string;
@@ -6,58 +7,86 @@ interface HeroProps {
   aboutContent: string;
   email: string;
   github: string;
+  linkedin: string;
+  googleScholar: string;
   orcid: string;
 }
 
-export default function Hero({ heroPill, heroTagline, aboutContent, email, github, orcid }: HeroProps) {
+export default function Hero({ heroPill, heroTagline, aboutContent, email, github, linkedin, googleScholar, orcid }: HeroProps) {
   return (
     <section id="about" className="min-h-screen flex flex-col justify-center pt-14 pb-20">
       <motion.div
-        initial={{ opacity: 0, y: 16 }}
+        initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
+        transition={{ duration: 0.7, ease: 'easeOut' }}
         className="max-w-5xl mx-auto px-6 w-full"
       >
-        <p className="font-mono text-[11px] tracking-[0.3em] text-white/30 uppercase mb-10">
+        <p className="font-mono text-xs tracking-[0.3em] text-white/30 uppercase mb-10">
           [ {heroPill} ]
         </p>
 
-        <h1 className="font-serif text-8xl md:text-9xl font-bold text-white leading-none mb-6">
+        <h1 className="font-serif text-[6rem] md:text-[9rem] lg:text-[11rem] font-bold text-white leading-none mb-8">
           Haiyi Li
         </h1>
 
-        <p className="font-sans text-xl text-white/55 font-light mb-10">
+        <p className="font-sans text-2xl md:text-3xl text-white/55 font-light mb-10">
           {heroTagline}
         </p>
 
-        <div className="w-full h-px bg-white/10 mb-10" />
+        <div className="w-full h-px bg-gradient-to-r from-white/20 via-white/8 to-transparent mb-10" />
 
-        <p className="font-sans text-[1.15rem] text-white/75 leading-[1.9] max-w-[65ch] mb-12">
+        <p className="font-sans text-[1.25rem] md:text-[1.35rem] text-white/75 leading-[1.9] max-w-[65ch] mb-12">
           {aboutContent}
         </p>
 
-        <div className="flex flex-wrap gap-6">
+        <div className="flex flex-wrap items-center gap-5">
           <a
             href={`mailto:${email}`}
-            className="font-mono text-xs text-white/35 hover:text-white/65 transition-colors underline-offset-4 hover:underline"
+            className="font-mono text-sm text-white/35 hover:text-white/70 transition-colors underline-offset-4 hover:underline"
           >
             {email}
           </a>
+
+          <span className="text-white/15 select-none">|</span>
+
           <a
             href={github}
             target="_blank"
             rel="noreferrer"
-            className="font-mono text-xs text-white/35 hover:text-white/65 transition-colors underline-offset-4 hover:underline"
+            title="GitHub"
+            className="text-white/35 hover:text-white/75 transition-colors"
           >
-            GitHub
+            <GitHubIcon className="w-5 h-5" />
           </a>
+
+          <a
+            href={linkedin}
+            target="_blank"
+            rel="noreferrer"
+            title="LinkedIn"
+            className="text-white/35 hover:text-white/75 transition-colors"
+          >
+            <LinkedInIcon className="w-5 h-5" />
+          </a>
+
+          <a
+            href={googleScholar}
+            target="_blank"
+            rel="noreferrer"
+            title="Google Scholar"
+            className="text-white/35 hover:text-white/75 transition-colors"
+          >
+            <GoogleScholarIcon className="w-5 h-5" />
+          </a>
+
           <a
             href={orcid}
             target="_blank"
             rel="noreferrer"
-            className="font-mono text-xs text-white/35 hover:text-white/65 transition-colors underline-offset-4 hover:underline"
+            title="ORCID"
+            className="text-white/35 hover:text-white/75 transition-colors"
           >
-            ORCID
+            <OrcidIcon className="w-5 h-5" />
           </a>
         </div>
       </motion.div>

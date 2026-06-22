@@ -4,6 +4,7 @@ import Hero from './components/Hero';
 import Section from './components/Section';
 import PublicationEntry from './components/PublicationCard';
 import Timeline from './components/Timeline';
+import { GitHubIcon, LinkedInIcon, GoogleScholarIcon, OrcidIcon } from './components/Icons';
 import { personalInfo, publications, education, experience, awards, skills } from './data';
 import { Education, Experience, Award } from './types';
 
@@ -153,6 +154,8 @@ export default function App() {
         aboutContent={isZh ? aboutTextZh : personalInfo.about}
         email={personalInfo.email}
         github={personalInfo.github}
+        linkedin={personalInfo.linkedin}
+        googleScholar={personalInfo.googleScholar}
         orcid={personalInfo.orcid}
       />
 
@@ -173,14 +176,14 @@ export default function App() {
       </Section>
 
       <Section id="skills" label={t.sections.skills}>
-        <div className="flex flex-wrap items-center gap-2">
+        <div className="flex flex-wrap items-center gap-2.5">
           {ALL_SKILLS.map((item, i) =>
             item === 'SEPARATOR' ? (
-              <span key={`sep-${i}`} className="text-white/20 text-sm mx-1 select-none">—</span>
+              <span key={`sep-${i}`} className="text-white/20 text-base mx-2 select-none">—</span>
             ) : (
               <span
                 key={item}
-                className="font-sans text-sm font-medium text-white/55 border border-white/10 bg-white/[0.03] px-3 py-1 rounded-sm"
+                className="font-sans text-sm font-medium text-white/55 border border-white/10 bg-white/[0.03] px-4 py-1.5 rounded-sm cursor-default transition-all duration-200 hover:text-white/85 hover:border-white/25 hover:bg-white/[0.07]"
               >
                 {item}
               </span>
@@ -190,32 +193,33 @@ export default function App() {
       </Section>
 
       <footer className="border-t border-white/8 py-10">
-        <div className="max-w-5xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="font-mono text-[11px] text-white/25">
+        <div className="max-w-5xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="font-mono text-xs text-white/25">
             © 2026 Haiyi Li
           </p>
-          <div className="flex gap-6">
+          <div className="flex items-center gap-5">
             <a
               href={`mailto:${personalInfo.email}`}
-              className="font-mono text-[11px] text-white/25 hover:text-white/50 transition-colors"
+              className="font-mono text-xs text-white/25 hover:text-white/55 transition-colors"
             >
               {personalInfo.email}
             </a>
-            <a
-              href={personalInfo.github}
-              target="_blank"
-              rel="noreferrer"
-              className="font-mono text-[11px] text-white/25 hover:text-white/50 transition-colors"
-            >
-              GitHub
+            <span className="text-white/10 select-none">|</span>
+            <a href={personalInfo.github} target="_blank" rel="noreferrer" title="GitHub"
+              className="text-white/25 hover:text-white/60 transition-colors">
+              <GitHubIcon className="w-4 h-4" />
             </a>
-            <a
-              href={personalInfo.orcid}
-              target="_blank"
-              rel="noreferrer"
-              className="font-mono text-[11px] text-white/25 hover:text-white/50 transition-colors"
-            >
-              ORCID
+            <a href={personalInfo.linkedin} target="_blank" rel="noreferrer" title="LinkedIn"
+              className="text-white/25 hover:text-white/60 transition-colors">
+              <LinkedInIcon className="w-4 h-4" />
+            </a>
+            <a href={personalInfo.googleScholar} target="_blank" rel="noreferrer" title="Google Scholar"
+              className="text-white/25 hover:text-white/60 transition-colors">
+              <GoogleScholarIcon className="w-4 h-4" />
+            </a>
+            <a href={personalInfo.orcid} target="_blank" rel="noreferrer" title="ORCID"
+              className="text-white/25 hover:text-white/60 transition-colors">
+              <OrcidIcon className="w-4 h-4" />
             </a>
           </div>
         </div>

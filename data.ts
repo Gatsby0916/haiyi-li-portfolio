@@ -9,6 +9,8 @@ export const personalInfo = {
   phone: import.meta.env.VITE_PHONE_NUMBER ?? "",
   location: "Adelaide City, SA, Australia",
   github: "https://github.com/Gatsby0916",
+  linkedin: "https://www.linkedin.com/in/haiyi-li-8a1ab835a/",
+  googleScholar: "https://scholar.google.com/citations?user=ygecZooAAAAJ&hl=en",
   orcid: "https://orcid.org/0009-0004-6914-8457",
   about: `I am an incoming Master of Computational Science and Engineering student at Harvard University and a Mathematical Sciences Honours student at the University of Adelaide. My research interests lie at the intersection of applied analysis and PDEs, numerical methods, computer graphics, 3D Gaussian Splatting, and data-driven human-AI interaction. My goal is to develop mathematically principled, stable, and interpretable models for real-world uncertainty modeling.`
 };
