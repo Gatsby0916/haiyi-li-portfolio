@@ -25,10 +25,6 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-.font-playfair {
-  font-family: 'Playfair Display', Georgia, serif;
-}
-
 /* Noise texture overlay — rendered as a fixed div in App.tsx */
 .noise-overlay {
   position: fixed;

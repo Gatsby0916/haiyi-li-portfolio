@@ -26,7 +26,7 @@ export default function Nav({ language, onToggleLanguage, navItems }: NavProps) 
       <div className="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
         <a
           href="#"
-          className="font-playfair text-lg font-bold text-white tracking-tight"
+          className="font-serif text-lg font-bold text-white tracking-tight"
         >
           HL
         </a>
