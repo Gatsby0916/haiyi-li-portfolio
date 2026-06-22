@@ -22,17 +22,17 @@ export default function Hero({ heroPill, heroTagline, aboutContent, email, githu
           [ {heroPill} ]
         </p>
 
-        <h1 className="font-serif text-7xl md:text-8xl font-bold text-white leading-none mb-5">
+        <h1 className="font-serif text-8xl md:text-9xl font-bold text-white leading-none mb-6">
           Haiyi Li
         </h1>
 
-        <p className="font-sans text-lg text-white/55 font-light mb-8">
+        <p className="font-sans text-xl text-white/55 font-light mb-10">
           {heroTagline}
         </p>
 
-        <div className="w-full h-px bg-white/10 mb-8" />
+        <div className="w-full h-px bg-white/10 mb-10" />
 
-        <p className="font-sans text-[1.05rem] text-white/75 leading-[1.9] max-w-[65ch] mb-10">
+        <p className="font-sans text-[1.15rem] text-white/75 leading-[1.9] max-w-[65ch] mb-12">
           {aboutContent}
         </p>
 

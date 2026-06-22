@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Nav from './components/Nav';
 import Hero from './components/Hero';
 import Section from './components/Section';
@@ -47,7 +47,7 @@ type Language = keyof typeof translations;
 // ─── ZH overrides ────────────────────────────────────────────────────────────
 
 const aboutTextZh =
-  '我即将于 2026 年秋季进入哈佛大学攻读计算科学与工程硕士，目前就读于阿德莱德大学数学科学荣誉学士项目。我的研究兴趣位于应用分析与偏微分方程、数值方法、计算机图形学、三维高斯点渲染以及数据驱动的人机协作交互的交汇处。在 2026 年秋季研究生申请季中，我收到了来自哈佛大学、卡内基梅隆大学、宾夕法尼亚大学和西北大学等顶尖项目的录取。我的目标是构建在数学上可靠、稳定且可解释的模型，用于真实世界中的不确定性建模。';
+  '我即将于 2026 年秋季进入哈佛大学攻读计算科学与工程硕士，目前就读于阿德莱德大学数学科学荣誉学士项目。我的研究兴趣位于应用分析与偏微分方程、数值方法、计算机图形学、三维高斯点渲染以及数据驱动的人机协作交互的交汇处。我的目标是构建在数学上可靠、稳定且可解释的模型，用于真实世界中的不确定性建模。';
 
 const educationZh: Record<string, Partial<Education>> = {
   harvard: { institution: '哈佛大学', degree: '计算科学与工程硕士', ranking: '2026 年秋季入学录取', period: '2026 →' },
@@ -98,6 +98,13 @@ const ALL_SKILLS = [
 
 export default function App() {
   const [language, setLanguage] = useState<Language>('en');
+  const [spotlight, setSpotlight] = useState({ x: -9999, y: -9999 });
+
+  useEffect(() => {
+    const handler = (e: MouseEvent) => setSpotlight({ x: e.clientX, y: e.clientY });
+    window.addEventListener('mousemove', handler, { passive: true });
+    return () => window.removeEventListener('mousemove', handler);
+  }, []);
   const t = translations[language];
   const isZh = language === 'zh';
 
@@ -124,6 +131,15 @@ export default function App() {
     <div className="min-h-screen bg-[#0a0a0a] text-white">
       {/* Film-grain noise overlay */}
       <div className="noise-overlay" aria-hidden="true" />
+
+      {/* Photographer spotlight — follows cursor */}
+      <div
+        className="fixed inset-0 pointer-events-none z-[9998]"
+        aria-hidden="true"
+        style={{
+          background: `radial-gradient(700px circle at ${spotlight.x}px ${spotlight.y}px, rgba(255,255,255,0.055), transparent 80%)`
+        }}
+      />
 
       <Nav
         language={language}

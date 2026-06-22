@@ -22,7 +22,7 @@ export default function PublicationEntry({ pub, index }: PublicationEntryProps) 
             onClick={() => setExpanded(v => !v)}
             className="text-left w-full group"
           >
-            <h3 className="font-playfair italic text-[1.2rem] text-white/85 group-hover:text-white transition-colors leading-snug">
+            <h3 className="font-serif italic text-xl text-white/85 group-hover:text-white transition-colors leading-snug">
               {pub.title}
             </h3>
           </button>

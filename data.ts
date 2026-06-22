@@ -10,7 +10,7 @@ export const personalInfo = {
   location: "Adelaide City, SA, Australia",
   github: "https://github.com/Gatsby0916",
   orcid: "https://orcid.org/0009-0004-6914-8457",
-  about: `I am an incoming Master of Computational Science and Engineering student at Harvard University and a Mathematical Sciences Honours student at the University of Adelaide. My research interests lie at the intersection of applied analysis and PDEs, numerical methods, computer graphics, 3D Gaussian Splatting, and data-driven human-AI interaction. In the 2026 Fall postgraduate admissions cycle, I received offers from leading CS and mathematics programs including Harvard, Carnegie Mellon, Penn, and Northwestern. My goal is to develop mathematically principled, stable, and interpretable models for real-world uncertainty modeling.`
+  about: `I am an incoming Master of Computational Science and Engineering student at Harvard University and a Mathematical Sciences Honours student at the University of Adelaide. My research interests lie at the intersection of applied analysis and PDEs, numerical methods, computer graphics, 3D Gaussian Splatting, and data-driven human-AI interaction. My goal is to develop mathematically principled, stable, and interpretable models for real-world uncertainty modeling.`
 };
 
 export const publications: Publication[] = [
