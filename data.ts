@@ -12,7 +12,7 @@ export const personalInfo = {
   linkedin: "https://www.linkedin.com/in/haiyi-li-8a1ab835a/",
   googleScholar: "https://scholar.google.com/citations?user=ygecZooAAAAJ&hl=en",
   orcid: "https://orcid.org/0009-0004-6914-8457",
-  about: `I am an incoming Master of Computational Science and Engineering student at Harvard University and a Mathematical Sciences Honours student at the University of Adelaide. My research interests lie at the intersection of applied analysis and PDEs, numerical methods, computer graphics, 3D Gaussian Splatting, and data-driven human-AI interaction. My goal is to develop mathematically principled, stable, and interpretable models for real-world uncertainty modeling.`
+  about: `I am an incoming Master of Computational Science and Engineering student at Harvard University, a Mathematical Sciences Honours student at the University of Adelaide, and a Mathematics and Applied Mathematics student at the Ocean University of China. My research interests lie at the intersection of applied analysis and PDEs, numerical methods, computer graphics, 3D Gaussian Splatting, and data-driven human-AI interaction. My goal is to develop mathematically principled, stable, and interpretable models for real-world uncertainty modeling.`
 };
 
 export const publications: Publication[] = [
@@ -20,12 +20,12 @@ export const publications: Publication[] = [
     id: "ougs-2026",
     title: "OUGS: Active View Selection via Object-aware Uncertainty Estimation in 3DGS",
     authors: ["Haiyi Li", "Qi Chen", "Denis Kalkofen", "Hsiang-Ting Chen"],
-    venue: "Eurographics 2026",
+    venue: "Eurographics 2026 · Computer Graphics Forum",
     status: "Accepted",
     year: "2026",
     description: "Introduces OUGS, an object-aware uncertainty framework for 3D Gaussian Splatting that derives uncertainty from Gaussian primitive parameters and propagates covariances through the rendering Jacobian. Integrating segmentation masks enables targeted uncertainty scoring and more efficient active view selection for improved object fidelity.",
     tags: ["Computer Graphics", "3D Gaussian Splatting", "Uncertainty Estimation"],
-    showArxiv: true,
+    showArxiv: false,
     links: { arxiv: "https://arxiv.org/abs/2511.09397" }
   },
   {
@@ -37,7 +37,7 @@ export const publications: Publication[] = [
     year: "2026",
     description: "Evaluates on-premise LLMs for converting endometriosis transvaginal ultrasound reports into structured data, comparing multiple model scales against expert extraction across 49 reports. Finds complementary LLM–human error profiles and motivates a human-in-the-loop workflow.",
     tags: ["LLMs", "Medical Imaging", "HCI"],
-    showArxiv: true,
+    showArxiv: false,
     links: { arxiv: "https://arxiv.org/abs/2601.09053" }
   },
   {
