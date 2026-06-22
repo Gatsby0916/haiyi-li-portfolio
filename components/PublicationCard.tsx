@@ -1,155 +1,85 @@
-
-import React from 'react';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Publication } from '../types';
-import { FileText, Github, Globe, ScrollText, Maximize2 } from 'lucide-react';
-import { motion } from 'framer-motion';
 
-interface PublicationCardProps {
+interface PublicationEntryProps {
   pub: Publication;
+  index: number;
 }
 
-const PublicationCard: React.FC<PublicationCardProps> = ({ pub }) => {
-  // Function to highlight the user's name
-  const formatAuthors = (authors: string[]) => (
-    <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm md:text-base leading-relaxed">
-      {authors.map((author, index) => {
-        const isMe = author.trim() === "Haiyi Li";
-        return (
-          <React.Fragment key={index}>
-            <span className={isMe ? "font-bold text-slate-900" : "text-slate-600"}>
-              {author}
-            </span>
-            {index < authors.length - 1 && <span className="text-slate-300">·</span>}
-          </React.Fragment>
-        );
-      })}
-    </div>
-  );
-
-  const isContain = pub.imageFit === 'contain';
-  const isPdf = pub.image?.toLowerCase().endsWith('.pdf');
-  const containerBgClass = isContain ? 'bg-white' : 'bg-slate-100';
-  const containerAspectClass = isPdf ? 'aspect-[4/3]' : (!isContain ? 'aspect-[16/10]' : '');
-  const imageFitClass = isContain ? 'h-auto object-contain p-5 mx-auto max-w-full' : 'h-full object-cover w-full';
-  const containMaxHeight = pub.imageMaxHeight ?? 560;
-  const imageStyle: React.CSSProperties | undefined = isContain ? { maxHeight: containMaxHeight } : undefined;
-
-  const statusStyles: Record<Publication['status'], string> = {
-    Published: "text-slate-800 bg-slate-100 border border-slate-200",
-    "Under Review": "text-primary-700 bg-primary-50 border border-primary-100",
-    Submitted: "text-slate-600 bg-slate-100 border border-slate-200",
-    "Conditionally Accepted": "text-emerald-800 bg-emerald-50 border border-emerald-200",
-    Accepted: "text-emerald-900 bg-emerald-50 border border-emerald-200"
-  };
-
-  const venueLabel = pub.venue.trim();
-  const displayVenue = venueLabel.includes(pub.year) ? venueLabel : `${venueLabel} ${pub.year}`;
+export default function PublicationEntry({ pub, index }: PublicationEntryProps) {
+  const [expanded, setExpanded] = useState(false);
 
   return (
-    <motion.div 
-      initial={{ opacity: 0, y: 12 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-40px" }}
-      whileHover={{ y: -4 }}
-      transition={{ duration: 0.45, ease: "easeOut" }}
-      className="group flex flex-col md:grid md:grid-cols-12 gap-12 py-8 border-b border-slate-100 last:border-0"
-    >
-      {/* Image Column */}
-      <div className="md:col-span-6">
-        <div className={`relative w-full overflow-hidden rounded-2xl border border-slate-200 ${containerBgClass} shadow-sm transition-all duration-500 group-hover:shadow-md group-hover:border-slate-300 ${containerAspectClass}`}>
-          {pub.image ? (
-            isPdf ? (
-              <object data={`${pub.image}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`} type="application/pdf" className="w-full h-full">
-                <div className="flex h-full min-h-[280px] w-full items-center justify-center bg-slate-50 text-xs text-slate-500 font-mono">
-                  PDF preview unavailable.{' '}
-                  {pub.links?.pdf ? (
-                    <a href={pub.links.pdf} target="_blank" rel="noreferrer" className="ml-2 text-primary-800 underline">
-                      Open PDF
-                    </a>
-                  ) : (
-                    <a href={pub.image} target="_blank" rel="noreferrer" className="ml-2 text-primary-800 underline">
-                      Open PDF
-                    </a>
-                  )}
-                </div>
-              </object>
-            ) : (
+    <div className="py-7 border-b border-white/8 first:border-t first:border-white/8">
+      <div className="flex gap-6 items-start">
+        <span className="font-mono text-xs text-white/25 w-8 shrink-0 pt-[3px]">
+          [{String(index + 1).padStart(2, '0')}]
+        </span>
+
+        <div className="flex-1 min-w-0">
+          <button
+            onClick={() => setExpanded(v => !v)}
+            className="text-left w-full group"
+          >
+            <h3 className="font-playfair italic text-[1.2rem] text-white/85 group-hover:text-white transition-colors leading-snug">
+              {pub.title}
+            </h3>
+          </button>
+
+          <p className="font-sans text-[0.82rem] text-white/45 mt-2 leading-relaxed">
+            {pub.authors.map((author, i) => (
+              <span key={i}>
+                {i > 0 && <span className="text-white/20">, </span>}
+                <span className={author === 'Haiyi Li' ? 'text-white/80 font-semibold' : ''}>
+                  {author}
+                </span>
+              </span>
+            ))}
+          </p>
+
+          <div className="flex items-center flex-wrap gap-x-3 gap-y-1 mt-2">
+            <span className="font-mono text-[0.7rem] text-white/35">{pub.venue}</span>
+            {pub.status !== 'Accepted' && pub.status !== 'Published' && (
               <>
-                <motion.img 
-                  whileHover={!isContain ? { scale: 1.03 } : { scale: 1.0 }}
-                  transition={{ duration: 0.5, ease: "easeOut" }}
-                  src={pub.image} 
-                  alt={pub.title} 
-                  style={imageStyle}
-                  className={`${imageFitClass} opacity-95 group-hover:opacity-100 transition-opacity`}
-                />
-                {/* Overlay for interaction hint */}
-                <div className="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/5 transition-colors duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100 pointer-events-none">
-                   <div className="bg-white/90 backdrop-blur rounded-full p-2 text-slate-700 shadow-sm">
-                      <Maximize2 size={16} />
-                   </div>
-                </div>
+                <span className="font-mono text-[0.7rem] text-white/20">·</span>
+                <span className="font-mono text-[0.7rem] text-white/35">{pub.status}</span>
               </>
-            )
-          ) : (
-            <div className="flex h-full w-full items-center justify-center bg-slate-50 text-xs text-slate-400 font-mono">
-              [Figure]
-            </div>
-          )}
+            )}
+            <span className="font-mono text-[0.7rem] text-white/20">·</span>
+            <span className="font-mono text-[0.7rem] text-white/35">{pub.year}</span>
+            {pub.showArxiv && pub.links?.arxiv && (
+              <>
+                <span className="font-mono text-[0.7rem] text-white/20">·</span>
+                <a
+                  href={pub.links.arxiv}
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={e => e.stopPropagation()}
+                  className="font-mono text-[0.7rem] text-white/40 hover:text-white/70 transition-colors"
+                >
+                  ↗ arXiv
+                </a>
+              </>
+            )}
+          </div>
+
+          <AnimatePresence>
+            {expanded && (
+              <motion.p
+                key="desc"
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: 'auto', opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.2, ease: 'easeInOut' }}
+                className="font-sans text-sm text-white/45 mt-4 leading-relaxed overflow-hidden"
+              >
+                {pub.description}
+              </motion.p>
+            )}
+          </AnimatePresence>
         </div>
       </div>
-
-      {/* Content Column */}
-      <div className="md:col-span-6 flex flex-col justify-start pt-1">
-        <h3 className="text-3xl font-bold font-serif text-slate-900 leading-tight group-hover:text-primary-900 transition-colors">
-          {pub.title}
-        </h3>
-        
-        <div className="mt-4 font-light">
-          {formatAuthors(pub.authors)}
-        </div>
-        
-        <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm md:text-base mt-5">
-          <span className="font-serif italic text-slate-800 font-medium border-b border-slate-200 pb-0.5">
-            {displayVenue}
-          </span>
-          {pub.status !== 'Published' && (
-             <span className={`text-xs font-mono px-2 py-0.5 rounded-full transition-colors ${statusStyles[pub.status]}`}>
-               {pub.status}
-             </span>
-          )}
-        </div>
-        
-        <p className="text-sm md:text-base text-slate-600 mt-5 leading-relaxed max-w-3xl">
-          {pub.description}
-        </p>
-
-        {/* Links Area */}
-        <div className="flex flex-wrap gap-6 mt-10 pt-5 border-t border-slate-100/60">
-          {pub.links?.arxiv && (
-            <a href={pub.links.arxiv} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs font-bold text-slate-600 hover:text-red-700 uppercase tracking-wide transition-colors pb-0.5 group/link">
-              <ScrollText size={16} className="text-slate-400 group-hover/link:text-red-600 transition-colors" /> arXiv
-            </a>
-          )}
-          {pub.links?.pdf && (
-            <a href={pub.links.pdf} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs font-bold text-slate-600 hover:text-primary-800 uppercase tracking-wide transition-colors pb-0.5 group/link">
-              <FileText size={16} className="text-slate-400 group-hover/link:text-primary-600 transition-colors" /> PDF
-            </a>
-          )}
-          {pub.links?.code && (
-            <a href={pub.links.code} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs font-bold text-slate-600 hover:text-slate-900 uppercase tracking-wide transition-colors pb-0.5 group/link">
-              <Github size={16} className="text-slate-400 group-hover/link:text-slate-900 transition-colors" /> Code
-            </a>
-          )}
-          {pub.links?.project && (
-            <a href={pub.links.project} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs font-bold text-slate-600 hover:text-primary-800 uppercase tracking-wide transition-colors pb-0.5 group/link">
-              <Globe size={16} className="text-slate-400 group-hover/link:text-primary-600 transition-colors" /> Project
-            </a>
-          )}
-        </div>
-      </div>
-    </motion.div>
+    </div>
   );
-};
-
-export default PublicationCard;
+}
