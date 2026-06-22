@@ -66,16 +66,18 @@ export default function PublicationEntry({ pub, index }: PublicationEntryProps) 
 
           <AnimatePresence>
             {expanded && (
-              <motion.p
+              <motion.div
                 key="desc"
                 initial={{ height: 0, opacity: 0 }}
                 animate={{ height: 'auto', opacity: 1 }}
                 exit={{ height: 0, opacity: 0 }}
                 transition={{ duration: 0.2, ease: 'easeInOut' }}
-                className="font-sans text-sm text-white/45 mt-4 leading-relaxed overflow-hidden"
+                className="overflow-hidden"
               >
-                {pub.description}
-              </motion.p>
+                <p className="font-sans text-sm text-white/45 mt-4 leading-relaxed">
+                  {pub.description}
+                </p>
+              </motion.div>
             )}
           </AnimatePresence>
         </div>

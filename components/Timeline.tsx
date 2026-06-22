@@ -1,3 +1,4 @@
+import { type ReactNode } from 'react';
 import { Education, Experience, Award } from '../types';
 
 interface TimelineProps {
@@ -18,7 +19,7 @@ function DiamondNode() {
   );
 }
 
-function Row({ date, tag, children }: { date: string; tag?: string; children: React.ReactNode }) {
+function Row({ date, tag, children }: { date: string; tag?: string; children: ReactNode }) {
   return (
     <div className="relative flex gap-6 items-start pl-0">
       <DiamondNode />
