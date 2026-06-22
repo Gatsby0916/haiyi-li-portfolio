@@ -1,5 +1,25 @@
 interface IconProps { className?: string }
 
+export function HarvardShield({ className }: IconProps) {
+  return (
+    <svg className={className} viewBox="0 0 100 126" xmlns="http://www.w3.org/2000/svg" aria-label="Harvard University">
+      {/* Shield body */}
+      <path d="M4 5 L96 5 L96 63 C96 98 62 122 50 126 C38 122 4 98 4 63 Z" fill="#A51C30"/>
+      {/* Subtle inner highlight */}
+      <path d="M10 11 L90 11 L90 63 C90 94 58 116 50 119 C42 116 10 94 10 63 Z" fill="none" stroke="rgba(255,255,255,0.12)" strokeWidth="1"/>
+      {/* Top-left book — VE */}
+      <rect x="9" y="21" width="31" height="36" rx="2" fill="white"/>
+      <text x="24.5" y="44" fontFamily="Georgia, serif" fontSize="11" fill="#A51C30" textAnchor="middle" fontWeight="bold">VE</text>
+      {/* Top-right book — RI */}
+      <rect x="60" y="21" width="31" height="36" rx="2" fill="white"/>
+      <text x="75.5" y="44" fontFamily="Georgia, serif" fontSize="11" fill="#A51C30" textAnchor="middle" fontWeight="bold">RI</text>
+      {/* Bottom-center book — TAS */}
+      <rect x="34.5" y="62" width="31" height="36" rx="2" fill="white"/>
+      <text x="50" y="85" fontFamily="Georgia, serif" fontSize="11" fill="#A51C30" textAnchor="middle" fontWeight="bold">TAS</text>
+    </svg>
+  );
+}
+
 export function GitHubIcon({ className }: IconProps) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">

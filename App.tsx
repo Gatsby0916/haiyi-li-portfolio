@@ -138,7 +138,7 @@ export default function App() {
         className="fixed inset-0 pointer-events-none z-[9998]"
         aria-hidden="true"
         style={{
-          background: `radial-gradient(700px circle at ${spotlight.x}px ${spotlight.y}px, rgba(255,255,255,0.055), transparent 80%)`
+          background: `radial-gradient(360px circle at ${spotlight.x}px ${spotlight.y}px, rgba(255,255,255,0.13), transparent 80%)`
         }}
       />
 

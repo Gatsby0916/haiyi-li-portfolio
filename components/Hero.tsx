@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { GitHubIcon, LinkedInIcon, GoogleScholarIcon, OrcidIcon } from './Icons';
+import { GitHubIcon, LinkedInIcon, GoogleScholarIcon, OrcidIcon, HarvardShield } from './Icons';
 
 interface HeroProps {
   heroPill: string;
@@ -25,13 +25,16 @@ export default function Hero({ heroPill, heroTagline, aboutContent, email, githu
           [ {heroPill} ]
         </p>
 
-        <h1 className="font-serif text-[6rem] md:text-[9rem] lg:text-[11rem] font-bold text-white leading-none mb-8">
+        <h1 className="font-serif text-[3.8rem] md:text-[5.5rem] lg:text-[7rem] font-bold text-white leading-none mb-8">
           Haiyi Li
         </h1>
 
-        <p className="font-sans text-2xl md:text-3xl text-white/55 font-light mb-10">
-          {heroTagline}
-        </p>
+        <div className="flex items-center gap-3 mb-10">
+          <HarvardShield className="h-9 w-auto shrink-0 opacity-90" />
+          <p className="font-sans text-lg md:text-xl text-white/55 font-light">
+            {heroTagline}
+          </p>
+        </div>
 
         <div className="w-full h-px bg-gradient-to-r from-white/20 via-white/8 to-transparent mb-10" />
 
