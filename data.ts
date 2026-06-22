@@ -26,7 +26,7 @@ export const publications: Publication[] = [
     description: "Introduces OUGS, an object-aware uncertainty framework for 3D Gaussian Splatting that derives uncertainty from Gaussian primitive parameters and propagates covariances through the rendering Jacobian. Integrating segmentation masks enables targeted uncertainty scoring and more efficient active view selection for improved object fidelity.",
     tags: ["Computer Graphics", "3D Gaussian Splatting", "Uncertainty Estimation"],
     showArxiv: false,
-    links: { arxiv: "https://arxiv.org/abs/2511.09397" }
+    links: { doi: "https://onlinelibrary.wiley.com/doi/abs/10.1111/cgf.70363", arxiv: "https://arxiv.org/abs/2511.09397" }
   },
   {
     id: "chi-2026-whofails",
@@ -38,7 +38,7 @@ export const publications: Publication[] = [
     description: "Evaluates on-premise LLMs for converting endometriosis transvaginal ultrasound reports into structured data, comparing multiple model scales against expert extraction across 49 reports. Finds complementary LLM–human error profiles and motivates a human-in-the-loop workflow.",
     tags: ["LLMs", "Medical Imaging", "HCI"],
     showArxiv: false,
-    links: { arxiv: "https://arxiv.org/abs/2601.09053" }
+    links: { doi: "https://dl.acm.org/doi/abs/10.1145/3772363.3798872", arxiv: "https://arxiv.org/abs/2601.09053" }
   },
   {
     id: "endoextract-2026",

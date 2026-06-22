@@ -12,6 +12,7 @@ export interface Publication {
   imageMaxHeight?: number;
   showArxiv?: boolean;
   links?: {
+    doi?: string;
     pdf?: string;
     code?: string;
     project?: string;

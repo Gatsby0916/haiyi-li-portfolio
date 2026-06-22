@@ -61,6 +61,20 @@ export default function PublicationEntry({ pub, index }: PublicationEntryProps) 
             )}
             <span className="font-mono text-xs text-white/20">·</span>
             <span className="font-mono text-xs text-white/40">{pub.year}</span>
+            {pub.links?.doi && (
+              <>
+                <span className="font-mono text-xs text-white/20">·</span>
+                <a
+                  href={pub.links.doi}
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={e => e.stopPropagation()}
+                  className="font-mono text-xs text-white/45 hover:text-white/75 transition-colors"
+                >
+                  ↗ Paper
+                </a>
+              </>
+            )}
             {pub.showArxiv && pub.links?.arxiv && (
               <>
                 <span className="font-mono text-xs text-white/20">·</span>
