@@ -79,6 +79,7 @@ const awardsZh: Record<string, Partial<Award>> = {
   'hurd-prize': { title: '马克·埃德温·赫德纪念奖', issuer: '阿德莱德大学', selectivity: '每年 1 名学生' },
   'summer-research': { title: '暑期科研奖学金', issuer: '阿德莱德大学', selectivity: '录取率 < 5%' },
   'global-citizen': { title: '全球公民卓越奖学金', issuer: '阿德莱德大学', selectivity: '录取率 < 10%' },
+  'eg-widening': { title: 'EG Widening Participation 奖学金', issuer: 'Eurographics 协会', selectivity: '竞争性国际奖项' },
   icm: { title: '2024 ICM 美国大学生数学建模大赛 F 奖', issuer: 'COMAP', selectivity: '优胜队 < 2%' },
   'outstanding-student': { title: '优秀学生奖', issuer: '中国海洋大学', selectivity: '录取率 < 10%' },
   'math-modeling-national': { title: '全国统计建模大赛三等奖', issuer: '中国统计教育学会', selectivity: '录取率 < 10%' },
@@ -97,13 +98,10 @@ const ALL_SKILLS = [
   ...skills.viz,
 ];
 
-const ALL_TAGS = Array.from(new Set(publications.flatMap(p => p.tags)));
-
 export default function App() {
   const [language, setLanguage] = useState<Language>('en');
   const [spotlight, setSpotlight] = useState({ x: -9999, y: -9999 });
   const [scrollProgress, setScrollProgress] = useState(0);
-  const [activeFilter, setActiveFilter] = useState<string | null>(null);
 
   useEffect(() => {
     const onMouseMove = (e: MouseEvent) => setSpotlight({ x: e.clientX, y: e.clientY });
@@ -184,41 +182,9 @@ export default function App() {
       />
 
       <Section id="publications" label={t.sections.research}>
-        {/* Topic filter pills */}
-        <div className="flex flex-wrap gap-2 mb-10">
-          <button
-            onClick={() => setActiveFilter(null)}
-            className={`font-mono text-[10px] tracking-widest px-3 py-1 border transition-all duration-200 ${
-              activeFilter === null
-                ? 'border-white/35 text-white/75 bg-white/[0.05]'
-                : 'border-white/10 text-white/25 hover:text-white/55 hover:border-white/22'
-            }`}
-          >
-            ALL
-          </button>
-          {ALL_TAGS.map(tag => (
-            <button
-              key={tag}
-              onClick={() => setActiveFilter(f => f === tag ? null : tag)}
-              className={`font-mono text-[10px] tracking-widest px-3 py-1 border transition-all duration-200 ${
-                activeFilter === tag
-                  ? 'border-white/35 text-white/75 bg-white/[0.05]'
-                  : 'border-white/10 text-white/25 hover:text-white/55 hover:border-white/22'
-              }`}
-            >
-              {tag}
-            </button>
-          ))}
-        </div>
-
         <div>
           {publications.map((pub, i) => (
-            <PublicationEntry
-              key={pub.id}
-              pub={pub}
-              index={i}
-              dimmed={activeFilter !== null && !pub.tags.includes(activeFilter)}
-            />
+            <PublicationEntry key={pub.id} pub={pub} index={i} />
           ))}
         </div>
       </Section>

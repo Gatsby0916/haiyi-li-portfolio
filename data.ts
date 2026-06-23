@@ -154,6 +154,20 @@ export const awards: Award[] = [
     selectivity: "Awarded to 1 student/year"
   },
   {
+    id: "eg-widening",
+    title: "EG Widening Participation Scholarship",
+    issuer: "Eurographics Association",
+    year: "2026",
+    selectivity: "Competitive international award"
+  },
+  {
+    id: "icm",
+    title: "Interdisciplinary Contest in Modeling (ICM) Finalist",
+    issuer: "COMAP",
+    year: "2024",
+    selectivity: "< 2%"
+  },
+  {
     id: "summer-research",
     title: "Summer Research Scholarship",
     issuer: "University of Adelaide",
@@ -166,13 +180,6 @@ export const awards: Award[] = [
     issuer: "University of Adelaide",
     year: "2024",
     selectivity: "< 10%"
-  },
-  {
-    id: "icm",
-    title: "Interdisciplinary Contest in Modeling (ICM) Finalist",
-    issuer: "COMAP",
-    year: "2024",
-    selectivity: "< 2%"
   },
   {
     id: "outstanding-student",
