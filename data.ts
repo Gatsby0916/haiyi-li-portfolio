@@ -81,7 +81,7 @@ export const education: Education[] = [
     id: "harvard",
     degree: "Master of Computational Science and Engineering",
     institution: "Harvard University",
-    period: "Aug 2026 - Incoming",
+    period: "Aug 2026 →",
     ranking: "Admitted for Fall 2026",
     courses: ["Computational Science", "Scientific Computing", "Applied Mathematics", "Machine Learning"]
   },

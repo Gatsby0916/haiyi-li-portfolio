@@ -5,16 +5,15 @@ import { Publication } from '../types';
 interface PublicationEntryProps {
   pub: Publication;
   index: number;
-  dimmed?: boolean;
 }
 
-export default function PublicationEntry({ pub, index, dimmed }: PublicationEntryProps) {
+export default function PublicationEntry({ pub, index }: PublicationEntryProps) {
   const [expanded, setExpanded] = useState(false);
   const [hovered, setHovered] = useState(false);
 
   return (
     <div
-      className={`relative py-8 border-b border-white/8 first:border-t first:border-white/8 transition-all duration-400 ${dimmed ? 'opacity-20 pointer-events-none' : 'opacity-100'}`}
+      className="relative py-8 border-b border-white/8 first:border-t first:border-white/8 transition-colors duration-300"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
