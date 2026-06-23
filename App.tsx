@@ -97,14 +97,26 @@ const ALL_SKILLS = [
   ...skills.viz,
 ];
 
+const ALL_TAGS = Array.from(new Set(publications.flatMap(p => p.tags)));
+
 export default function App() {
   const [language, setLanguage] = useState<Language>('en');
   const [spotlight, setSpotlight] = useState({ x: -9999, y: -9999 });
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [activeFilter, setActiveFilter] = useState<string | null>(null);
 
   useEffect(() => {
-    const handler = (e: MouseEvent) => setSpotlight({ x: e.clientX, y: e.clientY });
-    window.addEventListener('mousemove', handler, { passive: true });
-    return () => window.removeEventListener('mousemove', handler);
+    const onMouseMove = (e: MouseEvent) => setSpotlight({ x: e.clientX, y: e.clientY });
+    const onScroll = () => {
+      const el = document.documentElement;
+      setScrollProgress(el.scrollTop / (el.scrollHeight - el.clientHeight) || 0);
+    };
+    window.addEventListener('mousemove', onMouseMove, { passive: true });
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => {
+      window.removeEventListener('mousemove', onMouseMove);
+      window.removeEventListener('scroll', onScroll);
+    };
   }, []);
   const t = translations[language];
   const isZh = language === 'zh';
@@ -130,6 +142,18 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white">
+      {/* Scroll progress line */}
+      <div
+        className="fixed top-0 left-0 h-[2px] z-[10000] pointer-events-none"
+        style={{ width: `${scrollProgress * 100}%`, background: '#A51C30', transition: 'width 80ms linear' }}
+        aria-hidden="true"
+      />
+
+      {/* Ambient orbs */}
+      <div className="orb orb-1" aria-hidden="true" />
+      <div className="orb orb-2" aria-hidden="true" />
+      <div className="orb orb-3" aria-hidden="true" />
+
       {/* Film-grain noise overlay */}
       <div className="noise-overlay" aria-hidden="true" />
 
@@ -160,9 +184,41 @@ export default function App() {
       />
 
       <Section id="publications" label={t.sections.research}>
+        {/* Topic filter pills */}
+        <div className="flex flex-wrap gap-2 mb-10">
+          <button
+            onClick={() => setActiveFilter(null)}
+            className={`font-mono text-[10px] tracking-widest px-3 py-1 border transition-all duration-200 ${
+              activeFilter === null
+                ? 'border-white/35 text-white/75 bg-white/[0.05]'
+                : 'border-white/10 text-white/25 hover:text-white/55 hover:border-white/22'
+            }`}
+          >
+            ALL
+          </button>
+          {ALL_TAGS.map(tag => (
+            <button
+              key={tag}
+              onClick={() => setActiveFilter(f => f === tag ? null : tag)}
+              className={`font-mono text-[10px] tracking-widest px-3 py-1 border transition-all duration-200 ${
+                activeFilter === tag
+                  ? 'border-white/35 text-white/75 bg-white/[0.05]'
+                  : 'border-white/10 text-white/25 hover:text-white/55 hover:border-white/22'
+              }`}
+            >
+              {tag}
+            </button>
+          ))}
+        </div>
+
         <div>
           {publications.map((pub, i) => (
-            <PublicationEntry key={pub.id} pub={pub} index={i} />
+            <PublicationEntry
+              key={pub.id}
+              pub={pub}
+              index={i}
+              dimmed={activeFilter !== null && !pub.tags.includes(activeFilter)}
+            />
           ))}
         </div>
       </Section>

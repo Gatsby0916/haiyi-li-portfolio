@@ -25,6 +25,51 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+/* Ambient background orbs */
+@keyframes orb-drift-1 {
+  0%, 100% { transform: translate(0px,   0px)  scale(1);    }
+  33%       { transform: translate(80px, -60px) scale(1.05); }
+  66%       { transform: translate(-50px, 70px) scale(0.95); }
+}
+@keyframes orb-drift-2 {
+  0%, 100% { transform: translate(0px,   0px)   scale(1);    }
+  33%       { transform: translate(-90px, 50px)  scale(1.08); }
+  66%       { transform: translate(60px,  -80px) scale(0.92); }
+}
+.orb {
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+.orb-1 {
+  width: 800px;
+  height: 800px;
+  top: -280px;
+  left: -200px;
+  background: radial-gradient(circle at center, rgba(99,102,241,0.07) 0%, transparent 70%);
+  filter: blur(80px);
+  animation: orb-drift-1 28s ease-in-out infinite;
+}
+.orb-2 {
+  width: 700px;
+  height: 700px;
+  bottom: -180px;
+  right: -150px;
+  background: radial-gradient(circle at center, rgba(139,92,246,0.05) 0%, transparent 70%);
+  filter: blur(100px);
+  animation: orb-drift-2 35s ease-in-out infinite;
+}
+.orb-3 {
+  width: 500px;
+  height: 500px;
+  top: 55%;
+  left: 55%;
+  background: radial-gradient(circle at center, rgba(59,130,246,0.04) 0%, transparent 70%);
+  filter: blur(120px);
+  animation: orb-drift-1 22s ease-in-out infinite reverse;
+}
+
 /* Noise texture overlay — rendered as a fixed div in App.tsx */
 .noise-overlay {
   position: fixed;

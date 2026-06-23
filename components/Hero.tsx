@@ -21,7 +21,11 @@ export default function Hero({ heroPill, heroTagline, aboutContent, email, githu
         transition={{ duration: 0.7, ease: 'easeOut' }}
         className="max-w-5xl mx-auto px-6 w-full"
       >
-        <p className="font-mono text-xs tracking-[0.3em] text-white/30 uppercase mb-10">
+        <p className="font-mono text-xs tracking-[0.3em] text-white/30 uppercase mb-10 flex items-center gap-3">
+          <span className="relative flex h-2 w-2 shrink-0">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-60" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+          </span>
           [ {heroPill} ]
         </p>
 
