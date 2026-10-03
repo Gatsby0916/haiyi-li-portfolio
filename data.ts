@@ -59,30 +59,6 @@ export const publications: Publication[] = [
     links: {
       arxiv: "https://arxiv.org/abs/2601.18154"
     }
-  },
-  {
-    id: "amm-2025",
-    title: "A Variational Path to Laplace’s Equation via Complex Analysis",
-    authors: ["Haiyi Li"],
-    venue: "Submitted to American Mathematical Monthly",
-    status: "Under Review",
-    year: "2025",
-    description: "Established a novel framework linking a degenerate variational principle to Laplace’s equation.",
-    tags: ["Applied Mathematics", "Complex Analysis", "PDEs", "Sole Author"],
-    image: "images/Variantion.png",
-    imageFit: "contain" // Mathematical diagrams need to be fully visible
-  },
-  {
-    id: "chi-2026",
-    title: "To Know or Not to Know?: How User Awareness of Physiological Sensing Impacts AI Persuasion and User Experience",
-    authors: ["Xiaoyan Wei", "Yutong Qu", "Yutong Li", "Haiyi Li", "et al."],
-    venue: "Submitted to DIS 2026",
-    status: "Under Review",
-    year: "2026",
-    description: "Conducted rigorous statistical analysis (repeated-measures ANOVA, Wilcoxon) demonstrating the trade-off between perceived persuasiveness and user negative affect; resubmitted to DIS 2026 following the CHI transfer.",
-    tags: ["HCI", "AI Persuasion", "Statistical Analysis"],
-    image: "images/InterfaceNew.png",
-    imageFit: "contain"
   }
 ];
 
