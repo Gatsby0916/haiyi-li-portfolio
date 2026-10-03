@@ -47,8 +47,13 @@ export interface Award {
   selectivity?: string;
 }
 
+export type NewsType = 'paper' | 'admission' | 'award' | 'talk' | 'research';
+
 export interface NewsItem {
   id: string;
-  date: string;
+  date: string; // YYYY-MM
+  type: NewsType;
   title: string;
+  place?: string;
+  highlight?: boolean;
 }

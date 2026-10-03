@@ -91,13 +91,13 @@ const awardsZh: Record<string, Partial<Award>> = {
 };
 
 const newsZh: Record<string, Partial<NewsItem>> = {
-  'ih-porto': { date: '2026 年 7 月', title: 'EndoExtract 亮相 ACM Interactive Health 2026（葡萄牙波尔图）' },
-  'eg-aachen': { date: '2026 年 5 月', title: '赴德国亚琛参加 Eurographics 2026，口头报告 OUGS，并获得 EG Widening Participation 奖学金' },
-  'cmu-offer': { date: '2026 年 4 月', title: '获得卡内基梅隆大学录取' },
-  'chi-accept': { date: '2026 年 2 月', title: 'Who Fails Where? 被 CHI 2026 Extended Abstracts 录用' },
-  'harvard-offer': { date: '2026 年 2 月', title: '获得哈佛大学计算科学与工程硕士录取' },
-  'ougs-accept': { date: '2025 年 12 月', title: '在 AIML 完成的第一作者论文 OUGS 被 Eurographics 2026（Computer Graphics Forum）录用' },
-  'aiml-join': { date: '2024 年 11 月', title: '加入澳大利亚机器学习研究院（AIML）担任科研助理，研究 3D Gaussian Splatting' },
+  'ih-porto': { title: 'EndoExtract 亮相 ACM Interactive Health 2026', place: '葡萄牙 · 波尔图' },
+  'eg-aachen': { title: '在 Eurographics 2026 口头报告 OUGS，并获得 EG Widening Participation 奖学金', place: '德国 · 亚琛' },
+  'cmu-offer': { title: '获得卡内基梅隆大学录取' },
+  'chi-accept': { title: 'Who Fails Where? 被 CHI 2026 Extended Abstracts 录用' },
+  'harvard-offer': { title: '获得哈佛大学计算科学与工程硕士录取' },
+  'ougs-accept': { title: '在 AIML 完成的第一作者论文 OUGS 被 Eurographics 2026（Computer Graphics Forum）录用' },
+  'aiml-join': { title: '加入澳大利亚机器学习研究院（AIML）担任科研助理，研究 3D Gaussian Splatting', place: '澳大利亚 · 阿德莱德' },
 };
 
 // ─── App ─────────────────────────────────────────────────────────────────────
@@ -199,7 +199,7 @@ export default function App() {
       />
 
       <Section id="news" label={t.sections.news}>
-        <News items={localizedNews} />
+        <News items={localizedNews} language={language} />
       </Section>
 
       <Section id="publications" label={t.sections.research}>
