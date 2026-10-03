@@ -1,9 +1,9 @@
 ﻿
-import { Award, Education, Experience, Publication } from './types';
+import { Award, Education, Experience, NewsItem, Publication } from './types';
 
 export const personalInfo = {
   name: "Haiyi Li",
-  title: "Incoming Master of Computational Science and Engineering Student",
+  title: "Incoming Master of Computational Science and Engineering Student (Fall 2027)",
   institution: "Harvard University",
   email: "gatsbyli@g.harvard.edu",
   phone: import.meta.env.VITE_PHONE_NUMBER ?? "",
@@ -12,7 +12,7 @@ export const personalInfo = {
   linkedin: "https://www.linkedin.com/in/haiyi-li-8a1ab835a/",
   googleScholar: "https://scholar.google.com/citations?user=ygecZooAAAAJ&hl=en",
   orcid: "https://orcid.org/0009-0004-6914-8457",
-  about: `I am an incoming Master of Computational Science and Engineering student at Harvard University, a Mathematical Sciences Honours student at the University of Adelaide, and a Mathematics and Applied Mathematics student at the Ocean University of China. My research interests lie at the intersection of applied analysis and PDEs, numerical methods, computer graphics, 3D Gaussian Splatting, and data-driven human-AI interaction. My goal is to develop mathematically principled, stable, and interpretable models for real-world uncertainty modeling.`
+  about: `I am currently on a gap year traveling around the world, and will return to Harvard University in Fall 2027 to pursue a Master of Computational Science and Engineering. I studied Mathematical Sciences (Honours) at the University of Adelaide and Mathematics and Applied Mathematics at the Ocean University of China. My research interests lie at the intersection of applied analysis and PDEs, numerical methods, computer graphics, 3D Gaussian Splatting, and data-driven human-AI interaction. My goal is to develop mathematically principled, stable, and interpretable models for real-world uncertainty modeling.`
 };
 
 export const publications: Publication[] = [
@@ -51,28 +51,6 @@ export const publications: Publication[] = [
     tags: ["LLMs", "Medical Imaging", "HCI", "Co-design"],
     showArxiv: true,
     links: { arxiv: "https://arxiv.org/abs/2601.18154" }
-  },
-  {
-    id: "amm-2025",
-    title: "A Variational Path to Laplace’s Equation via Complex Analysis",
-    authors: ["Haiyi Li"],
-    venue: "American Mathematical Monthly",
-    status: "Under Review",
-    year: "2025",
-    description: "Establishes a novel framework linking a degenerate variational principle to Laplace’s equation via complex analysis.",
-    tags: ["Applied Mathematics", "Complex Analysis", "PDEs"],
-    showArxiv: false
-  },
-  {
-    id: "dis-2026",
-    title: "To Know or Not to Know?: How User Awareness of Physiological Sensing Impacts AI Persuasion and User Experience",
-    authors: ["Xiaoyan Wei", "Yutong Qu", "Yutong Li", "Haiyi Li", "et al."],
-    venue: "DIS 2026",
-    status: "Under Review",
-    year: "2026",
-    description: "Demonstrates the trade-off between perceived persuasiveness and user negative affect via repeated-measures ANOVA and Wilcoxon tests in a physiological-sensing AI persuasion study.",
-    tags: ["HCI", "AI Persuasion", "Statistical Analysis"],
-    showArxiv: false
   }
 ];
 
@@ -81,8 +59,8 @@ export const education: Education[] = [
     id: "harvard",
     degree: "Master of Computational Science and Engineering",
     institution: "Harvard University",
-    period: "Aug 2026 →",
-    ranking: "Admitted for Fall 2026",
+    period: "Fall 2027 →",
+    ranking: "Enrolling Fall 2027 after a gap year",
     courses: ["Computational Science", "Scientific Computing", "Applied Mathematics", "Machine Learning"]
   },
   {
@@ -182,30 +160,9 @@ export const awards: Award[] = [
     selectivity: "< 10%"
   },
   {
-    id: "outstanding-student",
-    title: "Outstanding Student Award",
-    issuer: "Ocean University of China",
-    year: "2023 & 2024",
-    selectivity: "< 10%"
-  },
-  {
-    id: "math-modeling-national",
-    title: "National Statistical Modeling Competition - Third Prize",
-    issuer: "China Statistical Education Society",
-    year: "2024",
-    selectivity: "< 10%"
-  },
-  {
     id: "mathorcup-2024",
     title: "China Mathorcup Mathematical Modeling Challenge - Second Prize",
     issuer: "Chinese Society of Optimization",
-    year: "2024",
-    selectivity: "< 10%"
-  },
-  {
-    id: "cp-market",
-    title: "Zhengda Cup Market Research Analysis Competition - Third Prize",
-    issuer: "China Business Statistics Society",
     year: "2024",
     selectivity: "< 10%"
   },
@@ -215,6 +172,44 @@ export const awards: Award[] = [
     issuer: "Chinese Society of Optimization",
     year: "2023",
     selectivity: "< 10%"
+  }
+];
+
+export const news: NewsItem[] = [
+  {
+    id: "ih-porto",
+    date: "Jul 2026",
+    title: "EndoExtract at ACM Interactive Health 2026, Porto, Portugal"
+  },
+  {
+    id: "eg-aachen",
+    date: "May 2026",
+    title: "Oral presentation of OUGS at Eurographics 2026 in Aachen, Germany; received the EG Widening Participation Scholarship"
+  },
+  {
+    id: "cmu-offer",
+    date: "Apr 2026",
+    title: "Admitted to Carnegie Mellon University"
+  },
+  {
+    id: "chi-accept",
+    date: "Feb 2026",
+    title: "Who Fails Where? accepted to CHI 2026 Extended Abstracts"
+  },
+  {
+    id: "harvard-offer",
+    date: "Feb 2026",
+    title: "Admitted to Harvard University, M.S. in Computational Science and Engineering"
+  },
+  {
+    id: "ougs-accept",
+    date: "Dec 2025",
+    title: "OUGS, my first-author paper from research at AIML, accepted to Eurographics 2026 (Computer Graphics Forum)"
+  },
+  {
+    id: "aiml-join",
+    date: "Nov 2024",
+    title: "Joined the Australian Institute for Machine Learning (AIML) as a Research Assistant on 3D Gaussian Splatting"
   }
 ];
 
