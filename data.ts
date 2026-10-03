@@ -178,38 +178,51 @@ export const awards: Award[] = [
 export const news: NewsItem[] = [
   {
     id: "ih-porto",
-    date: "Jul 2026",
-    title: "EndoExtract at ACM Interactive Health 2026, Porto, Portugal"
+    date: "2026-07",
+    type: "paper",
+    title: "EndoExtract appears at ACM Interactive Health 2026",
+    place: "Porto, Portugal"
   },
   {
     id: "eg-aachen",
-    date: "May 2026",
-    title: "Oral presentation of OUGS at Eurographics 2026 in Aachen, Germany; received the EG Widening Participation Scholarship"
+    date: "2026-05",
+    type: "talk",
+    title: "Oral presentation of OUGS at Eurographics 2026, and received the EG Widening Participation Scholarship",
+    place: "Aachen, Germany",
+    highlight: true
   },
   {
     id: "cmu-offer",
-    date: "Apr 2026",
+    date: "2026-04",
+    type: "admission",
     title: "Admitted to Carnegie Mellon University"
   },
   {
     id: "chi-accept",
-    date: "Feb 2026",
+    date: "2026-02",
+    type: "paper",
     title: "Who Fails Where? accepted to CHI 2026 Extended Abstracts"
   },
   {
     id: "harvard-offer",
-    date: "Feb 2026",
-    title: "Admitted to Harvard University, M.S. in Computational Science and Engineering"
+    date: "2026-02",
+    type: "admission",
+    title: "Admitted to Harvard University, M.S. in Computational Science and Engineering",
+    highlight: true
   },
   {
     id: "ougs-accept",
-    date: "Dec 2025",
-    title: "OUGS, my first-author paper from research at AIML, accepted to Eurographics 2026 (Computer Graphics Forum)"
+    date: "2025-12",
+    type: "paper",
+    title: "OUGS, my first-author paper from research at AIML, accepted to Eurographics 2026 (Computer Graphics Forum)",
+    highlight: true
   },
   {
     id: "aiml-join",
-    date: "Nov 2024",
-    title: "Joined the Australian Institute for Machine Learning (AIML) as a Research Assistant on 3D Gaussian Splatting"
+    date: "2024-11",
+    type: "research",
+    title: "Joined the Australian Institute for Machine Learning (AIML) as a Research Assistant on 3D Gaussian Splatting",
+    place: "Adelaide, Australia"
   }
 ];
 
