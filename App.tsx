@@ -242,31 +242,6 @@ const awardsZh: Record<string, Partial<typeof awards[number]>> = {
     title: "2024 ICM 美国大学生数学建模大赛 F 奖",
     issuer: "COMAP",
     selectivity: "优胜队 < 2%"
-  },
-  "math-modeling-national": {
-    title: "全国统计建模大赛国家三等奖、省一等奖",
-    issuer: "中国统计教育学会",
-    selectivity: "录取率 < 10%"
-  },
-  "mathorcup-2024": {
-    title: "中国 2024 Mathorcup 数学建模挑战赛国家二等奖",
-    issuer: "中国运筹学会",
-    selectivity: "录取率 < 10%"
-  },
-  "cp-market": {
-    title: "“正大杯”市场调研分析大赛",
-    issuer: "中国商业统计学会",
-    selectivity: "录取率 < 10%"
-  },
-  "mathorcup-bigdata": {
-    title: "2023 Mathorcup 大数据挑战赛国家二等奖",
-    issuer: "中国运筹学会",
-    selectivity: "录取率 < 10%"
-  },
-  "outstanding-student": {
-    title: "优秀学生奖",
-    issuer: "中国海洋大学",
-    selectivity: "录取率 < 10%"
   }
 };
 

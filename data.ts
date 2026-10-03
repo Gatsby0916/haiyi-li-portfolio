@@ -169,41 +169,6 @@ export const awards: Award[] = [
     issuer: "COMAP",
     year: "2024",
     selectivity: "< 2%"
-  },
-  {
-    id: "outstanding-student",
-    title: "Outstanding Student Award",
-    issuer: "Ocean University of China",
-    year: "2023 & 2024",
-    selectivity: "< 10%"
-  },
-  {
-    id: "math-modeling-national",
-    title: "National Statistical Modeling Competition - Third Prize",
-    issuer: "China Statistical Education Society",
-    year: "2024",
-    selectivity: "< 10%"
-  },
-  {
-    id: "mathorcup-2024",
-    title: "China Mathorcup Mathematical Modeling Challenge - Second Prize",
-    issuer: "Chinese Society of Optimization",
-    year: "2024",
-    selectivity: "< 10%"
-  },
-  {
-    id: "cp-market",
-    title: "Zhengda Cup Market Research Analysis Competition - Third Prize",
-    issuer: "China Business Statistics Society",
-    year: "2024",
-    selectivity: "< 10%"
-  },
-  {
-    id: "mathorcup-bigdata",
-    title: "Mathorcup Big Data Challenge - Second Prize",
-    issuer: "Chinese Society of Optimization",
-    year: "2023",
-    selectivity: "< 10%"
   }
 ];
 
