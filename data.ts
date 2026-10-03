@@ -1,5 +1,5 @@
 ﻿
-import { Award, Education, Experience, Publication } from './types';
+import { Award, Education, Experience, NewsItem, Publication } from './types';
 
 export const personalInfo = {
   name: "Haiyi Li",
@@ -136,6 +136,13 @@ export const experience: Experience[] = [
 
 export const awards: Award[] = [
   {
+    id: "eg-widening-participation",
+    title: "EG Widening Participation Scholarship",
+    issuer: "Eurographics Association",
+    year: "2026",
+    selectivity: "Eurographics 2026, Aachen"
+  },
+  {
     id: "national-scholarship",
     title: "National Scholarship of China",
     issuer: "Ministry of Education of the P.R.C",
@@ -169,6 +176,64 @@ export const awards: Award[] = [
     issuer: "COMAP",
     year: "2024",
     selectivity: "< 2%"
+  },
+  {
+    id: "mathorcup-2024",
+    title: "China Mathorcup Mathematical Modeling Challenge - Second Prize",
+    issuer: "Chinese Society of Optimization",
+    year: "2024",
+    selectivity: "< 10%"
+  },
+  {
+    id: "mathorcup-bigdata",
+    title: "Mathorcup Big Data Challenge - Second Prize",
+    issuer: "Chinese Society of Optimization",
+    year: "2023",
+    selectivity: "< 10%"
+  }
+];
+
+export const news: NewsItem[] = [
+  {
+    id: "eg-aachen",
+    date: "May 2026",
+    title: "Oral presentation at Eurographics 2026 in Aachen, Germany",
+    description: "Presented our work on object-aware uncertainty for 3D Gaussian Splatting and received the EG Widening Participation Scholarship.",
+    type: "conference"
+  },
+  {
+    id: "cmu-offer",
+    date: "Apr 2026",
+    title: "Admitted to Carnegie Mellon University",
+    type: "admission"
+  },
+  {
+    id: "harvard-offer",
+    date: "Feb 2026",
+    title: "Admitted to Harvard University (M.S. in Computational Science and Engineering)",
+    description: "Will join the program in Fall 2026.",
+    type: "admission"
+  },
+  {
+    id: "three-papers",
+    date: "Early 2026",
+    title: "Three first-author papers accepted",
+    description: "OUGS (Eurographics 2026), Who Fails Where? (CHI 2026 Posters) and EndoExtract (Interactive Health 2026).",
+    type: "paper"
+  },
+  {
+    id: "ougs-arxiv",
+    date: "Nov 2025",
+    title: "OUGS released on arXiv",
+    description: "Outcome of my research at AIML: an object-aware uncertainty framework for active view selection in 3D Gaussian Splatting.",
+    type: "research"
+  },
+  {
+    id: "aiml-join",
+    date: "Nov 2024",
+    title: "Joined AIML as a Research Assistant",
+    description: "Started working on 3D Gaussian Splatting and scene reconstruction at the Australian Institute for Machine Learning.",
+    type: "research"
   }
 ];
 

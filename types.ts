@@ -44,3 +44,11 @@ export interface Award {
   description?: string;
   selectivity?: string;
 }
+
+export interface NewsItem {
+  id: string;
+  date: string;
+  title: string;
+  description?: string;
+  type: 'paper' | 'admission' | 'award' | 'research' | 'conference';
+}

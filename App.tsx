@@ -3,13 +3,14 @@ import React, { useState, useEffect } from 'react';
 import { Mail, Github, Link, MapPin, Menu, X, GraduationCap, Building2, Code2, Layers, Palette, Sparkles, Brain, Globe, Calculator, type LucideIcon } from 'lucide-react';
 import Section from './components/Section';
 import PublicationCard from './components/PublicationCard';
-import { personalInfo, publications, education, experience, awards, skills } from './data';
+import { personalInfo, publications, education, experience, awards, skills, news } from './data';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const translations = {
   en: {
     nav: {
       about: "About",
+      news: "News",
       education: "Education",
       research: "Research",
       experience: "Experience",
@@ -17,6 +18,7 @@ const translations = {
       skills: "Skills"
     },
     sections: {
+      news: "News",
       education: "Education",
       research: "Research",
       experience: "Experience",
@@ -73,6 +75,7 @@ const translations = {
   zh: {
     nav: {
       about: "关于我",
+      news: "动态",
       education: "教育背景",
       research: "科研成果",
       experience: "经历",
@@ -80,6 +83,7 @@ const translations = {
       skills: "能力概览"
     },
     sections: {
+      news: "最新动态",
       education: "教育背景",
       research: "科研成果",
       experience: "实践经历",
@@ -218,6 +222,11 @@ const experienceZh: Record<string, Partial<typeof experience[number]>> = {
 };
 
 const awardsZh: Record<string, Partial<typeof awards[number]>> = {
+  "eg-widening-participation": {
+    title: "EG Widening Participation 奖学金",
+    issuer: "欧洲图形学会（Eurographics）",
+    selectivity: "Eurographics 2026，亚琛"
+  },
   "national-scholarship": {
     title: "国家奖学金",
     issuer: "中华人民共和国教育部",
@@ -242,6 +251,48 @@ const awardsZh: Record<string, Partial<typeof awards[number]>> = {
     title: "2024 ICM 美国大学生数学建模大赛 F 奖",
     issuer: "COMAP",
     selectivity: "优胜队 < 2%"
+  },
+  "mathorcup-2024": {
+    title: "中国 2024 Mathorcup 数学建模挑战赛国家二等奖",
+    issuer: "中国运筹学会",
+    selectivity: "录取率 < 10%"
+  },
+  "mathorcup-bigdata": {
+    title: "2023 Mathorcup 大数据挑战赛国家二等奖",
+    issuer: "中国运筹学会",
+    selectivity: "录取率 < 10%"
+  }
+};
+
+const newsZh: Record<string, Partial<typeof news[number]>> = {
+  "eg-aachen": {
+    date: "2026 年 5 月",
+    title: "赴德国亚琛参加 Eurographics 2026 并做口头报告",
+    description: "汇报了 3D Gaussian Splatting 中面向物体的不确定性估计工作，并获得 EG Widening Participation 奖学金。"
+  },
+  "cmu-offer": {
+    date: "2026 年 4 月",
+    title: "获得卡内基梅隆大学录取"
+  },
+  "harvard-offer": {
+    date: "2026 年 2 月",
+    title: "获得哈佛大学计算科学与工程硕士录取",
+    description: "将于 2026 年秋季入学。"
+  },
+  "three-papers": {
+    date: "2026 年初",
+    title: "三篇第一作者论文被录用",
+    description: "OUGS（Eurographics 2026）、Who Fails Where?（CHI 2026 Posters）与 EndoExtract（Interactive Health 2026）。"
+  },
+  "ougs-arxiv": {
+    date: "2025 年 11 月",
+    title: "OUGS 发布于 arXiv",
+    description: "AIML 科研成果：面向主动视角选择的、物体感知的 3DGS 不确定性估计框架。"
+  },
+  "aiml-join": {
+    date: "2024 年 11 月",
+    title: "加入 AIML 担任科研助理",
+    description: "在澳大利亚机器学习研究院开始 3D Gaussian Splatting 与场景重建研究。"
   }
 };
 
@@ -264,6 +315,7 @@ function App() {
 
   const navItems = [
     { label: t.nav.about, href: "#about" },
+    { label: t.nav.news, href: "#news" },
     { label: t.nav.education, href: "#education" },
     { label: t.nav.research, href: "#publications" },
     { label: t.nav.experience, href: "#experience" },
@@ -338,6 +390,10 @@ function App() {
   const localizedExperience = language === 'zh'
     ? experience.map(item => ({ ...item, ...(experienceZh[item.id] || {}) }))
     : experience;
+
+  const localizedNews = language === 'zh'
+    ? news.map(item => ({ ...item, ...(newsZh[item.id] || {}) }))
+    : news;
 
   const localizedAwards = language === 'zh'
     ? awards.map(item => ({ ...item, ...(awardsZh[item.id] || {}) }))
@@ -489,6 +545,32 @@ function App() {
             </div>
           </motion.div>
         </section>
+
+        {/* News - Timeline */}
+        <Section
+          title={t.sections.news}
+          id="news"
+          accentFrom="#1d4ed8"
+          accentTo="#0284c7"
+          accentSoft="rgba(2, 132, 199, 0.08)"
+        >
+          <div className="relative border-l border-slate-200/70 ml-3 md:ml-0 space-y-8 max-w-4xl">
+            {localizedNews.map((item) => (
+              <div key={item.id} className="relative pl-8 md:pl-12">
+                <div className="absolute -left-[6px] top-2 h-3 w-3 rounded-full bg-white border-2 border-[var(--section-accent-to)]"></div>
+                <div className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4">
+                  <span className="text-sm font-mono text-slate-500 sm:w-32 shrink-0">{item.date}</span>
+                  <div>
+                    <h3 className="font-bold text-slate-900 text-base">{item.title}</h3>
+                    {item.description && (
+                      <p className="text-sm text-slate-600 leading-relaxed mt-1">{item.description}</p>
+                    )}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </Section>
 
         {/* Education - Timeline Style */}
         <Section
