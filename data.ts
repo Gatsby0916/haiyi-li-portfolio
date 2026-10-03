@@ -18,8 +18,8 @@ export const publications: Publication[] = [
     id: "ougs-2026",
     title: "OUGS: Active View Selection via Object-aware Uncertainty Estimation in 3DGS",
     authors: ["Haiyi Li", "Qi Chen", "Denis Kalkofen", "Hsiang-Ting Chen"],
-    venue: "Submitted to EuroGraphics 2026",
-    status: "Accepted",
+    venue: "Computer Graphics Forum (Eurographics 2026)",
+    status: "Published",
     year: "2026",
     description: "Introduces OUGS, an object-aware uncertainty framework for 3D Gaussian Splatting that derives uncertainty from Gaussian primitive parameters and propagates covariances through the rendering Jacobian. Integrating segmentation masks enables targeted uncertainty scoring and more efficient active view selection for improved object fidelity.",
     tags: ["Computer Graphics", "3D Gaussian Splatting", "Uncertainty Estimation", "First Author"],
@@ -195,10 +195,17 @@ export const awards: Award[] = [
 
 export const news: NewsItem[] = [
   {
+    id: "ih-porto",
+    date: "Jul 2026",
+    title: "EndoExtract at ACM Interactive Health 2026, Porto",
+    description: "EndoExtract, an on-premise LLM system for endometriosis ultrasound report extraction, at ACM Interactive Health 2026 (Porto, Portugal; Jul 5-8).",
+    type: "paper"
+  },
+  {
     id: "eg-aachen",
-    date: "May 2026",
+    date: "May 4-8, 2026",
     title: "Oral presentation at Eurographics 2026 in Aachen, Germany",
-    description: "Presented our work on object-aware uncertainty for 3D Gaussian Splatting and received the EG Widening Participation Scholarship.",
+    description: "Presented OUGS and received the EG Widening Participation Scholarship.",
     type: "conference"
   },
   {
@@ -208,6 +215,13 @@ export const news: NewsItem[] = [
     type: "admission"
   },
   {
+    id: "chi-posters-accept",
+    date: "Feb 19, 2026",
+    title: "Who Fails Where? accepted to CHI 2026 Posters",
+    description: "Evaluation of on-premise LLMs vs. human experts on endometriosis ultrasound report extraction (CHI 2026, Barcelona).",
+    type: "paper"
+  },
+  {
     id: "harvard-offer",
     date: "Feb 2026",
     title: "Admitted to Harvard University (M.S. in Computational Science and Engineering)",
@@ -215,17 +229,31 @@ export const news: NewsItem[] = [
     type: "admission"
   },
   {
-    id: "three-papers",
-    date: "Early 2026",
-    title: "Three first-author papers accepted",
-    description: "OUGS (Eurographics 2026), Who Fails Where? (CHI 2026 Posters) and EndoExtract (Interactive Health 2026).",
+    id: "endoextract-arxiv",
+    date: "Jan 26, 2026",
+    title: "EndoExtract released on arXiv",
+    description: "A co-designed interface that surfaces interpretive fields for mandatory human review.",
+    type: "research"
+  },
+  {
+    id: "whofails-arxiv",
+    date: "Jan 14, 2026",
+    title: "Who Fails Where? released on arXiv",
+    description: "Complementary error patterns between LLMs and human experts across 49 reports.",
+    type: "research"
+  },
+  {
+    id: "ougs-accept",
+    date: "Dec 15, 2025",
+    title: "OUGS accepted to Eurographics 2026 (Computer Graphics Forum)",
+    description: "First-author paper from my research at AIML.",
     type: "paper"
   },
   {
     id: "ougs-arxiv",
     date: "Nov 2025",
     title: "OUGS released on arXiv",
-    description: "Outcome of my research at AIML: an object-aware uncertainty framework for active view selection in 3D Gaussian Splatting.",
+    description: "Object-aware uncertainty estimation for active view selection in 3D Gaussian Splatting.",
     type: "research"
   },
   {

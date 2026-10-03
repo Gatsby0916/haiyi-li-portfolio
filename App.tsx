@@ -265,29 +265,49 @@ const awardsZh: Record<string, Partial<typeof awards[number]>> = {
 };
 
 const newsZh: Record<string, Partial<typeof news[number]>> = {
+  "ih-porto": {
+    date: "2026 年 7 月",
+    title: "EndoExtract 亮相 ACM Interactive Health 2026（葡萄牙波尔图）",
+    description: "面向子宫内膜异位症超声报告抽取的本地化 LLM 系统，ACM Interactive Health 2026（7 月 5–8 日）。"
+  },
   "eg-aachen": {
-    date: "2026 年 5 月",
+    date: "2026 年 5 月 4–8 日",
     title: "赴德国亚琛参加 Eurographics 2026 并做口头报告",
-    description: "汇报了 3D Gaussian Splatting 中面向物体的不确定性估计工作，并获得 EG Widening Participation 奖学金。"
+    description: "汇报 OUGS 工作，并获得 EG Widening Participation 奖学金。"
   },
   "cmu-offer": {
     date: "2026 年 4 月",
     title: "获得卡内基梅隆大学录取"
+  },
+  "chi-posters-accept": {
+    date: "2026 年 2 月 19 日",
+    title: "Who Fails Where? 被 CHI 2026 Posters 录用",
+    description: "比较本地化 LLM 与人类专家在子宫内膜异位症超声报告抽取中的表现（CHI 2026，巴塞罗那）。"
   },
   "harvard-offer": {
     date: "2026 年 2 月",
     title: "获得哈佛大学计算科学与工程硕士录取",
     description: "将于 2026 年秋季入学。"
   },
-  "three-papers": {
-    date: "2026 年初",
-    title: "三篇第一作者论文被录用",
-    description: "OUGS（Eurographics 2026）、Who Fails Where?（CHI 2026 Posters）与 EndoExtract（Interactive Health 2026）。"
+  "endoextract-arxiv": {
+    date: "2026 年 1 月 26 日",
+    title: "EndoExtract 发布于 arXiv",
+    description: "一个共同设计的界面，仅将解释性字段交由人工强制审核。"
+  },
+  "whofails-arxiv": {
+    date: "2026 年 1 月 14 日",
+    title: "Who Fails Where? 发布于 arXiv",
+    description: "在 49 份报告上揭示 LLM 与人类专家互补的错误模式。"
+  },
+  "ougs-accept": {
+    date: "2025 年 12 月 15 日",
+    title: "OUGS 被 Eurographics 2026（Computer Graphics Forum）录用",
+    description: "源自 AIML 科研工作的第一作者论文。"
   },
   "ougs-arxiv": {
     date: "2025 年 11 月",
     title: "OUGS 发布于 arXiv",
-    description: "AIML 科研成果：面向主动视角选择的、物体感知的 3DGS 不确定性估计框架。"
+    description: "面向 3D Gaussian Splatting 主动视角选择的物体感知不确定性估计。"
   },
   "aiml-join": {
     date: "2024 年 11 月",
