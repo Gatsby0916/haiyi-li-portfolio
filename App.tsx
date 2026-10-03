@@ -3,13 +3,14 @@ import React, { useState, useEffect } from 'react';
 import { Mail, Github, Link, MapPin, Menu, X, GraduationCap, Building2, Code2, Layers, Palette, Sparkles, Brain, Globe, Calculator, type LucideIcon } from 'lucide-react';
 import Section from './components/Section';
 import PublicationCard from './components/PublicationCard';
-import { personalInfo, publications, education, experience, awards, skills } from './data';
+import { personalInfo, publications, education, experience, awards, skills, news } from './data';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const translations = {
   en: {
     nav: {
       about: "About",
+      news: "News",
       education: "Education",
       research: "Research",
       experience: "Experience",
@@ -17,6 +18,7 @@ const translations = {
       skills: "Skills"
     },
     sections: {
+      news: "News",
       education: "Education",
       research: "Research",
       experience: "Experience",
@@ -73,6 +75,7 @@ const translations = {
   zh: {
     nav: {
       about: "关于我",
+      news: "动态",
       education: "教育背景",
       research: "科研成果",
       experience: "经历",
@@ -80,6 +83,7 @@ const translations = {
       skills: "能力概览"
     },
     sections: {
+      news: "最新动态",
       education: "教育背景",
       research: "科研成果",
       experience: "实践经历",
@@ -218,6 +222,11 @@ const experienceZh: Record<string, Partial<typeof experience[number]>> = {
 };
 
 const awardsZh: Record<string, Partial<typeof awards[number]>> = {
+  "eg-widening-participation": {
+    title: "EG Widening Participation 奖学金",
+    issuer: "欧洲图形学会（Eurographics）",
+    selectivity: "Eurographics 2026，亚琛"
+  },
   "national-scholarship": {
     title: "国家奖学金",
     issuer: "中华人民共和国教育部",
@@ -243,30 +252,52 @@ const awardsZh: Record<string, Partial<typeof awards[number]>> = {
     issuer: "COMAP",
     selectivity: "优胜队 < 2%"
   },
-  "math-modeling-national": {
-    title: "全国统计建模大赛国家三等奖、省一等奖",
-    issuer: "中国统计教育学会",
-    selectivity: "录取率 < 10%"
-  },
   "mathorcup-2024": {
     title: "中国 2024 Mathorcup 数学建模挑战赛国家二等奖",
     issuer: "中国运筹学会",
-    selectivity: "录取率 < 10%"
-  },
-  "cp-market": {
-    title: "“正大杯”市场调研分析大赛",
-    issuer: "中国商业统计学会",
     selectivity: "录取率 < 10%"
   },
   "mathorcup-bigdata": {
     title: "2023 Mathorcup 大数据挑战赛国家二等奖",
     issuer: "中国运筹学会",
     selectivity: "录取率 < 10%"
+  }
+};
+
+const newsZh: Record<string, Partial<typeof news[number]>> = {
+  "ih-porto": {
+    date: "2026 年 7 月",
+    title: "EndoExtract 亮相 ACM Interactive Health 2026（葡萄牙波尔图）",
+    description: "面向子宫内膜异位症超声报告抽取的本地化 LLM 系统，ACM Interactive Health 2026（7 月 5–8 日）。"
   },
-  "outstanding-student": {
-    title: "优秀学生奖",
-    issuer: "中国海洋大学",
-    selectivity: "录取率 < 10%"
+  "eg-aachen": {
+    date: "2026 年 5 月 4–8 日",
+    title: "赴德国亚琛参加 Eurographics 2026 并做口头报告",
+    description: "汇报 OUGS 工作，并获得 EG Widening Participation 奖学金。"
+  },
+  "cmu-offer": {
+    date: "2026 年 4 月",
+    title: "获得卡内基梅隆大学录取"
+  },
+  "chi-posters-accept": {
+    date: "2026 年 2 月 19 日",
+    title: "Who Fails Where? 被 CHI 2026 Posters 录用",
+    description: "比较本地化 LLM 与人类专家在子宫内膜异位症超声报告抽取中的表现（CHI 2026，巴塞罗那）。"
+  },
+  "harvard-offer": {
+    date: "2026 年 2 月",
+    title: "获得哈佛大学计算科学与工程硕士录取",
+    description: "将于 2026 年秋季入学。"
+  },
+  "ougs-accept": {
+    date: "2025 年 12 月 15 日",
+    title: "OUGS 被 Eurographics 2026（Computer Graphics Forum）录用",
+    description: "源自 AIML 科研工作的第一作者论文。"
+  },
+  "aiml-join": {
+    date: "2024 年 11 月",
+    title: "加入 AIML 担任科研助理",
+    description: "在澳大利亚机器学习研究院开始 3D Gaussian Splatting 与场景重建研究。"
   }
 };
 
@@ -289,6 +320,7 @@ function App() {
 
   const navItems = [
     { label: t.nav.about, href: "#about" },
+    { label: t.nav.news, href: "#news" },
     { label: t.nav.education, href: "#education" },
     { label: t.nav.research, href: "#publications" },
     { label: t.nav.experience, href: "#experience" },
@@ -363,6 +395,10 @@ function App() {
   const localizedExperience = language === 'zh'
     ? experience.map(item => ({ ...item, ...(experienceZh[item.id] || {}) }))
     : experience;
+
+  const localizedNews = language === 'zh'
+    ? news.map(item => ({ ...item, ...(newsZh[item.id] || {}) }))
+    : news;
 
   const localizedAwards = language === 'zh'
     ? awards.map(item => ({ ...item, ...(awardsZh[item.id] || {}) }))
@@ -514,6 +550,32 @@ function App() {
             </div>
           </motion.div>
         </section>
+
+        {/* News - Timeline */}
+        <Section
+          title={t.sections.news}
+          id="news"
+          accentFrom="#1d4ed8"
+          accentTo="#0284c7"
+          accentSoft="rgba(2, 132, 199, 0.08)"
+        >
+          <div className="relative border-l border-slate-200/70 ml-3 md:ml-0 space-y-8 max-w-4xl">
+            {localizedNews.map((item) => (
+              <div key={item.id} className="relative pl-8 md:pl-12">
+                <div className="absolute -left-[6px] top-2 h-3 w-3 rounded-full bg-white border-2 border-[var(--section-accent-to)]"></div>
+                <div className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4">
+                  <span className="text-sm font-mono text-slate-500 sm:w-32 shrink-0">{item.date}</span>
+                  <div>
+                    <h3 className="font-bold text-slate-900 text-base">{item.title}</h3>
+                    {item.description && (
+                      <p className="text-sm text-slate-600 leading-relaxed mt-1">{item.description}</p>
+                    )}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </Section>
 
         {/* Education - Timeline Style */}
         <Section

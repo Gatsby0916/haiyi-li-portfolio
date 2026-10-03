@@ -1,5 +1,5 @@
 ﻿
-import { Award, Education, Experience, Publication } from './types';
+import { Award, Education, Experience, NewsItem, Publication } from './types';
 
 export const personalInfo = {
   name: "Haiyi Li",
@@ -18,8 +18,8 @@ export const publications: Publication[] = [
     id: "ougs-2026",
     title: "OUGS: Active View Selection via Object-aware Uncertainty Estimation in 3DGS",
     authors: ["Haiyi Li", "Qi Chen", "Denis Kalkofen", "Hsiang-Ting Chen"],
-    venue: "Submitted to EuroGraphics 2026",
-    status: "Accepted",
+    venue: "Computer Graphics Forum (Eurographics 2026)",
+    status: "Published",
     year: "2026",
     description: "Introduces OUGS, an object-aware uncertainty framework for 3D Gaussian Splatting that derives uncertainty from Gaussian primitive parameters and propagates covariances through the rendering Jacobian. Integrating segmentation masks enables targeted uncertainty scoring and more efficient active view selection for improved object fidelity.",
     tags: ["Computer Graphics", "3D Gaussian Splatting", "Uncertainty Estimation", "First Author"],
@@ -59,30 +59,6 @@ export const publications: Publication[] = [
     links: {
       arxiv: "https://arxiv.org/abs/2601.18154"
     }
-  },
-  {
-    id: "amm-2025",
-    title: "A Variational Path to Laplace’s Equation via Complex Analysis",
-    authors: ["Haiyi Li"],
-    venue: "Submitted to American Mathematical Monthly",
-    status: "Under Review",
-    year: "2025",
-    description: "Established a novel framework linking a degenerate variational principle to Laplace’s equation.",
-    tags: ["Applied Mathematics", "Complex Analysis", "PDEs", "Sole Author"],
-    image: "images/Variantion.png",
-    imageFit: "contain" // Mathematical diagrams need to be fully visible
-  },
-  {
-    id: "chi-2026",
-    title: "To Know or Not to Know?: How User Awareness of Physiological Sensing Impacts AI Persuasion and User Experience",
-    authors: ["Xiaoyan Wei", "Yutong Qu", "Yutong Li", "Haiyi Li", "et al."],
-    venue: "Submitted to DIS 2026",
-    status: "Under Review",
-    year: "2026",
-    description: "Conducted rigorous statistical analysis (repeated-measures ANOVA, Wilcoxon) demonstrating the trade-off between perceived persuasiveness and user negative affect; resubmitted to DIS 2026 following the CHI transfer.",
-    tags: ["HCI", "AI Persuasion", "Statistical Analysis"],
-    image: "images/InterfaceNew.png",
-    imageFit: "contain"
   }
 ];
 
@@ -160,6 +136,13 @@ export const experience: Experience[] = [
 
 export const awards: Award[] = [
   {
+    id: "eg-widening-participation",
+    title: "EG Widening Participation Scholarship",
+    issuer: "Eurographics Association",
+    year: "2026",
+    selectivity: "Eurographics 2026, Aachen"
+  },
+  {
     id: "national-scholarship",
     title: "National Scholarship of China",
     issuer: "Ministry of Education of the P.R.C",
@@ -195,30 +178,9 @@ export const awards: Award[] = [
     selectivity: "< 2%"
   },
   {
-    id: "outstanding-student",
-    title: "Outstanding Student Award",
-    issuer: "Ocean University of China",
-    year: "2023 & 2024",
-    selectivity: "< 10%"
-  },
-  {
-    id: "math-modeling-national",
-    title: "National Statistical Modeling Competition - Third Prize",
-    issuer: "China Statistical Education Society",
-    year: "2024",
-    selectivity: "< 10%"
-  },
-  {
     id: "mathorcup-2024",
     title: "China Mathorcup Mathematical Modeling Challenge - Second Prize",
     issuer: "Chinese Society of Optimization",
-    year: "2024",
-    selectivity: "< 10%"
-  },
-  {
-    id: "cp-market",
-    title: "Zhengda Cup Market Research Analysis Competition - Third Prize",
-    issuer: "China Business Statistics Society",
     year: "2024",
     selectivity: "< 10%"
   },
@@ -228,6 +190,57 @@ export const awards: Award[] = [
     issuer: "Chinese Society of Optimization",
     year: "2023",
     selectivity: "< 10%"
+  }
+];
+
+export const news: NewsItem[] = [
+  {
+    id: "ih-porto",
+    date: "Jul 2026",
+    title: "EndoExtract at ACM Interactive Health 2026, Porto",
+    description: "EndoExtract, an on-premise LLM system for endometriosis ultrasound report extraction, at ACM Interactive Health 2026 (Porto, Portugal; Jul 5-8).",
+    type: "paper"
+  },
+  {
+    id: "eg-aachen",
+    date: "May 4-8, 2026",
+    title: "Oral presentation at Eurographics 2026 in Aachen, Germany",
+    description: "Presented OUGS and received the EG Widening Participation Scholarship.",
+    type: "conference"
+  },
+  {
+    id: "cmu-offer",
+    date: "Apr 2026",
+    title: "Admitted to Carnegie Mellon University",
+    type: "admission"
+  },
+  {
+    id: "chi-posters-accept",
+    date: "Feb 19, 2026",
+    title: "Who Fails Where? accepted to CHI 2026 Posters",
+    description: "Evaluation of on-premise LLMs vs. human experts on endometriosis ultrasound report extraction (CHI 2026, Barcelona).",
+    type: "paper"
+  },
+  {
+    id: "harvard-offer",
+    date: "Feb 2026",
+    title: "Admitted to Harvard University (M.S. in Computational Science and Engineering)",
+    description: "Will join the program in Fall 2026.",
+    type: "admission"
+  },
+  {
+    id: "ougs-accept",
+    date: "Dec 15, 2025",
+    title: "OUGS accepted to Eurographics 2026 (Computer Graphics Forum)",
+    description: "First-author paper from my research at AIML.",
+    type: "paper"
+  },
+  {
+    id: "aiml-join",
+    date: "Nov 2024",
+    title: "Joined AIML as a Research Assistant",
+    description: "Started working on 3D Gaussian Splatting and scene reconstruction at the Australian Institute for Machine Learning.",
+    type: "research"
   }
 ];
 
