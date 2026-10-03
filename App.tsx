@@ -289,25 +289,10 @@ const newsZh: Record<string, Partial<typeof news[number]>> = {
     title: "获得哈佛大学计算科学与工程硕士录取",
     description: "将于 2026 年秋季入学。"
   },
-  "endoextract-arxiv": {
-    date: "2026 年 1 月 26 日",
-    title: "EndoExtract 发布于 arXiv",
-    description: "一个共同设计的界面，仅将解释性字段交由人工强制审核。"
-  },
-  "whofails-arxiv": {
-    date: "2026 年 1 月 14 日",
-    title: "Who Fails Where? 发布于 arXiv",
-    description: "在 49 份报告上揭示 LLM 与人类专家互补的错误模式。"
-  },
   "ougs-accept": {
     date: "2025 年 12 月 15 日",
     title: "OUGS 被 Eurographics 2026（Computer Graphics Forum）录用",
     description: "源自 AIML 科研工作的第一作者论文。"
-  },
-  "ougs-arxiv": {
-    date: "2025 年 11 月",
-    title: "OUGS 发布于 arXiv",
-    description: "面向 3D Gaussian Splatting 主动视角选择的物体感知不确定性估计。"
   },
   "aiml-join": {
     date: "2024 年 11 月",

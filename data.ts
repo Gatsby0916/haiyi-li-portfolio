@@ -229,32 +229,11 @@ export const news: NewsItem[] = [
     type: "admission"
   },
   {
-    id: "endoextract-arxiv",
-    date: "Jan 26, 2026",
-    title: "EndoExtract released on arXiv",
-    description: "A co-designed interface that surfaces interpretive fields for mandatory human review.",
-    type: "research"
-  },
-  {
-    id: "whofails-arxiv",
-    date: "Jan 14, 2026",
-    title: "Who Fails Where? released on arXiv",
-    description: "Complementary error patterns between LLMs and human experts across 49 reports.",
-    type: "research"
-  },
-  {
     id: "ougs-accept",
     date: "Dec 15, 2025",
     title: "OUGS accepted to Eurographics 2026 (Computer Graphics Forum)",
     description: "First-author paper from my research at AIML.",
     type: "paper"
-  },
-  {
-    id: "ougs-arxiv",
-    date: "Nov 2025",
-    title: "OUGS released on arXiv",
-    description: "Object-aware uncertainty estimation for active view selection in 3D Gaussian Splatting.",
-    type: "research"
   },
   {
     id: "aiml-join",
