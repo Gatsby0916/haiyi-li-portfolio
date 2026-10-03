@@ -4,23 +4,26 @@ import Hero from './components/Hero';
 import Section from './components/Section';
 import PublicationEntry from './components/PublicationCard';
 import Timeline from './components/Timeline';
+import News from './components/News';
 import { GitHubIcon, LinkedInIcon, GoogleScholarIcon, OrcidIcon } from './components/Icons';
-import { personalInfo, publications, education, experience, awards, skills } from './data';
-import { Education, Experience, Award } from './types';
+import { personalInfo, publications, education, experience, awards, skills, news } from './data';
+import { Education, Experience, Award, NewsItem } from './types';
 
 // ─── Translations ────────────────────────────────────────────────────────────
 
 const translations = {
   en: {
     heroPill: 'Academic Portfolio',
-    heroTagline: 'Incoming M.S. Computational Science and Engineering · Harvard University',
+    heroTagline: 'Gap year traveling the world · M.S. Computational Science and Engineering, Harvard University, from Fall 2027',
     nav: {
       about: 'About',
+      news: 'News',
       research: 'Research',
       background: 'Background',
       skills: 'Skills',
     },
     sections: {
+      news: 'NEWS',
       research: 'PUBLICATIONS',
       background: 'BACKGROUND',
       skills: 'SKILLS',
@@ -28,14 +31,16 @@ const translations = {
   },
   zh: {
     heroPill: '学术主页',
-    heroTagline: '哈佛大学计算科学与工程硕士新生',
+    heroTagline: 'Gap year 环球旅行中 · 2027 年秋季入读哈佛大学计算科学与工程硕士',
     nav: {
       about: '关于我',
+      news: '动态',
       research: '科研成果',
       background: '经历',
       skills: '技能',
     },
     sections: {
+      news: '动态',
       research: '论文',
       background: '学习与工作',
       skills: '技能',
@@ -48,10 +53,10 @@ type Language = keyof typeof translations;
 // ─── ZH overrides ────────────────────────────────────────────────────────────
 
 const aboutTextZh =
-  '我即将于 2026 年秋季进入哈佛大学攻读计算科学与工程硕士，目前就读于阿德莱德大学数学科学荣誉学士项目及中国海洋大学数学与应用数学专业。我的研究兴趣位于应用分析与偏微分方程、数值方法、计算机图形学、三维高斯点渲染以及数据驱动的人机协作交互的交汇处。我的目标是构建在数学上可靠、稳定且可解释的模型，用于真实世界中的不确定性建模。';
+  '我目前正处于 gap year，在环球旅行中，将于 2027 年秋季回到哈佛大学攻读计算科学与工程硕士。本科曾就读于阿德莱德大学数学科学荣誉学士项目及中国海洋大学数学与应用数学专业。我的研究兴趣位于应用分析与偏微分方程、数值方法、计算机图形学、三维高斯点渲染以及数据驱动的人机协作交互的交汇处。我的目标是构建在数学上可靠、稳定且可解释的模型，用于真实世界中的不确定性建模。';
 
 const educationZh: Record<string, Partial<Education>> = {
-  harvard: { institution: '哈佛大学', degree: '计算科学与工程硕士', ranking: '2026 年秋季入学录取', period: '2026 →' },
+  harvard: { institution: '哈佛大学', degree: '计算科学与工程硕士', ranking: 'gap year 后于 2027 年秋季入学', period: '2027 年秋 →' },
   adelaide: { institution: '阿德莱德大学', degree: '数学科学荣誉学士学位', ranking: '年级排名第 1' },
   ocean: { institution: '中国海洋大学', degree: '数学与应用数学专业', ranking: '专业排名前 1%' },
 };
@@ -81,11 +86,18 @@ const awardsZh: Record<string, Partial<Award>> = {
   'global-citizen': { title: '全球公民卓越奖学金', issuer: '阿德莱德大学', selectivity: '录取率 < 10%' },
   'eg-widening': { title: 'EG Widening Participation 奖学金', issuer: 'Eurographics 协会', selectivity: '竞争性国际奖项' },
   icm: { title: '2024 ICM 美国大学生数学建模大赛 F 奖', issuer: 'COMAP', selectivity: '优胜队 < 2%' },
-  'outstanding-student': { title: '优秀学生奖', issuer: '中国海洋大学', selectivity: '录取率 < 10%' },
-  'math-modeling-national': { title: '全国统计建模大赛三等奖', issuer: '中国统计教育学会', selectivity: '录取率 < 10%' },
   'mathorcup-2024': { title: 'Mathorcup 数学建模挑战赛国家二等奖', issuer: '中国运筹学会', selectivity: '录取率 < 10%' },
-  'cp-market': { title: '"正大杯"市场调研分析大赛', issuer: '中国商业统计学会', selectivity: '录取率 < 10%' },
   'mathorcup-bigdata': { title: '2023 Mathorcup 大数据挑战赛国家二等奖', issuer: '中国运筹学会', selectivity: '录取率 < 10%' },
+};
+
+const newsZh: Record<string, Partial<NewsItem>> = {
+  'ih-porto': { date: '2026 年 7 月', title: 'EndoExtract 亮相 ACM Interactive Health 2026（葡萄牙波尔图）' },
+  'eg-aachen': { date: '2026 年 5 月', title: '赴德国亚琛参加 Eurographics 2026，口头报告 OUGS，并获得 EG Widening Participation 奖学金' },
+  'cmu-offer': { date: '2026 年 4 月', title: '获得卡内基梅隆大学录取' },
+  'chi-accept': { date: '2026 年 2 月', title: 'Who Fails Where? 被 CHI 2026 Extended Abstracts 录用' },
+  'harvard-offer': { date: '2026 年 2 月', title: '获得哈佛大学计算科学与工程硕士录取' },
+  'ougs-accept': { date: '2025 年 12 月', title: '在 AIML 完成的第一作者论文 OUGS 被 Eurographics 2026（Computer Graphics Forum）录用' },
+  'aiml-join': { date: '2024 年 11 月', title: '加入澳大利亚机器学习研究院（AIML）担任科研助理，研究 3D Gaussian Splatting' },
 };
 
 // ─── App ─────────────────────────────────────────────────────────────────────
@@ -131,8 +143,13 @@ export default function App() {
     ? awards.map(a => ({ ...a, ...(awardsZh[a.id] ?? {}) }))
     : awards;
 
+  const localizedNews = isZh
+    ? news.map(n => ({ ...n, ...(newsZh[n.id] ?? {}) }))
+    : news;
+
   const navItems = [
     { label: t.nav.about, href: '#about' },
+    { label: t.nav.news, href: '#news' },
     { label: t.nav.research, href: '#publications' },
     { label: t.nav.background, href: '#background' },
     { label: t.nav.skills, href: '#skills' },
@@ -180,6 +197,10 @@ export default function App() {
         googleScholar={personalInfo.googleScholar}
         orcid={personalInfo.orcid}
       />
+
+      <Section id="news" label={t.sections.news}>
+        <News items={localizedNews} />
+      </Section>
 
       <Section id="publications" label={t.sections.research}>
         <div>
