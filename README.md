@@ -40,7 +40,7 @@ Chinese translations for structured data live in `educationZh`, `experienceZh`, 
 
 Dark cinematic academic aesthetic — `#0a0a0a` background, Harvard Crimson `#A51C30` accents, three-font typographic hierarchy. Visual effects: film-grain noise overlay, mouse-tracking spotlight, slow-drifting ambient orbs, crimson scroll-progress line, pulsing status dot, scroll-triggered section animations.
 
-Full design system and architecture reference: `../../../CLAUDE.md`
+Full design system and architecture reference: [`docs/superpowers/specs/2026-06-22-academic-portfolio-redesign.md`](docs/superpowers/specs/2026-06-22-academic-portfolio-redesign.md)
 
 ## Environment
 
