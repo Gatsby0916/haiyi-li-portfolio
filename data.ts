@@ -26,7 +26,7 @@ export const publications: Publication[] = [
     description: "Introduces OUGS, an object-aware uncertainty framework for 3D Gaussian Splatting that derives uncertainty from Gaussian primitive parameters and propagates covariances through the rendering Jacobian. Integrating segmentation masks enables targeted uncertainty scoring and more efficient active view selection for improved object fidelity.",
     tags: ["Computer Graphics", "3D Gaussian Splatting", "Uncertainty Estimation"],
     showArxiv: false,
-    links: { doi: "https://onlinelibrary.wiley.com/doi/abs/10.1111/cgf.70363", arxiv: "https://arxiv.org/abs/2511.09397" }
+    links: { doi: "https://onlinelibrary.wiley.com/doi/abs/10.1111/cgf.70363", arxiv: "https://arxiv.org/abs/2511.09397", code: "https://github.com/Gatsby0916/OUGS" }
   },
   {
     id: "chi-2026-whofails",

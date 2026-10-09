@@ -89,6 +89,20 @@ export default function PublicationEntry({ pub, index }: PublicationEntryProps) 
                 </a>
               </>
             )}
+            {pub.links?.code && (
+              <>
+                <span className="font-mono text-xs text-white/20">·</span>
+                <a
+                  href={pub.links.code}
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={e => e.stopPropagation()}
+                  className="font-mono text-xs text-white/45 hover:text-white/75 transition-colors"
+                >
+                  ↗ Code
+                </a>
+              </>
+            )}
           </div>
 
           <AnimatePresence>
