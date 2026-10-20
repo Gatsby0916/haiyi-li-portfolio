@@ -99,7 +99,7 @@ export default function PublicationEntry({ pub, index }: PublicationEntryProps) 
                   onClick={e => e.stopPropagation()}
                   className="font-mono text-xs text-white/45 hover:text-white/75 transition-colors"
                 >
-                  ↗ PDF
+                  ↗ Paper
                 </a>
               </>
             )}
