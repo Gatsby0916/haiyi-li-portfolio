@@ -89,6 +89,20 @@ export default function PublicationEntry({ pub, index }: PublicationEntryProps) 
                 </a>
               </>
             )}
+            {pub.links?.pdf && (
+              <>
+                <span className="font-mono text-xs text-white/20">·</span>
+                <a
+                  href={pub.links.pdf}
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={e => e.stopPropagation()}
+                  className="font-mono text-xs text-white/45 hover:text-white/75 transition-colors"
+                >
+                  ↗ PDF
+                </a>
+              </>
+            )}
             {pub.links?.code && (
               <>
                 <span className="font-mono text-xs text-white/20">·</span>

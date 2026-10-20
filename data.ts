@@ -23,10 +23,10 @@ export const publications: Publication[] = [
     venue: "arXiv preprint · arXiv:2610.25191",
     status: "Preprint",
     year: "2026",
-    description: "Studies how sampling history and sampled curvature affect first-exit comparisons for momentum SGD, with a conditional one-dimensional mean-exit theorem, finite-window exit brackets, and neural-network experiments that retain negative results and unresolved complete-mean guarantees.",
+    description: "Examines how sampling history and sampled curvature shape momentum-SGD exits, with a conditional one-dimensional mean-exit comparison and finite-window exit brackets. Neural mean-exit bounds remain loose, and original-radius ViT mean guarantees remain unresolved.",
     tags: ["Stochastic Optimization", "First-Exit Times", "Machine Learning Theory"],
     showArxiv: true,
-    links: { arxiv: "https://arxiv.org/abs/2610.25191", pdf: "https://arxiv.org/pdf/2610.25191", code: "https://github.com/Gatsby0916/telegraph-momentum" }
+    links: { arxiv: "https://arxiv.org/abs/2610.25191", pdf: "https://arxiv.org/pdf/2610.25191" }
   },
   {
     id: "ougs-2026",
