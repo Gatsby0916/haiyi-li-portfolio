@@ -1,4 +1,4 @@
-﻿
+
 import { Award, Education, Experience, NewsItem, Publication } from './types';
 
 export const personalInfo = {
@@ -16,6 +16,18 @@ export const personalInfo = {
 };
 
 export const publications: Publication[] = [
+  {
+    id: "momentum-first-exit-2026",
+    title: "Sampling and Curvature in First-Exit Comparisons for Momentum SGD",
+    authors: ["Haiyi Li"],
+    venue: "arXiv preprint · arXiv:2610.25191",
+    status: "Preprint",
+    year: "2026",
+    description: "Studies how sampling history and sampled curvature affect first-exit comparisons for momentum SGD, with a conditional one-dimensional mean-exit theorem, finite-window exit brackets, and neural-network experiments that retain negative results and unresolved complete-mean guarantees.",
+    tags: ["Stochastic Optimization", "First-Exit Times", "Machine Learning Theory"],
+    showArxiv: true,
+    links: { arxiv: "https://arxiv.org/abs/2610.25191", pdf: "https://arxiv.org/pdf/2610.25191", code: "https://github.com/Gatsby0916/telegraph-momentum" }
+  },
   {
     id: "ougs-2026",
     title: "OUGS: Active View Selection via Object-aware Uncertainty Estimation in 3DGS",
