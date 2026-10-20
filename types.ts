@@ -54,6 +54,7 @@ export interface NewsItem {
   date: string; // YYYY-MM
   type: NewsType;
   title: string;
+  url?: string;
   place?: string;
   highlight?: boolean;
 }

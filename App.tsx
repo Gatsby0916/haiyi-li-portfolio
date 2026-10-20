@@ -91,6 +91,7 @@ const awardsZh: Record<string, Partial<Award>> = {
 };
 
 const newsZh: Record<string, Partial<NewsItem>> = {
+  'momentum-first-exit-preprint': { title: '新预印本已上线 arXiv：Sampling and Curvature in First-Exit Comparisons for Momentum SGD（动量 SGD 首次逃逸比较中的采样与曲率）' },
   'ih-porto': { title: 'EndoExtract 亮相 ACM Interactive Health 2026', place: '葡萄牙 · 波尔图' },
   'eg-aachen': { title: '在 Eurographics 2026 口头报告 OUGS，并获得 EG Widening Participation 奖学金', place: '德国 · 亚琛' },
   'cmu-offer': { title: '获得卡内基梅隆大学录取' },

@@ -189,6 +189,14 @@ export const awards: Award[] = [
 
 export const news: NewsItem[] = [
   {
+    id: "momentum-first-exit-preprint",
+    date: "2026-10",
+    type: "paper",
+    title: "New arXiv preprint: Sampling and Curvature in First-Exit Comparisons for Momentum SGD",
+    url: "https://arxiv.org/abs/2610.25191",
+    highlight: true
+  },
+  {
     id: "ih-porto",
     date: "2026-07",
     type: "paper",

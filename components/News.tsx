@@ -110,7 +110,16 @@ export default function News({ items, language }: NewsProps) {
                       </div>
 
                       <p className={`font-sans leading-relaxed ${item.highlight ? 'text-[1.05rem] text-white/90 font-medium' : 'text-base text-white/65 group-hover:text-white/80'} transition-colors`}>
-                        {item.title}
+                        {item.url ? (
+                          <a
+                            href={item.url}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="underline decoration-white/20 underline-offset-4 hover:decoration-white/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white/60"
+                          >
+                            {item.title} <span aria-hidden="true">↗</span>
+                          </a>
+                        ) : item.title}
                       </p>
                     </div>
                   </motion.div>
