@@ -7,6 +7,7 @@
     "dev": "node ./node_modules/vite/bin/vite.js",
     "build": "node ./node_modules/vite/bin/vite.js build",
     "preview": "node ./node_modules/vite/bin/vite.js preview",
+    "typecheck": "node ./node_modules/typescript/bin/tsc --noEmit",
     "deploy": "npm run build && node ./node_modules/gh-pages/bin/gh-pages.js -d dist"
   },
   "dependencies": {
