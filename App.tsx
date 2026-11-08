@@ -5,7 +5,7 @@ import Section from './components/Section';
 import PublicationEntry from './components/PublicationCard';
 import Timeline from './components/Timeline';
 import News from './components/News';
-import { GitHubIcon, LinkedInIcon, GoogleScholarIcon, OrcidIcon } from './components/Icons';
+import { GitHubIcon, LinkedInIcon, GoogleScholarIcon, OrcidIcon, HuggingFaceIcon } from './components/Icons';
 import { personalInfo, publications, education, experience, awards, skills, news } from './data';
 import { Education, Experience, Award, NewsItem } from './types';
 
@@ -197,6 +197,7 @@ export default function App() {
         linkedin={personalInfo.linkedin}
         googleScholar={personalInfo.googleScholar}
         orcid={personalInfo.orcid}
+        huggingface={personalInfo.huggingface}
       />
 
       <Section id="news" label={t.sections.news}>
@@ -264,6 +265,10 @@ export default function App() {
             <a href={personalInfo.orcid} target="_blank" rel="noreferrer" title="ORCID"
               className="text-white/25 hover:text-white/60 transition-colors">
               <OrcidIcon className="w-4 h-4" />
+            </a>
+            <a href={personalInfo.huggingface} target="_blank" rel="noreferrer" title="Hugging Face"
+              className="text-white/25 hover:text-white/60 transition-colors">
+              <HuggingFaceIcon className="w-4 h-4" />
             </a>
           </div>
         </div>

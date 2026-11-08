@@ -12,6 +12,7 @@ export const personalInfo = {
   linkedin: "https://www.linkedin.com/in/haiyi-li-8a1ab835a/",
   googleScholar: "https://scholar.google.com/citations?user=ygecZooAAAAJ&hl=en",
   orcid: "https://orcid.org/0009-0004-6914-8457",
+  huggingface: "https://huggingface.co/Gatsby0916",
   about: `I am currently on a gap year traveling around the world, and will return to Harvard University in Fall 2027 to pursue a Master of Computational Science and Engineering. I studied Mathematical Sciences (Honours) at the University of Adelaide and Mathematics and Applied Mathematics at the Ocean University of China. My research interests lie at the intersection of applied analysis and PDEs, numerical methods, computer graphics, 3D Gaussian Splatting, and data-driven human-AI interaction. My goal is to develop mathematically principled, stable, and interpretable models for real-world uncertainty modeling.`
 };
 

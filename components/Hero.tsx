@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { GitHubIcon, LinkedInIcon, GoogleScholarIcon, OrcidIcon, HarvardShield } from './Icons';
+import { GitHubIcon, LinkedInIcon, GoogleScholarIcon, OrcidIcon, HuggingFaceIcon, HarvardShield } from './Icons';
 
 interface HeroProps {
   heroPill: string;
@@ -10,9 +10,10 @@ interface HeroProps {
   linkedin: string;
   googleScholar: string;
   orcid: string;
+  huggingface: string;
 }
 
-export default function Hero({ heroPill, heroTagline, aboutContent, email, github, linkedin, googleScholar, orcid }: HeroProps) {
+export default function Hero({ heroPill, heroTagline, aboutContent, email, github, linkedin, googleScholar, orcid, huggingface }: HeroProps) {
   return (
     <section id="about" className="min-h-screen flex flex-col justify-center pt-14 pb-20">
       <motion.div
@@ -94,6 +95,16 @@ export default function Hero({ heroPill, heroTagline, aboutContent, email, githu
             className="text-white/35 hover:text-white/75 transition-colors"
           >
             <OrcidIcon className="w-5 h-5" />
+          </a>
+
+          <a
+            href={huggingface}
+            target="_blank"
+            rel="noreferrer"
+            title="Hugging Face"
+            className="text-white/35 hover:text-white/75 transition-colors"
+          >
+            <HuggingFaceIcon className="w-5 h-5" />
           </a>
         </div>
       </motion.div>

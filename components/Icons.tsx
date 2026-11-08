@@ -44,6 +44,14 @@ export function GoogleScholarIcon({ className }: IconProps) {
   );
 }
 
+export function HuggingFaceIcon({ className }: IconProps) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M12 1a11 11 0 1 0 0 22 11 11 0 0 0 0-22zm-3.5 6.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zm7 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zM6.8 13.2h10.4c-.5 3-2.6 5-5.2 5s-4.7-2-5.2-5z"/>
+    </svg>
+  );
+}
+
 export function OrcidIcon({ className }: IconProps) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
