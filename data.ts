@@ -64,6 +64,18 @@ export const publications: Publication[] = [
     tags: ["LLMs", "Medical Imaging", "HCI", "Co-design"],
     showArxiv: true,
     links: { arxiv: "https://arxiv.org/abs/2601.18154" }
+  },
+  {
+    id: "sensed-not-told-2026",
+    title: "Sensed but Not Told: Hidden Physiological Adaptation Shapes LLM Persuasion",
+    authors: ["Xiaoyan Wei", "Yutong Qu", "Yutong Li", "Haiyi Li", "Wei Emma Zhang", "Hsiang-Ting Chen"],
+    venue: "arXiv preprint · arXiv:2611.09394",
+    status: "Preprint",
+    year: "2026",
+    description: "Tests whether undisclosed heart-rate and pupil-diameter signals change LLM chatbot persuasion in a 2×2 within-subjects study (N=24). Hidden sensing raised perceived persuasiveness before disclosure and was associated with greater opinion shift toward the chatbot, motivating inspectable biosignal-driven adaptation and a genuinely non-sensed mode.",
+    tags: ["LLMs", "HCI", "Physiological Sensing"],
+    showArxiv: true,
+    links: { arxiv: "https://arxiv.org/abs/2611.09394", pdf: "https://arxiv.org/pdf/2611.09394" }
   }
 ];
 
