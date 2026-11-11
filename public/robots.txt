@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gatsby0916.github.io/haiyi-li-portfolio/sitemap.xml
