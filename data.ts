@@ -202,6 +202,13 @@ export const awards: Award[] = [
 
 export const news: NewsItem[] = [
   {
+    id: "sensed-not-told-preprint",
+    date: "2026-11",
+    type: "paper",
+    title: "New co-authored arXiv preprint: Sensed but Not Told: Hidden Physiological Adaptation Shapes LLM Persuasion",
+    url: "https://arxiv.org/abs/2611.09394"
+  },
+  {
     id: "momentum-first-exit-preprint",
     date: "2026-10",
     type: "paper",

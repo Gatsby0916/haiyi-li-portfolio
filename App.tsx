@@ -91,6 +91,7 @@ const awardsZh: Record<string, Partial<Award>> = {
 };
 
 const newsZh: Record<string, Partial<NewsItem>> = {
+  'sensed-not-told-preprint': { title: '合作预印本已上线 arXiv：Sensed but Not Told: Hidden Physiological Adaptation Shapes LLM Persuasion（未告知的生理信号自适应如何影响 LLM 的说服效果）' },
   'momentum-first-exit-preprint': { title: '新预印本已上线 arXiv：Sampling and Curvature in First-Exit Comparisons for Momentum SGD（动量 SGD 首次逃逸比较中的采样与曲率）' },
   'ih-porto': { title: 'EndoExtract 亮相 ACM Interactive Health 2026', place: '葡萄牙 · 波尔图' },
   'eg-aachen': { title: '在 Eurographics 2026 口头报告 OUGS，并获得 EG Widening Participation 奖学金', place: '德国 · 亚琛' },
